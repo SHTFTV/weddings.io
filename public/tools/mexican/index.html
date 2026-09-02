@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mexican & Latino Wedding Planner — Padrinos Tracker, Mariachi & Lasso Tools | Weddings.io</title>
+<meta name="description" content="Free Mexican and Latino wedding planning tools. Padrinos sponsor tracker, Mariachi scheduler, Lasso and Arras ceremony guide, Callejoneada parade planner, and Quinceañera crossover checklist.">
+<link rel="canonical" href="https://weddings.io/tools/mexican/"><link rel="icon" href="/favicon.svg">
+<meta property="og:title" content="Mexican Wedding Planner — Padrinos & Mariachi Tools | Weddings.io">
+<meta property="og:image" content="https://weddings.io/images/cultures/mexican-hero.jpg">
+  <meta name="twitter:image" content="https://weddings.io/images/cultures/mexican-hero.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the Padrinos system in a Mexican wedding?","acceptedAnswer":{"@type":"Answer","text":"The Padrinos (sponsors) system is unique to Mexican and Latino weddings. Instead of the couple paying for everything, extended family members and friends each sponsor a specific element of the wedding. Common Padrinos roles include: Padrino de Torta (wedding cake), Padrino de Bebidas (beverages), Madrina de Ramo (bride's bouquet), Padrino de Arras (coins), Madrina de Lazo (lasso). Each Padrino takes on the cost of their assigned element. This system allows families to host large celebrations while distributing costs across the community."}},{"@type":"Question","name":"What is the Lasso ceremony in a Mexican wedding?","acceptedAnswer":{"@type":"Answer","text":"The Lazo (lasso) ceremony involves placing a large rosary or decorative cord in a figure-eight shape around the couple's shoulders during the wedding ceremony. The figure-eight symbolizes eternal union and the infinity of their commitment. The Lazo is typically placed by the Padrinos de Lazo — a married couple chosen by the bride and groom — and remains on the couple for the duration of the ceremony, approximately 15-20 minutes."}}]}</script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080808;--bg2:#0E0E0E;--card:#121212;--card2:#1A1A1A;--border:#242424;--green:#16A34A;--orange:#EA580C;--grad:linear-gradient(135deg,#16A34A,#EA580C);--text:#FFF;--muted:#9CA3AF;--dim:#6B7280;--font:'DM Sans',system-ui,sans-serif;--mono:'DM Mono',monospace;--disp:'Playfair Display',Georgia,serif;--r:12px;--r-sm:8px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;font-size:15px}a{color:inherit;text-decoration:none}button{font-family:var(--font);cursor:pointer;border:none}
+.nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:14px 28px;background:rgba(8,8,8,.92);border-bottom:1px solid var(--border);backdrop-filter:blur(24px);display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--disp);font-size:20px;font-weight:800;background:linear-gradient(135deg,#FF8C00,#FFD700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-back{font-size:13px;color:var(--muted);padding:6px 14px;border:1px solid var(--border);border-radius:var(--r-sm)}
+.hero{padding:100px 28px 60px;text-align:center;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(22,163,74,.07) 0%,transparent 60%);border-bottom:1px solid var(--border)}
+.hero-inner{max-width:860px;margin:0 auto}
+.eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--green);margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:8px}
+.eyebrow::before,.eyebrow::after{content:'';width:30px;height:2px;background:var(--grad)}
+h1{font-family:var(--disp);font-size:clamp(32px,5vw,56px);font-weight:800;line-height:1.1;margin-bottom:8px}
+h1 span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-native{font-size:18px;color:var(--orange);font-weight:600;margin-bottom:16px}
+.hero-sub{font-size:16px;color:var(--muted);max-width:640px;margin:0 auto 32px;line-height:1.7}
+.img-placeholder{background:var(--card);border:1px dashed var(--border);border-radius:var(--r);display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:13px;color:var(--dim);text-align:center;padding:24px;gap:8px;margin:0 auto 40px}
+.s{padding:60px 28px;max-width:1300px;margin:0 auto}
+.st{font-family:var(--disp);font-size:26px;font-weight:800;margin-bottom:8px}
+.st span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.ss{font-size:14px;color:var(--muted);margin-bottom:28px;line-height:1.6}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:28px;margin-bottom:20px}
+label{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:6px}
+input,select{width:100%;padding:10px 14px;background:var(--card2);border:1px solid var(--border);border-radius:var(--r-sm);color:var(--text);font-family:var(--font);font-size:13px;outline:none}
+.add-row{display:grid;grid-template-columns:1fr 1fr 1fr 120px auto;gap:8px;align-items:end;margin-bottom:12px}
+.btn{padding:10px 18px;background:var(--grad);border-radius:var(--r-sm);font-size:13px;font-weight:700;color:#fff;cursor:pointer}
+.padrino-table{width:100%;border-collapse:collapse}
+.padrino-table th{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+.padrino-table td{padding:10px 12px;border-bottom:1px solid var(--border);font-size:13px}
+.total-bar{background:rgba(22,163,74,.08);border:1px solid rgba(22,163,74,.25);border-radius:var(--r-sm);padding:12px 16px;display:flex;justify-content:space-between;font-size:14px;font-weight:700;margin-top:12px}
+.ceremony-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ceremony-card{background:var(--card2);border:1px solid var(--border);border-radius:var(--r-sm);padding:20px}
+.ceremony-card h3{font-size:15px;font-weight:700;margin-bottom:4px}
+.ceremony-card .spanish{font-size:13px;color:var(--orange);margin-bottom:10px;font-weight:600}
+.ceremony-card p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:10px}
+.ceremony-card ul{list-style:none;display:flex;flex-direction:column;gap:4px}
+.ceremony-card li{font-size:12px;color:var(--muted);display:flex;gap:8px}
+.ceremony-card li::before{content:'→';color:var(--orange);flex-shrink:0}
+.tool-nav{padding:32px 28px;background:var(--bg2);border-top:1px solid var(--border)}
+.tool-nav-inner{max-width:1300px;margin:0 auto;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.tnl{font-size:12px;color:var(--dim);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-right:8px}
+.tnc{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;background:var(--card);border:1px solid var(--border);border-radius:var(--r-sm);font-size:12px;font-weight:600;color:var(--muted)}
+</style>
+  <link rel="alternate" hreflang="en" href="https://weddings.io/tools/mexican/">
+  <link rel="alternate" hreflang="es" href="https://weddings.io/tools/mexican/">
+  <link rel="alternate" hreflang="es-MX" href="https://weddings.io/tools/mexican/">
+  <link rel="alternate" hreflang="x-default" href="https://weddings.io/tools/mexican/">
+</head>
+<body>
+<nav class="nav"><a class="nav-logo" href="/">🪔 Weddings.io</a><a href="/" class="nav-back">← All Cultures</a></nav>
+<section class="hero"><div class="hero-inner">
+<div class="eyebrow">Mexican &amp; Latino Wedding Tools</div>
+<!--
+IMAGE:
+<img src="/images/cultures/mexican-hero.jpg"
+     alt="Mexican wedding — mariachi band performing at outdoor ceremony with colorful florals and dancing couple"
+     style="width:100%;max-width:720px;height:240px;object-fit:cover;border-radius:14px;margin:0 auto 32px;display:block" loading="eager">
+Photo brief: Outdoor Mexican wedding. Mariachi band in charro suits. Vibrant red/orange/yellow florals.
+Couple dancing. Festive atmosphere. No watermarks. 1440×560px → /images/cultures/mexican-hero.jpg
+-->
+<div class="img-placeholder" style="max-width:720px;height:160px"><span style="font-size:36px">🎺</span><strong>Add mariachi wedding photo here</strong><code style="font-size:11px;color:#EA580C;background:#1A1A1A;padding:3px 8px;border-radius:4px">/images/cultures/mexican-hero.jpg — 1440×560px</code></div>
+<h1>🎺 <span>Mexican &amp; Latino</span> Wedding Planner</h1>
+<div class="hero-native">La Boda · Los Padrinos · El Lazo · Las Arras</div>
+<p class="hero-sub">Padrinos sponsor budget tracker, Mariachi cocktail hour scheduler, Lasso and Arras ceremony guide, and Callejoneada parade logistics. For Mexican, Colombian, Cuban, and all Latino wedding traditions.</p>
+</div></section>
+
+<div class="s">
+
+<div class="st">🤝 Padrinos Sponsor <span>Tracker</span></div>
+<p class="ss">Track which family members and friends are sponsoring each element. The Padrinos system distributes wedding costs — each Padrino takes ownership of one specific item or service.</p>
+<div class="card">
+  <div class="add-row">
+    <div><label>Sponsor Name</label><input type="text" id="pad-name" placeholder="Tía Rosa"></div>
+    <div><label>Their Item</label><input type="text" id="pad-item" placeholder="Pastel de boda"></div>
+    <div><label>English</label><input type="text" id="pad-item-en" placeholder="Wedding cake"></div>
+    <div><label>Estimated Value</label><input type="number" id="pad-amount" placeholder="600"></div>
+    <div style="display:flex;align-items:flex-end"><button class="btn" onclick="addPadrino()">+ Add</button></div>
+  </div>
+  <table class="padrino-table">
+    <thead><tr><th>Sponsor</th><th>Item (ES)</th><th>Item (EN)</th><th>Value</th><th>Status</th><th></th></tr></thead>
+    <tbody id="pad-body"></tbody>
+  </table>
+  <div class="total-bar"><span>Total Padrinos Contributions</span><span id="pad-total" style="color:var(--green)">$0</span></div>
+</div>
+
+<div class="st" style="margin-top:48px">💒 Ceremony Traditions <span>Guide</span></div>
+<p class="ss">The four key Mexican wedding ceremony elements — each with its Padrinos, logistics, and timing notes.</p>
+<div class="ceremony-grid">
+  <div class="ceremony-card">
+    <h3>El Lazo (The Lasso)</h3>
+    <div class="spanish">🪢 Lazo de Matrimonio</div>
+    <p>A large rosary or decorative cord placed in a figure-eight around the couple's shoulders, symbolising eternal union and infinity.</p>
+    <ul>
+      <li>Placed by Padrinos de Lazo — must be a married couple</li>
+      <li>Duration: 15–20 minutes during ceremony</li>
+      <li>Size: typically 25–30 feet long, 3-inch beads or rope</li>
+      <li>Removed after ceremony by Padrinos</li>
+      <li>Cost: $80–$200 for ornate rosary lasso</li>
+    </ul>
+  </div>
+  <div class="ceremony-card">
+    <h3>Las Arras (The Coins)</h3>
+    <div class="spanish">💰 Las Arras Matrimoniales</div>
+    <p>13 gold coins (arras) presented by groom to bride in a decorative box or tray, symbolising prosperity and financial trust.</p>
+    <ul>
+      <li>13 coins = Christ + 12 Apostles (Catholic tradition)</li>
+      <li>Coins may be gold-plated or ceremonial coin set</li>
+      <li>Placed on tray by Padrinos de Arras</li>
+      <li>Bride pours coins back into groom's hands</li>
+      <li>Cost: $40–$150 for decorative coin set</li>
+    </ul>
+  </div>
+  <div class="ceremony-card">
+    <h3>El Ramo (The Bouquet)</h3>
+    <div class="spanish">💐 Ramo de la Novia</div>
+    <p>Bridal bouquet typically sponsored by the Madrina de Ramo. Traditional Mexican bouquets feature vibrant colours — cempasúchil (marigolds), roses, birds of paradise.</p>
+    <ul>
+      <li>Sponsored by Madrina de Ramo</li>
+      <li>Toss bouquet at reception for next to marry</li>
+      <li>Some brides keep and preserve the bouquet</li>
+      <li>Cost: $150–$500 depending on size and florals</li>
+    </ul>
+  </div>
+  <div class="ceremony-card">
+    <h3>El Brindis (The Toast)</h3>
+    <div class="spanish">🥂 Brindis Nupcial</div>
+    <p>The wedding toast — typically with Mexican sparkling wine or tequila. Padrino de Bebidas sponsors all beverages including the toast bottle.</p>
+    <ul>
+      <li>Cava or sparkling wine for formal toast</li>
+      <li>Tequila for traditional family shots</li>
+      <li>Mariachi typically plays during brindis</li>
+      <li>El Grito (cheer) led by the MC</li>
+    </ul>
+  </div>
+</div>
+
+<div class="st" style="margin-top:48px">🎺 Mariachi <span>Event Scheduler</span></div>
+<p class="ss">Mariachi is performed at specific moments — not all evening. Schedule them for maximum impact at cocktail hour, grand entrance, and first dance.</p>
+<div class="card">
+  <div style="display:flex;flex-direction:column;gap:10px" id="mariachi-schedule">
+    <div style="display:grid;grid-template-columns:100px 1fr 140px;gap:12px;padding:12px 0;border-bottom:1px solid var(--border)"><div style="font-family:var(--mono);font-size:12px;color:var(--orange)">5:00 PM</div><div><div style="font-size:13px;font-weight:700">Guest Arrival &amp; Cocktail Hour</div><div style="font-size:11px;color:var(--muted)">Mariachi strolls between tables — romantic, interactive, sets the tone</div></div><div style="font-size:11px;color:var(--dim)">60–90 min set</div></div>
+    <div style="display:grid;grid-template-columns:100px 1fr 140px;gap:12px;padding:12px 0;border-bottom:1px solid var(--border)"><div style="font-family:var(--mono);font-size:12px;color:var(--orange)">7:00 PM</div><div><div style="font-size:13px;font-weight:700">Bride &amp; Groom Grand Entrance</div><div style="font-size:11px;color:var(--muted)">Mariachi plays at full volume for entrance — trumpet fanfare, "El Mariachi", Las Mañanitas</div></div><div style="font-size:11px;color:var(--dim)">10–15 min</div></div>
+    <div style="display:grid;grid-template-columns:100px 1fr 140px;gap:12px;padding:12px 0;border-bottom:1px solid var(--border)"><div style="font-family:var(--mono);font-size:12px;color:var(--orange)">7:30 PM</div><div><div style="font-size:13px;font-weight:700">Las Mañanitas (Birthday/Wedding Song)</div><div style="font-size:11px;color:var(--muted)">Traditional serenata for the couple — guests gather around for this moment</div></div><div style="font-size:11px;color:var(--dim)">5–10 min</div></div>
+    <div style="display:grid;grid-template-columns:100px 1fr 140px;gap:12px;padding:12px 0;border-bottom:1px solid var(--border)"><div style="font-family:var(--mono);font-size:12px;color:var(--orange)">9:00 PM</div><div><div style="font-size:13px;font-weight:700">Speeches &amp; Brindis Background</div><div style="font-size:11px;color:var(--muted)">Soft instrumental while speeches play — rancheras at low volume</div></div><div style="font-size:11px;color:var(--dim)">30 min</div></div>
+    <div style="display:grid;grid-template-columns:100px 1fr 140px;gap:12px;padding:12px 0"><div style="font-family:var(--mono);font-size:12px;color:var(--orange)">11:00 PM</div><div><div style="font-size:13px;font-weight:700">Late Night Encore (Optional)</div><div style="font-size:11px;color:var(--muted)">Mariachi returns for final set — Cielito Lindo, Besame Mucho, La Bamba — crowd sings along</div></div><div style="font-size:11px;color:var(--dim)">45 min</div></div>
+  </div>
+  <div style="margin-top:16px;padding:12px 16px;background:var(--card2);border-radius:var(--r-sm);font-size:12px;color:var(--muted)">💡 Book Mariachi early — top groups have 18-month lead times for summer Saturdays. Standard fee: $600–$2,500 for 5-piece group, 2-hour set in a major city.</div>
+</div>
+
+</div>
+
+<div class="tool-nav"><div class="tool-nav-inner"><span class="tnl">Other Tools:</span><a href="/" class="tnc">🪔 South Asian</a><a href="/tools/chinese/" class="tnc">🏮 Chinese</a><a href="/tools/persian/" class="tnc">🌹 Persian</a><a href="/tools/jewish/" class="tnc">✡️ Jewish</a><a href="/tools/nordic/" class="tnc">🌿 Nordic</a><a href="/tools/southeast-asian/" class="tnc">🙏 SE Asian</a><a href="/join/" class="tnc" style="color:var(--orange);border-color:rgba(234,88,12,.3)">🔒 Claim Territory</a></div></div>
+
+<script>
+let padData=JSON.parse(localStorage.getItem('wio_pad')||'[]');
+function renderPad(){
+  const tbody=document.getElementById('pad-body');
+  const total=padData.reduce((s,r)=>s+Number(r.amount),0);
+  tbody.innerHTML=padData.map((r,i)=>`<tr><td>${r.name}</td><td style="color:var(--orange)">${r.item}</td><td style="color:var(--muted)">${r.itemEn}</td><td style="font-family:var(--mono)">$${Number(r.amount).toLocaleString()}</td><td><select onchange="updatePadStatus(${i},this.value)" style="padding:4px 8px;font-size:11px;width:auto"><option value="pending" ${r.status==='pending'?'selected':''}>Pending</option><option value="confirmed" ${r.status==='confirmed'?'selected':''}>Confirmed</option><option value="paid" ${r.status==='paid'?'selected':''}>Paid</option></select></td><td><button onclick="removePad(${i})" style="background:none;border:none;color:var(--dim);cursor:pointer">×</button></td></tr>`).join('');
+  document.getElementById('pad-total').textContent='$'+total.toLocaleString();
+}
+function addPadrino(){const n=document.getElementById('pad-name').value.trim();const item=document.getElementById('pad-item').value.trim();const itemEn=document.getElementById('pad-item-en').value.trim();const a=document.getElementById('pad-amount').value;if(!n||!item)return;padData.push({name:n,item,itemEn:itemEn||item,amount:a||0,status:'pending'});localStorage.setItem('wio_pad',JSON.stringify(padData));renderPad();document.getElementById('pad-name').value='';document.getElementById('pad-item').value='';document.getElementById('pad-item-en').value='';document.getElementById('pad-amount').value=''}
+function removePad(i){padData.splice(i,1);localStorage.setItem('wio_pad',JSON.stringify(padData));renderPad()}
+function updatePadStatus(i,v){padData[i].status=v;localStorage.setItem('wio_pad',JSON.stringify(padData));renderPad()}
+renderPad();
+</script>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     IAM NETWORK THREE-PACK FLOATER — universal loader (CSP-friendly)
+     Drop before </body> on any IAM network site. No inline JS/CSS.
+     For a CSP that requires a nonce, add data-nonce="{NONCE}" below;
+     the loader propagates it to the stylesheet <link>.
+     Disable per-page (no HTML edit needed):
+       window.IAM_FLOATER_DISABLED = true
+       <meta name="iam-floater" content="disabled">
+       <html data-iam-floater="off"> or <body data-iam-floater="off">
+       URL ?iam_floater=off · localStorage.iamFloater='off'
+     Est. May 13, 2015 · Part of the IAM Network
+     ═══════════════════════════════════════════════════════════════ -->
+<script src="/iam-floater.js" defer></script>
+<!-- ═══════════════════════════════════════════════════════════════ -->
+
+</body></html>

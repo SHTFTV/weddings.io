@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta property="og:image" content="https://weddings.io/opengraph.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://weddings.io/opengraph.jpg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>South Asian Wedding Checklist - Free Planning Tool | Weddings.io</title>
+    <meta name="description" content="Free wedding planning checklist for South Asian weddings. Track tasks for Mehendi, Sangeet, Ceremony, and Reception. Your progress saves automatically.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪔</text></svg>">
+    <link rel="canonical" href="https://weddings.io/checklist/">
+<style>
+        :root { --bg-primary: #0A0A0A; --bg-card: #141414; --border: #2A2A2A; --primary: #FF8C00; --gradient-gold: linear-gradient(135deg, #FF8C00, #FFD700); --gradient-primary: linear-gradient(135deg, #FF8C00, #FF6B00); --text-primary: #FFFFFF; --text-muted: #9CA3AF; --success: #22C55E; --font-sans: system-ui, -apple-system, sans-serif; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-sans); background: var(--bg-primary); color: var(--text-primary); line-height: 1.7; }
+        a { color: var(--primary); text-decoration: none; }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 14px 0; background: rgba(10,10,10,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 700; }
+        .nav-logo span:last-child { background: var(--gradient-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        .hero { padding: 140px 0 40px; text-align: center; }
+        .hero h1 { font-size: 42px; font-weight: 800; margin-bottom: 16px; }
+        .hero h1 span { background: var(--gradient-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { color: var(--text-muted); font-size: 18px; }
+        
+        .progress-container { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 24px; margin: 24px 0 40px; }
+        .progress-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+        .progress-title { font-size: 18px; font-weight: 600; }
+        .progress-count { color: var(--primary); font-weight: 700; font-size: 20px; }
+        .progress-bar { height: 12px; background: var(--border); border-radius: 6px; overflow: hidden; }
+        .progress-fill { height: 100%; background: var(--gradient-primary); border-radius: 6px; transition: width 0.3s ease; width: 0%; }
+        .progress-actions { display: flex; gap: 12px; margin-top: 16px; }
+        .btn-reset { padding: 10px 20px; background: transparent; border: 1px solid var(--border); border-radius: 8px; color: var(--text-muted); font-size: 14px; cursor: pointer; transition: all 0.2s; }
+        .btn-reset:hover { border-color: #e63946; color: #e63946; }
+        .btn-share { padding: 10px 20px; background: var(--gradient-primary); border: none; border-radius: 8px; color: white; font-size: 14px; font-weight: 600; cursor: pointer; }
+        
+        .checklist-section { margin: 40px 0; }
+        .checklist-title { font-size: 22px; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+        .checklist { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+        .checklist-item { display: flex; align-items: center; gap: 16px; padding: 16px 20px; border-bottom: 1px solid var(--border); cursor: pointer; transition: background 0.2s; }
+        .checklist-item:last-child { border-bottom: none; }
+        .checklist-item:hover { background: rgba(255,140,0,0.05); }
+        .checkbox { width: 26px; height: 26px; border: 2px solid var(--border); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.2s; font-size: 14px; }
+        .checklist-item.checked .checkbox { background: var(--success); border-color: var(--success); }
+        .checklist-item.checked .checkbox::after { content: "✓"; color: white; font-weight: bold; }
+        .checklist-item.checked .item-text { text-decoration: line-through; color: var(--text-muted); }
+        .item-text { font-size: 15px; }
+        
+        .footer { border-top: 1px solid var(--border); padding: 40px 0; text-align: center; color: var(--text-muted); font-size: 14px; margin-top: 60px; }
+        
+        @media (max-width: 768px) { .hero h1 { font-size: 32px; } .progress-actions { flex-direction: column; } }
+    </style>
+</head>
+<body>
+    <nav class="nav"><div class="nav-inner"><a href="/" class="nav-logo"><span>🪔</span><span>Weddings.io</span></a></div></nav>
+    
+    <section class="hero"><div class="container">
+        <h1>Wedding <span>Checklist</span></h1>
+        <p>Track your South Asian wedding planning progress. Your checklist saves automatically.</p>
+    </div></section>
+    
+    <section class="container">
+        <div class="progress-container">
+            <div class="progress-header">
+                <span class="progress-title">📋 Your Progress</span>
+                <span class="progress-count"><span id="checkedCount">0</span> / <span id="totalCount">0</span> completed</span>
+            </div>
+            <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+            <div class="progress-actions">
+                <button class="btn-reset" onclick="resetChecklist()">🗑️ Reset All</button>
+                <button class="btn-share" onclick="shareProgress()">📤 Share Progress</button>
+            </div>
+        </div>
+        
+        <div class="checklist-section">
+            <h2 class="checklist-title">📅 12+ Months Before</h2>
+            <div class="checklist">
+                <div class="checklist-item" data-id="budget" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Set wedding budget with both families</span></div>
+                <div class="checklist-item" data-id="dates" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Choose wedding dates (check muhurat/auspicious dates)</span></div>
+                <div class="checklist-item" data-id="guestlist-initial" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Create initial guest list</span></div>
+                <div class="checklist-item" data-id="planner" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Research and book wedding planner</span></div>
+                <div class="checklist-item" data-id="ceremony-venue" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Book ceremony venue (Gurdwara/Temple/Banquet Hall)</span></div>
+                <div class="checklist-item" data-id="reception-venue" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Book reception venue</span></div>
+            </div>
+        </div>
+        
+        <div class="checklist-section">
+            <h2 class="checklist-title">📅 9-12 Months Before</h2>
+            <div class="checklist">
+                <div class="checklist-item" data-id="caterer" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Book caterer for all events</span></div>
+                <div class="checklist-item" data-id="photographer" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Book photographer and videographer</span></div>
+                <div class="checklist-item" data-id="decorator" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Book decorator/mandap vendor</span></div>
+                <div class="checklist-item" data-id="dj" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Book DJ/entertainment</span></div>
+                <div class="checklist-item" data-id="dhol" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Book dhol players for baraat</span></div>
+                <div class="checklist-item" data-id="lehenga" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Start shopping for bridal lehenga</span></div>
+                <div class="checklist-item" data-id="officiant" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Book pandit/granthi/imam</span></div>
+            </div>
+        </div>
+        
+        <div class="checklist-section">
+            <h2 class="checklist-title">📅 6-9 Months Before</h2>
+            <div class="checklist">
+                <div class="checklist-item" data-id="save-dates" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Send save-the-dates</span></div>
+                <div class="checklist-item" data-id="mehendi-artist" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Book mehendi artist</span></div>
+                <div class="checklist-item" data-id="choreographer" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Book sangeet choreographer</span></div>
+                <div class="checklist-item" data-id="sherwani" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Shop for groom's sherwani</span></div>
+                <div class="checklist-item" data-id="makeup" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Book bridal makeup artist</span></div>
+                <div class="checklist-item" data-id="guestlist-final" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Finalize guest list</span></div>
+                <div class="checklist-item" data-id="invitations" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Order wedding invitations</span></div>
+            </div>
+        </div>
+        
+        <div class="checklist-section">
+            <h2 class="checklist-title">📅 3-6 Months Before</h2>
+            <div class="checklist">
+                <div class="checklist-item" data-id="send-invites" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Send formal invitations</span></div>
+                <div class="checklist-item" data-id="horse" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Book horse/ghodi for baraat</span></div>
+                <div class="checklist-item" data-id="sangeet-plan" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Plan sangeet performances</span></div>
+                <div class="checklist-item" data-id="menu" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Finalize menu with caterer</span></div>
+                <div class="checklist-item" data-id="jewelry" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Shop for wedding jewelry</span></div>
+                <div class="checklist-item" data-id="hotels" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Book hotel room blocks for guests</span></div>
+                <div class="checklist-item" data-id="registry" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Register for gifts (if applicable)</span></div>
+            </div>
+        </div>
+        
+        <div class="checklist-section">
+            <h2 class="checklist-title">📅 1-3 Months Before</h2>
+            <div class="checklist">
+                <div class="checklist-item" data-id="fittings" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Final fittings for all outfits</span></div>
+                <div class="checklist-item" data-id="confirm-vendors" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Confirm all vendor bookings</span></div>
+                <div class="checklist-item" data-id="timeline" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Create detailed timeline for each event</span></div>
+                <div class="checklist-item" data-id="rsvp" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Collect RSVPs and finalize headcount</span></div>
+                <div class="checklist-item" data-id="seating" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Create seating charts</span></div>
+                <div class="checklist-item" data-id="makeup-trial" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Bridal makeup trial</span></div>
+                <div class="checklist-item" data-id="songlist" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Finalize sangeet song list with DJ</span></div>
+            </div>
+        </div>
+        
+        <div class="checklist-section">
+            <h2 class="checklist-title">📅 Final Week</h2>
+            <div class="checklist">
+                <div class="checklist-item" data-id="final-headcount" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Confirm final headcount with all vendors</span></div>
+                <div class="checklist-item" data-id="walkthrough" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Final walkthrough at venues</span></div>
+                <div class="checklist-item" data-id="payments" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Prepare vendor payments</span></div>
+                <div class="checklist-item" data-id="honeymoon" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Pack for honeymoon</span></div>
+                <div class="checklist-item" data-id="family-coord" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Assign family members to help with coordination</span></div>
+                <div class="checklist-item" data-id="enjoy" onclick="toggleItem(this)"><div class="checkbox"></div><span class="item-text">Relax and enjoy! 🎉</span></div>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer"><div class="container">© 2026 Weddings.io Inc. • <a href="/calculator/">Try Budget Calculator</a> • <a href="/planners/">For Wedding Planners</a></div></footer>
+    
+    <script>
+        const STORAGE_KEY = 'weddings_checklist';
+        
+        function loadChecklist() {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            if (saved) {
+                const checked = JSON.parse(saved);
+                checked.forEach(id => {
+                    const item = document.querySelector(`[data-id="${id}"]`);
+                    if (item) item.classList.add('checked');
+                });
+            }
+            updateProgress();
+        }
+        
+        function saveChecklist() {
+            const checked = [];
+            document.querySelectorAll('.checklist-item.checked').forEach(item => {
+                checked.push(item.dataset.id);
+            });
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(checked));
+        }
+        
+        function toggleItem(el) {
+            el.classList.toggle('checked');
+            saveChecklist();
+            updateProgress();
+        }
+        
+        function updateProgress() {
+            const total = document.querySelectorAll('.checklist-item').length;
+            const checked = document.querySelectorAll('.checklist-item.checked').length;
+            const percent = total > 0 ? (checked / total) * 100 : 0;
+            document.getElementById('totalCount').textContent = total;
+            document.getElementById('checkedCount').textContent = checked;
+            document.getElementById('progressFill').style.width = percent + '%';
+        }
+        
+        function resetChecklist() {
+            if (confirm('Reset your checklist? This cannot be undone.')) {
+                document.querySelectorAll('.checklist-item.checked').forEach(item => item.classList.remove('checked'));
+                localStorage.removeItem(STORAGE_KEY);
+                updateProgress();
+            }
+        }
+        
+        function shareProgress() {
+            const total = document.querySelectorAll('.checklist-item').length;
+            const checked = document.querySelectorAll('.checklist-item.checked').length;
+            const percent = Math.round((checked / total) * 100);
+            const text = `I'm ${percent}% done with my South Asian wedding planning! 🎉 (${checked}/${total} tasks) - weddings.io/checklist/`;
+            if (navigator.share) {
+                navigator.share({ title: 'My Wedding Planning Progress', text: text, url: 'https://weddings.io/checklist/' });
+            } else {
+                navigator.clipboard.writeText(text).then(() => alert('Progress copied to clipboard!'));
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', loadChecklist);
+    </script>
+
+  <!-- Planner Tools Footer -->
+  <div style="background:#0F0F0F;border-top:1px solid #2A2A2A;padding:20px 24px;margin-top:auto">
+    <div style="max-width:1400px;margin:0 auto;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between">
+      <div style="font-size:12px;color:#6B7280">&#x1F4AF; <strong style="color:#FF8C00">Weddings.io</strong> Planner Suite</div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <a href="/calculator/" style="color:#9CA3AF;font-size:12px;text-decoration:none">&#x1F4B0; Calculator</a>
+        <a href="/checklist/" style="color:#9CA3AF;font-size:12px;text-decoration:none">&#x2705; Checklist</a>
+        <a href="/invoice/" style="color:#9CA3AF;font-size:12px;text-decoration:none">&#x1F9FE; Invoice</a>
+        <a href="/guest-list/" style="color:#9CA3AF;font-size:12px;text-decoration:none">&#x1F465; Guest List</a>
+        <a href="/timeline/" style="color:#9CA3AF;font-size:12px;text-decoration:none">&#x1F4C5; Timeline</a>
+        <a href="/crm/" style="color:#9CA3AF;font-size:12px;text-decoration:none">&#x1F4CA; CRM</a>
+        <a href="/vendors/" style="color:#9CA3AF;font-size:12px;text-decoration:none">&#x1F91D; Vendors</a>
+        <a href="/portal/" style="color:#9CA3AF;font-size:12px;text-decoration:none">&#x1F510; Client Portal</a>
+      </div>
+      <div style="font-size:11px;color:#4B5563">&#xa9; 2026 Weddings.io Inc.</div>
+    </div>
+  </div>
+
+<!-- WIO-WIDGETS -->
+<!-- ═══════════════════════════════════════════════════════════════
+     WEDDINGS.IO FLOATING WIDGETS — inject before </body> on every page
+     1. Tool launcher (bottom-right)
+     2. AI Wedding Assistant chatbot (bottom-left)
+     ═══════════════════════════════════════════════════════════════ -->
+
+<style>
+/* ── SHARED ────────────────────────────────────────────────────── */
+.wio-fab{position:fixed;bottom:24px;z-index:9000;cursor:pointer;border:none;border-radius:50%;width:52px;height:52px;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 4px 24px rgba(0,0,0,.45);transition:transform .2s,box-shadow .2s;font-family:'DM Sans',system-ui,sans-serif}
+.wio-fab:hover{transform:scale(1.08);box-shadow:0 8px 32px rgba(0,0,0,.5)}
+
+/* ── TOOL LAUNCHER (bottom-right) ──────────────────────────────── */
+#wio-tools-fab{right:24px;background:linear-gradient(135deg,#FF8C00,#FFD700);color:#0A0A0A}
+#wio-tools-panel{position:fixed;bottom:88px;right:24px;z-index:8999;width:300px;background:#141414;border:1px solid #2A2A2A;border-radius:18px;padding:0;overflow:hidden;box-shadow:0 16px 48px rgba(0,0,0,.6);transform:scale(.9) translateY(12px);opacity:0;pointer-events:none;transition:all .22s cubic-bezier(.34,1.56,.64,1);transform-origin:bottom right}
+#wio-tools-panel.open{transform:scale(1) translateY(0);opacity:1;pointer-events:all}
+.wio-tp-header{padding:14px 18px 12px;border-bottom:1px solid #2A2A2A;display:flex;align-items:center;justify-content:space-between}
+.wio-tp-title{font-size:13px;font-weight:700;color:#fff;font-family:'DM Sans',system-ui,sans-serif}
+.wio-tp-close{background:none;border:none;color:#9CA3AF;font-size:18px;cursor:pointer;padding:0;line-height:1}
+.wio-tools-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.wio-tool-btn{display:flex;align-items:center;gap:9px;padding:12px 16px;text-decoration:none;color:#D1D5DB;font-size:12px;font-weight:600;border-bottom:1px solid #1f1f1f;border-right:1px solid #1f1f1f;transition:background .15s;font-family:'DM Sans',system-ui,sans-serif}
+.wio-tool-btn:hover{background:rgba(255,140,0,.08);color:#FF8C00}
+.wio-tool-btn:nth-child(2n){border-right:none}
+.wio-tool-btn .wio-ti{font-size:18px;flex-shrink:0}
+.wio-tool-btn.wio-new{position:relative}
+.wio-tool-btn.wio-new::after{content:'NEW';position:absolute;top:6px;right:6px;font-size:8px;font-weight:800;padding:1px 4px;background:rgba(74,183,110,.15);color:#4AB76E;border-radius:3px;letter-spacing:.05em}
+.wio-tp-footer{padding:12px 16px;border-top:1px solid #2A2A2A}
+.wio-tp-cta{display:block;width:100%;padding:9px;background:linear-gradient(135deg,#FF8C00,#FFD700);border:none;border-radius:8px;font-size:12px;font-weight:700;color:#0A0A0A;text-align:center;text-decoration:none;cursor:pointer;font-family:'DM Sans',system-ui,sans-serif}
+
+/* ── AI CHATBOT (bottom-left) ───────────────────────────────────── */
+#wio-chat-fab{left:24px;background:linear-gradient(135deg,#1a1a2e,#16213e);border:1px solid #2A2A2A;color:#fff;font-size:20px}
+#wio-chat-fab .wio-chat-dot{position:absolute;top:6px;right:6px;width:10px;height:10px;background:#4AB76E;border-radius:50%;border:2px solid #0A0A0A;animation:wio-pulse 2s infinite}
+@keyframes wio-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.7;transform:scale(1.15)}}
+#wio-chat-panel{position:fixed;bottom:88px;left:24px;z-index:8999;width:340px;height:520px;background:#0F0F0F;border:1px solid #2A2A2A;border-radius:18px;overflow:hidden;box-shadow:0 16px 48px rgba(0,0,0,.6);display:flex;flex-direction:column;transform:scale(.9) translateY(12px);opacity:0;pointer-events:none;transition:all .22s cubic-bezier(.34,1.56,.64,1);transform-origin:bottom left}
+#wio-chat-panel.open{transform:scale(1) translateY(0);opacity:1;pointer-events:all}
+.wio-ch-header{padding:14px 16px;background:#141414;border-bottom:1px solid #2A2A2A;display:flex;align-items:center;gap:10px;flex-shrink:0}
+.wio-ch-avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#FF8C00,#FFD700);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.wio-ch-info{flex:1;min-width:0}
+.wio-ch-name{font-size:13px;font-weight:700;color:#fff;font-family:'DM Sans',system-ui,sans-serif}
+.wio-ch-status{font-size:11px;color:#4AB76E;display:flex;align-items:center;gap:4px}
+.wio-ch-status::before{content:'';width:6px;height:6px;background:#4AB76E;border-radius:50%;flex-shrink:0}
+.wio-ch-close{background:none;border:none;color:#9CA3AF;font-size:18px;cursor:pointer;padding:0;line-height:1;flex-shrink:0}
+.wio-ch-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth}
+.wio-ch-messages::-webkit-scrollbar{width:4px}
+.wio-ch-messages::-webkit-scrollbar-track{background:transparent}
+.wio-ch-messages::-webkit-scrollbar-thumb{background:#2A2A2A;border-radius:2px}
+.wio-msg{max-width:85%;padding:10px 13px;border-radius:12px;font-size:13px;line-height:1.55;font-family:'DM Sans',system-ui,sans-serif;animation:wio-fadein .2s ease}
+@keyframes wio-fadein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.wio-msg.ai{background:#1C1C1C;border:1px solid #2A2A2A;color:#E5E7EB;align-self:flex-start;border-bottom-left-radius:3px}
+.wio-msg.user{background:linear-gradient(135deg,#FF8C00,#e67e00);color:#fff;align-self:flex-end;border-bottom-right-radius:3px}
+.wio-msg.thinking{background:#1C1C1C;border:1px solid #2A2A2A;color:#6B7280;align-self:flex-start;font-style:italic}
+.wio-msg.thinking::after{content:'';animation:wio-dots 1.2s infinite}
+@keyframes wio-dots{0%{content:''}33%{content:'.'}66%{content:'..'}100%{content:'...'}}
+.wio-quick-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 10px;flex-shrink:0}
+.wio-chip{padding:6px 12px;background:#1C1C1C;border:1px solid #2A2A2A;border-radius:20px;font-size:11px;font-weight:600;color:#9CA3AF;cursor:pointer;font-family:'DM Sans',system-ui,sans-serif;transition:all .15s;white-space:nowrap}
+.wio-chip:hover{border-color:rgba(255,140,0,.3);color:#FF8C00;background:rgba(255,140,0,.06)}
+.wio-ch-input-row{display:flex;gap:8px;padding:12px 14px;background:#141414;border-top:1px solid #2A2A2A;flex-shrink:0}
+#wio-chat-input{flex:1;background:#0F0F0F;border:1px solid #2A2A2A;border-radius:10px;padding:9px 12px;color:#fff;font-size:13px;font-family:'DM Sans',system-ui,sans-serif;resize:none;outline:none;min-height:36px;max-height:100px;transition:border-color .2s}
+#wio-chat-input:focus{border-color:rgba(255,140,0,.3)}
+#wio-chat-input::placeholder{color:#4B5563}
+#wio-send-btn{width:36px;height:36px;background:linear-gradient(135deg,#FF8C00,#e67e00);border:none;border-radius:9px;color:#fff;font-size:16px;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:opacity .15s}
+#wio-send-btn:hover{opacity:.85}
+#wio-send-btn:disabled{opacity:.4;cursor:not-allowed}
+@media(max-width:480px){#wio-tools-panel,#wio-chat-panel{width:calc(100vw - 32px)}#wio-chat-panel{height:420px}#wio-chat-panel{left:16px}#wio-tools-panel{right:16px}#wio-tools-fab{bottom:16px;right:16px}#wio-chat-fab{bottom:16px;left:16px}}
+</style>
+
+<!-- TOOL LAUNCHER FAB -->
+<button class="wio-fab" id="wio-tools-fab" onclick="wioToggleTools()" aria-label="Open planning tools">🪔</button>
+
+<div id="wio-tools-panel" role="dialog" aria-label="Planning tools">
+    <div class="wio-tp-header">
+        <span class="wio-tp-title">🪔 Planner Tools</span>
+        <button class="wio-tp-close" onclick="wioToggleTools()">×</button>
+    </div>
+    <div class="wio-tools-grid">
+        <a href="/calculator/" class="wio-tool-btn"><span class="wio-ti">💰</span>Budget</a>
+        <a href="/checklist/" class="wio-tool-btn"><span class="wio-ti">✅</span>Checklist</a>
+        <a href="/guest-list/" class="wio-tool-btn"><span class="wio-ti">👥</span>Guest List</a>
+        <a href="/timeline/" class="wio-tool-btn"><span class="wio-ti">📅</span>Timeline</a>
+        <a href="/invoice/" class="wio-tool-btn"><span class="wio-ti">🧾</span>Invoice</a>
+        <a href="/crm/" class="wio-tool-btn"><span class="wio-ti">📊</span>CRM</a>
+        <a href="/vendors/" class="wio-tool-btn"><span class="wio-ti">🏪</span>Vendors</a>
+        <a href="/portal/" class="wio-tool-btn"><span class="wio-ti">🔐</span>Portal</a>
+        <a href="/visualizer/" class="wio-tool-btn wio-new"><span class="wio-ti">🎨</span>AI Visualizer</a>
+        <a href="/eyespyr/" class="wio-tool-btn wio-new"><span class="wio-ti">👁</span>EyeSpyR</a>
+    </div>
+    <div class="wio-tp-footer">
+        <a href="/features/" class="wio-tp-cta">View All Features →</a>
+    </div>
+</div>
+
+<!-- AI CHATBOT FAB -->
+<button class="wio-fab" id="wio-chat-fab" onclick="wioToggleChat()" aria-label="Open AI wedding assistant">
+    🪔
+    <span class="wio-chat-dot"></span>
+</button>
+
+<div id="wio-chat-panel" role="dialog" aria-label="AI Wedding Assistant">
+    <div class="wio-ch-header">
+        <div class="wio-ch-avatar">🪔</div>
+        <div class="wio-ch-info">
+            <div class="wio-ch-name">Diya — Wedding AI</div>
+            <div class="wio-ch-status">Online · South Asian weddings expert</div>
+        </div>
+        <button class="wio-ch-close" onclick="wioToggleChat()">×</button>
+    </div>
+    <div class="wio-ch-messages" id="wio-messages">
+        <div class="wio-msg ai">Sat Sri Akal! 🙏 I'm Diya, your South Asian wedding assistant. Ask me anything — budget, venues, traditions, destination weddings, vendors…</div>
+    </div>
+    <div class="wio-quick-chips" id="wio-chips">
+        <span class="wio-chip" onclick="wioAsk('What\'s a realistic budget for 400 guests?')">400-guest budget?</span>
+        <span class="wio-chip" onclick="wioAsk('Best destination wedding locations for South Asians?')">Best destinations?</span>
+        <span class="wio-chip" onclick="wioAsk('What events happen in a Sikh wedding?')">Sikh wedding events?</span>
+        <span class="wio-chip" onclick="wioAsk('How far in advance should I book vendors?')">When to book?</span>
+    </div>
+    <div class="wio-ch-input-row">
+        <textarea id="wio-chat-input" placeholder="Ask anything about your wedding…" rows="1" onkeydown="wioKeyDown(event)" oninput="wioAutoResize(this)"></textarea>
+        <button id="wio-send-btn" onclick="wioSend()" aria-label="Send">➤</button>
+    </div>
+</div>
+
+<script>
+(function(){
+// ── STATE ──────────────────────────────────────────────────────────
+let wioToolsOpen = false;
+let wioChatOpen = false;
+let wioTyping = false;
+const wioHistory = [];
+
+// ── TOOL PANEL ─────────────────────────────────────────────────────
+window.wioToggleTools = function() {
+    wioToolsOpen = !wioToolsOpen;
+    document.getElementById('wio-tools-panel').classList.toggle('open', wioToolsOpen);
+    // Close chat if open
+    if (wioToolsOpen && wioChatOpen) { wioChatOpen = false; document.getElementById('wio-chat-panel').classList.remove('open'); }
+};
+
+// ── CHAT PANEL ─────────────────────────────────────────────────────
+window.wioToggleChat = function() {
+    wioChatOpen = !wioChatOpen;
+    document.getElementById('wio-chat-panel').classList.toggle('open', wioChatOpen);
+    if (wioChatOpen) { setTimeout(() => document.getElementById('wio-chat-input').focus(), 250); }
+    // Close tools if open
+    if (wioChatOpen && wioToolsOpen) { wioToolsOpen = false; document.getElementById('wio-tools-panel').classList.remove('open'); }
+};
+
+// ── CLOSE ON OUTSIDE CLICK ─────────────────────────────────────────
+document.addEventListener('click', function(e) {
+    const tp = document.getElementById('wio-tools-panel');
+    const tf = document.getElementById('wio-tools-fab');
+    const cp = document.getElementById('wio-chat-panel');
+    const cf = document.getElementById('wio-chat-fab');
+    if (wioToolsOpen && !tp.contains(e.target) && !tf.contains(e.target)) { wioToolsOpen = false; tp.classList.remove('open'); }
+    if (wioChatOpen && !cp.contains(e.target) && !cf.contains(e.target)) { wioChatOpen = false; cp.classList.remove('open'); }
+});
+
+// ── SEND MESSAGE ───────────────────────────────────────────────────
+window.wioAsk = function(text) {
+    document.getElementById('wio-chat-input').value = text;
+    // Hide chips after first use
+    document.getElementById('wio-chips').style.display = 'none';
+    wioSend();
+};
+
+window.wioSend = async function() {
+    const input = document.getElementById('wio-chat-input');
+    const text = input.value.trim();
+    if (!text || wioTyping) return;
+
+    // Hide chips
+    document.getElementById('wio-chips').style.display = 'none';
+
+    // Add user message
+    wioHistory.push({ role: 'user', content: text });
+    wioAddMsg(text, 'user');
+    input.value = '';
+    wioAutoResize(input);
+
+    // Thinking indicator
+    wioTyping = true;
+    document.getElementById('wio-send-btn').disabled = true;
+    const thinkId = wioAddMsg('', 'thinking');
+
+    try {
+        const res = await fetch('https://api.anthropic.com/v1/messages', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                model: 'claude-sonnet-4-20250514',
+                max_tokens: 1000,
+                system: `You are Diya, a warm and knowledgeable South Asian wedding planning assistant for Weddings.io. You specialize in:
+- South Asian wedding traditions (Hindu, Sikh, Muslim, Bengali, Tamil, Punjabi, Gujarati ceremonies)
+- Budget planning for large weddings (200–1500 guests) across USD, CAD, GBP, EUR, INR currencies
+- Destination weddings in Portugal, Mexico, Thailand, Bali, Italy, Greece, Dubai and more
+- Vendor selection, EyeSpyR vetting standards, booking timelines
+- Multi-day events: Mehndi, Haldi, Sangeet, Baraat, Ceremony, Reception
+- Weddings.io platform tools: Budget Calculator, Checklist, Guest List, Timeline, Invoice, CRM, Client Portal, Vendor Database, AI Visualizer (Nano Banana 2)
+
+Keep responses friendly, concise (3–5 sentences max unless detail is truly needed), and practical. Use occasional Punjabi/Hindi words naturally (e.g. shaadi, baraat, roti). When relevant, mention a specific Weddings.io tool that can help. Do not use excessive markdown — respond in plain conversational text.`,
+                messages: wioHistory
+            })
+        });
+
+        const data = await res.json();
+        const reply = data.content?.[0]?.text || "Sorry, I had trouble connecting. Try again in a moment!";
+
+        // Remove thinking bubble
+        document.getElementById(thinkId)?.remove();
+        wioHistory.push({ role: 'assistant', content: reply });
+        wioAddMsg(reply, 'ai');
+    } catch (err) {
+        document.getElementById(thinkId)?.remove();
+        wioAddMsg("Connection issue — please try again in a moment.", 'ai');
+    }
+
+    wioTyping = false;
+    document.getElementById('wio-send-btn').disabled = false;
+    input.focus();
+};
+
+// ── ADD MESSAGE TO UI ──────────────────────────────────────────────
+function wioAddMsg(text, type) {
+    const msgs = document.getElementById('wio-messages');
+    const div = document.createElement('div');
+    const id = 'wio-msg-' + Date.now();
+    div.id = id;
+    div.className = 'wio-msg ' + type;
+    div.textContent = text;
+    msgs.appendChild(div);
+    msgs.scrollTop = msgs.scrollHeight;
+    return id;
+}
+
+// ── INPUT HELPERS ──────────────────────────────────────────────────
+window.wioKeyDown = function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); wioSend(); }
+};
+
+window.wioAutoResize = function(el) {
+    el.style.height = 'auto';
+    el.style.height = Math.min(el.scrollHeight, 100) + 'px';
+};
+
+})();
+</script>
+<!-- ═══════════════════════════════════════════════════════════════ -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     IAM NETWORK THREE-PACK FLOATER — universal loader (CSP-friendly)
+     Drop before </body> on any IAM network site. No inline JS/CSS.
+     For a CSP that requires a nonce, add data-nonce="{NONCE}" below;
+     the loader propagates it to the stylesheet <link>.
+     Disable per-page (no HTML edit needed):
+       window.IAM_FLOATER_DISABLED = true
+       <meta name="iam-floater" content="disabled">
+       <html data-iam-floater="off"> or <body data-iam-floater="off">
+       URL ?iam_floater=off · localStorage.iamFloater='off'
+     Est. May 13, 2015 · Part of the IAM Network
+     ═══════════════════════════════════════════════════════════════ -->
+<script src="/iam-floater.js" defer></script>
+<!-- ═══════════════════════════════════════════════════════════════ -->
+
+</body>
+</html>
