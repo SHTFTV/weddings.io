@@ -71,6 +71,66 @@ export function normalizeSources(post: BlogPost): BlogPost {
 }
 
 const allBlogPosts: BlogPost[] = [
+{
+  "slug": "earning-our-place-weddings-io-founder",
+  "title": "Weddings.io Has to Earn Its Place in the Budget",
+  "subtitle": "A founder’s perspective on why wedding spending does not automatically become platform revenue—and the value Weddings.io has to prove.",
+  "date": "2026-10-12",
+  "dateLabel": "October 12, 2026",
+  "category": "Founder Perspective",
+  "image": "/images/earning-our-place-weddings-io-founder.jpg",
+  "imageAlt": "Four steps in earning a place in a customer’s budget: clear promise, useful demand, evidence, and recurring value. Original Weddings.io Technologies diagram.",
+  "readTime": "5 min",
+  "excerpt": "As the founder of Weddings.io, I believe we must earn our place in a customer’s budget with useful demand, trust and evidence of recurring value.",
+  "seoTitle": "Weddings.io Has to Earn Its Place in the Budget | Founder",
+  "metaDescription": "A Weddings.io founder perspective on useful demand, customer trust and recurring value: why the wedding budget is not automatically our software market.",
+  "focusKeywords": [
+    "Weddings.io",
+    "wedding software business model",
+    "wedding platform value"
+  ],
+  "body": [
+    "*A founder’s perspective from Weddings.io Technologies · Est. May 13, 2015.*",
+    "*Hero: clear promise → useful demand → evidence → recurring value. Original explanatory graphic by Weddings.io Technologies; a conceptual framework, not evidence of achieved results.*",
+    "A couple’s wedding budget is not our revenue. As the founder of Weddings.io, I think that is where any honest discussion of building this business has to begin.",
+    "Money committed to a venue, a photographer, food or clothing is already paying for something the couple wants. We do not earn a claim on that money because we build software around the occasion. We have to give a particular customer a reason to choose us—and make that reason strong enough to pay for.",
+    "The ambition behind Weddings.io is substantial. The test of the business is more specific: whose decision do we improve, what problem do we solve, and can we show the difference?",
+    "## The wedding ends. Our responsibility continues.",
+    "Couples should be able to finish planning and enjoy their wedding. If our relationship with them ends there, that can be a successful customer experience. It is also a finite relationship that the business has to account for.",
+    "A professional faces a different timeline. A planner, venue or photographer works across many events, handles enquiries through busy and quiet periods, and needs tools that remain useful after one couple gets married.",
+    "I cannot use the size of a couple’s celebration to prove the value of a professional’s subscription. Those are separate decisions, with separate reasons to buy. Each proposed revenue stream needs its own evidence.",
+    "## We have to prove useful demand",
+    "A large audience can sound impressive while doing little for a business with a specific service area, an unavailable date or a package that does not match the enquiry.",
+    "For Weddings.io, the relevant questions are practical. Did the customer find a suitable professional? Did the professional receive an enquiry they could actually serve? Did the conversation move towards a booking? How much work did it take to get there?",
+    "Those questions set a measurement standard. They are not claims that we have already demonstrated booking uplift or retention. Publishing a vision does not turn it into a result.",
+    "I want the case for paying to rest on value a business can recognise and assess. A polished profile or a busy dashboard is not enough on its own.",
+    "## Trust has to help people make decisions",
+    "Choosing a wedding professional is consequential. Couples need information they can understand, and professionals need a fair way to establish what they have actually done.",
+    "Our direction includes clearer reputation information, traceable evidence and a process for addressing disputes. Those ideas become commercially meaningful when they help someone decide with greater confidence. A badge or a platform label cannot substitute for evidence.",
+    "We should be equally clear about what is available now and what remains planned. An unfinished capability should not be presented as a working service simply because it belongs in our long-term design.",
+    "## Renewal is a question we must keep answering",
+    "If a professional pays regularly, our obligation does not end with the first payment. Why would they continue through a quiet season? What work becomes easier? What useful opportunity would they lose by leaving?",
+    "These are questions to investigate with customers, not answers to invent for a launch announcement. Compliments, traffic and registrations can tell us something, but they do not prove a durable business.",
+    "I would rather understand one clear reason a customer chooses us than collect a long list of features they describe as interesting. That reason gives us something concrete to improve and measure.",
+    "## Growth should expand evidence, not hide uncertainty",
+    "The same discipline applies to a funding conversation. We should distinguish what we know, what we believe, and what the next investment would establish.",
+    "Acquisition cost, service cost, professional retention and demand beyond our own network all deserve scrutiny. If we do not yet have reliable evidence, the honest response is to identify the uncertainty and explain how we will test it.",
+    "We can explain that approach without publishing every internal method. Customers need a clear promise and credible evidence. They do not need our entire operating playbook.",
+    "## Every addition has to strengthen the reason to choose us",
+    "Building a platform creates an endless supply of things we could add. Every addition also creates work to maintain, explain and support.",
+    "My responsibility is to ask whether that work strengthens the customer’s reason to choose Weddings.io. Expansion can help. It can also make the product harder to understand while leaving the buying decision unchanged.",
+    "The broader commercial argument appears in our sister publication’s [The Wedding Budget Isn’t Your Market](https://www.weddingsaas.com/blog/the-wedding-budget-isnt-your-market). Here, it is a standard we have to apply to ourselves.",
+    "Weddings.io has to earn its place in someone’s budget. The work is to keep earning that place after the announcement, after the first enquiry, and after the wedding is over."
+  ],
+  "sources": [
+    {
+      "label": "The Wedding Budget Isn’t Your Market — sister publication commentary",
+      "url": "https://www.weddingsaas.com/blog/the-wedding-budget-isnt-your-market",
+      "publisher": "WeddingSaaS Editorial",
+      "date": "2026-10-12"
+    }
+  ]
+},
   {
     slug: "brand-defence-003-crunchbase-entity-correction",
     title: "Brand Defence Case No. 003: Crunchbase Entity Correction",
