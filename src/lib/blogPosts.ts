@@ -3547,6 +3547,7 @@ const allBlogPosts: BlogPost[] = [
 
 
 const visibleBlogSlugs = [
+  "earning-our-place-weddings-io-founder",
   "shaadi-south-asian-wedding-planning-platform",
   "south-asian-wedding-rituals-guide-mehndi-sangeet-baraat",
   "first-wedding-saas-ppp-equitable-access",
