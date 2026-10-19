@@ -72,6 +72,61 @@ export function normalizeSources(post: BlogPost): BlogPost {
 
 const allBlogPosts: BlogPost[] = [
 {
+  "slug": "wedding-content-creator-next-day-videos",
+  "title": "Wedding Content Creators: Decide What You Want Before You Book",
+  "subtitle": "Next-day clips can be a lovely way to revisit your celebration. Start with the moments, delivery promise and sharing boundaries that matter to you.",
+  "date": "2026-10-19",
+  "dateLabel": "October 19, 2026",
+  "category": "Wedding Planning",
+  "image": "/images/wedding-content-creator-next-day-videos.jpg",
+  "imageAlt": "An illustrative wedding content creator filming a newlywed couple in a garden on a smartphone rig at golden hour.",
+  "readTime": "5 min",
+  "excerpt": "Considering a wedding content creator? Agree the clips, timing, supplier coordination and permission to post before you book.",
+  "seoTitle": "Wedding Content Creators: What to Agree Before Booking | Weddings.io",
+  "metaDescription": "Choosing a wedding content creator? Agree next-day clips, coverage, delivery, supplier coordination and permission to post before you book.",
+  "focusKeywords": [
+    "wedding content creator",
+    "next-day wedding videos",
+    "wedding content"
+  ],
+  "body": [
+    "*By the Weddings.io Editorial Team · October 19, 2026.*",
+    "*Featured image: AI-generated wedding-content concept created for Weddings.io. It does not depict BBC interviewees, a customer wedding or a confirmed supplier.*",
+    "You do not have to turn your wedding into a production to want a few lovely videos the next morning. The useful starting point is deciding what you want to remember—and how much attention you want to give a camera on the day.",
+    "A BBC report by Charlotte Andrews follows Dorset wedding content creator Jade Burton making social-ready videos for next-day delivery. It also describes a couple hiring a creator alongside their photographer and videographer. That is one example of how the services can fit together, rather than a reason every couple needs all three. [Read the BBC report](https://www.bbc.com/news/articles/cq8ezwr675r8o).",
+    "## Start with your own version of a good memory",
+    "Would you love a short getting-ready montage, candid reactions from friends, a few quiet moments together, or simply a collection of clips you can keep? Choose a few priorities before comparing packages. The best brief is personal enough to help someone notice what matters to you.",
+    "You can also decide that immediate content is not a priority. An extra supplier should serve your celebration, your budget and your comfort. You do not owe social media a particular version of the day.",
+    "## Ask what ‘next day’ actually includes",
+    "A folder of recorded clips and an edited highlight reel are different deliverables. Ask which you receive, how many edited pieces are included, what formats they use and how the files arrive. If an edited reel matters most, make sure that is in the package rather than assumed.",
+    "Confirm when the delivery clock starts and the deadline it creates. Ask whether you can request corrections, how long a download remains available and whether music or other assets are suitable for your intended use. Keep the answers with the booking details so both sides have the same brief.",
+    "## Introduce the people holding cameras",
+    "Your photographer, videographer and content creator may be recording the same moment for different purposes. Share their contact details with permission and ask how they prefer to coordinate. Agree who needs the clearest position during the ceremony and which moments should happen without interruption.",
+    "A short conversation before the day is kinder than asking suppliers to negotiate around each other as you walk down the aisle. Tell your planner or venue contact about the arrangement too, including any restrictions on equipment, access or filming locations.",
+    "## Your first post should be your decision",
+    "Decide whether the creator may post anything publicly before you have seen it. If you want approval first, put that expectation in writing. Also discuss portfolio use, tagging, behind-the-scenes posts and whether you want a quiet period before anything is shared.",
+    "Make room for guests who prefer not to appear. Tell the creator about sensitive moments or people who should stay out of public content, without distributing unnecessary personal details. If you want an unplugged ceremony, explain how that request fits with the professionals you have invited to film.",
+    "## Look beyond the most polished reel",
+    "Ask to see examples that match the conditions of your wedding: a dim reception, an outdoor ceremony or a busy schedule. Ask what work the supplier personally delivered and what happens if they are unavailable. A convincing portfolio should help you understand their approach, not just the effect of a single edit.",
+    "Practical questions matter as much as style. How do they protect files during the day? What backup equipment do they bring? How do they handle a missed moment, a delayed timeline or an agreed deliverable that needs correcting? Look for clear answers you can understand.",
+    "## Compare the whole package with your budget",
+    "Put the attendance window, deliverables, travel, editing and possible extras side by side. Ask about the booking payment, remaining balance, cancellation terms and any extra time before you commit. A lower headline price may describe a different amount of work.",
+    "Keep this separate from the choice of your main photo or film coverage. Decide what each service gives you and where it overlaps. You may prefer complementary coverage, a simpler package, or to leave that money for something else you value more.",
+    "## A short brief is better than a long shot list",
+    "Write down your three most important moments, the agreed deliverables, the delivery deadline, the other suppliers’ coordination plan and your permission-to-post rule. Add one contact who can answer practical questions during the celebration.",
+    "Then give yourself permission to enjoy the wedding. Content is there to help you return to the day afterwards. It should not become another thing you have to manage while it is happening.",
+    "*This is independent Weddings.io planning guidance informed by the linked BBC reporting. It is not a review, verification or endorsement of any named supplier. Weddings.io’s existing launch and availability information continues to apply.*"
+  ],
+  "sources": [
+    {
+      "label": "How wedding content creators take you from aisle to Insta — Charlotte Andrews",
+      "url": "https://www.bbc.com/news/articles/cq8ezwr675r8o",
+      "publisher": "BBC News",
+      "date": "2026-10-18"
+    }
+  ]
+},
+{
   "slug": "earning-our-place-weddings-io-founder",
   "title": "Weddings.io Has to Earn Its Place in the Budget",
   "subtitle": "A founder’s perspective on why wedding spending does not automatically become platform revenue—and the value Weddings.io has to prove.",
