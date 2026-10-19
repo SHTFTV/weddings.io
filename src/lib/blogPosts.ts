@@ -3602,6 +3602,7 @@ const allBlogPosts: BlogPost[] = [
 
 
 const visibleBlogSlugs = [
+  "wedding-content-creator-next-day-videos",
   "earning-our-place-weddings-io-founder",
   "shaadi-south-asian-wedding-planning-platform",
   "south-asian-wedding-rituals-guide-mehndi-sangeet-baraat",
