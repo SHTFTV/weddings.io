@@ -17,14 +17,14 @@ const cultures = [
   ["Western", "western", "western-traditional-wedding-planning-guide-2026"],
 ];
 
-function StoryCard({ slug, label, title, image }: { slug: string; label?: string; title?: string; image?: string }) {
+function StoryCard({ slug, label, title, image, copy }: { slug: string; label?: string; title?: string; image?: string; copy?: string }) {
   const post = story(slug);
   if (!post) return null;
   return <article className="wm-story"><a href={`/blog/${slug}`} className="wm-story-image">
     <img src={image || post.image} alt={post.imageAlt || post.title} loading="lazy" width="800" height="540" />
   </a><p className="wm-kicker">{label || post.category}</p>
     <h3><a href={`/blog/${slug}`}>{title || post.title}</a></h3>
-    <p>{post.excerpt}</p><a className="wm-read" href={`/blog/${slug}`}>Read the story <span aria-hidden="true">↗</span></a></article>;
+    <p>{copy || post.excerpt}</p><a className="wm-read" href={`/blog/${slug}`}>Read the story <span aria-hidden="true">↗</span></a></article>;
 }
 function Chapter({ id, number, title, copy, image, href }: { id: string; number: string; title: string; copy: string; image: string; href: string }) {
   return <section id={id} className="wm-chapter"><img src={image} alt="" loading="lazy" width="1800" height="700" />
@@ -79,7 +79,7 @@ export function WeddingMagazineHome() {
       </div></section>
       <section id="planning" className="wm-planning"><div className="wm-shell"><div className="wm-section-heading"><div><p className="wm-kicker">From the moodboard to the actual day</p><h2>A beautiful wedding.<br /><em>A little less chaos.</em></h2></div><p>The magazine is where you find your ideas. The planning tools are where you start putting them together.</p></div>
         <div className="wm-tools">{[
-          ["01", "The budget", "Give your priorities a number. Explore the wedding budget calculator.", "/calculator.html", "Open the calculator"],
+          ["01", "The budget", "Give your priorities a number. Explore our South Asian multi-event budget calculator.", "/calculator.html", "Open the calculator"],
           ["02", "The checklist", "Turn the big picture into the next thing you can actually do.", "/checklist/index.html", "Start your checklist"],
           ["03", "Your planning hub", "Explore guides and tools for the shape and traditions of your celebration.", "/tools/", "Explore the tools"],
         ].map(([n, title, copy, href, cta]) => <a key={n} href={href}><span>{n}</span><h3>{title}</h3><p>{copy}</p><b>{cta} ↗</b></a>)}</div>
@@ -87,8 +87,8 @@ export function WeddingMagazineHome() {
       </div></section>
       <section id="business" className="wm-shell wm-section"><div className="wm-section-heading"><div><p className="wm-kicker">Behind the celebration</p><h2>The business <em>of weddings.</em></h2></div><p>The people, technology and economics behind the day. A separate desk for the industry that makes it happen.</p></div><div className="wm-grid wm-grid-three">
         <StoryCard slug="future-wedding-technology-building-beyond-features" label="Industry & technology" title="What does better wedding technology actually look like?" />
-        <StoryCard slug="why-vendor-verification-matters" label="Trust & transparency" title="A beautiful portfolio is a start. What should you check next?" />
-        <StoryCard slug="india-wedding-market-data-2026" label="The market" title="Inside India’s wedding economy." />
+        <StoryCard slug="why-vendor-verification-matters" copy="What to ask about references, contracts, experience and the people you’re trusting with the day." label="Trust & transparency" title="A beautiful portfolio is a start. What should you check next?" />
+        <StoryCard slug="india-wedding-market-data-2026" copy="A look at the scale of India’s wedding industry and the companies building around it." label="The market" title="Inside India’s wedding economy." />
       </div></section>
       <section className="wm-endnote"><p className="wm-kicker">The whole wedding. The bigger picture.</p><h2>Make it meaningful.<br /><em>Make it yours.</em></h2><a href="/tools/">Start planning ↗</a><a href="/blog/">Keep reading ↗</a></section>
     </main>
