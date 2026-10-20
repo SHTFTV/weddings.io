@@ -2,13 +2,13 @@ import { Link } from "@tanstack/react-router";
 
 const navItems = [
   { to: "/" as const, label: "Home" },
-  { to: "/blog" as const, label: "Blog" },
-  { to: "/ecosystem" as const, label: "Ecosystem" },
-  { to: "/pricing" as const, label: "Pricing" },
+  { to: "/blog" as const, label: "Journal" },
+  { to: "/ecosystem" as const, label: "Our platform" },
+  { to: "/pricing" as const, label: "Business" },
 ];
 
 const externalNavItems = [
-  { href: "/journal/the-master-plan/", label: "The Master Plan", featured: true },
+  { href: "/tools/", label: "Planning tools", featured: true },
 ];
 
 
@@ -17,8 +17,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-3 px-5 py-4 sm:flex-row sm:items-center sm:gap-6 md:px-8">
         <Link to="/" className="flex items-center gap-3 font-serif text-xl text-foreground">
-          <span aria-hidden="true">🪔</span>
-          <span className="font-semibold text-primary">Weddings.io Technologies</span>
+          <span className="font-semibold text-primary">Weddings.io</span>
         </Link>
         <nav aria-label="Main navigation" className="flex w-full flex-wrap items-center gap-x-5 gap-y-2 text-sm font-medium text-muted-foreground sm:w-auto">
           {navItems.map((item) => (

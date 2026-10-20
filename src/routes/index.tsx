@@ -1,3 +1,5 @@
+import { WeddingMagazineHome } from "../components/WeddingMagazineHome";
+import weddingMagazineCss from "../components/wedding-magazine.css?url";
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
@@ -35,11 +37,11 @@ import { RotatingHeadline, CultureMosaic, CultureToolsGrid } from "../components
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Weddings.io™ — Wedding SaaS Ecosystem | Est. May 13, 2015" },
+      { title: "Weddings.io | Wedding Magazine, Traditions & Planning" },
       {
         name: "description",
         content:
-          "Weddings.io Technologies — the original wedding SaaS ecosystem, est. May 13, 2015. Multi-tenant planning tools, territory-locked vendor marketplace, EyeSpyR verification, and TALC.tv distribution across 1,018 cities and 24 countries.",
+          "Wedding inspiration, real and celebrity weddings, cultural traditions, destinations and style—alongside budget tools, checklists and the business of weddings.",
       },
       { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
       { name: "author", content: "Weddings.io Technologies — Industry Army Marketing, Langley BC Canada" },
@@ -50,11 +52,11 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://weddings.io/" },
       { property: "og:site_name", content: "Weddings.io™" },
-      { property: "og:title", content: "Weddings.io™ — Wedding SaaS Ecosystem | Est. May 13, 2015" },
+      { property: "og:title", content: "Weddings.io | Wedding Magazine, Traditions & Planning" },
       {
         property: "og:description",
         content:
-          "Wedding SaaS ecosystem powering 1,018 cities across 24 countries. Territory-locked vendor marketplace, multi-tenant planning tools, EyeSpyR verification, TALC.tv distribution. Est. May 13, 2015.",
+          "Explore the wedding edit: meaningful traditions, distinctive celebrations, destination ideas and practical tools for your kind of wedding.",
       },
       { property: "og:image", content: "https://weddings.io/opengraph.jpg" },
       {
@@ -64,15 +66,16 @@ export const Route = createFileRoute("/")({
       { property: "og:locale", content: "en_CA" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@weddingsio" },
-      { name: "twitter:title", content: "Weddings.io™ — Wedding SaaS Ecosystem | Est. May 13, 2015" },
+      { name: "twitter:title", content: "Weddings.io | Wedding Magazine, Traditions & Planning" },
       {
         name: "twitter:description",
         content:
-          "The original wedding SaaS ecosystem. Territory-locked vendors, multi-tenant planning tools, EyeSpyR verification. 1,018 cities. 24 countries. Est. May 13, 2015.",
+          "A whole world of weddings: real stories, traditions, style, destinations and planning tools.",
       },
       { name: "twitter:image", content: "https://weddings.io/opengraph.jpg" },
     ],
     links: [
+      { rel: "stylesheet", href: weddingMagazineCss },
       { rel: "canonical", href: "https://weddings.io/" },
       {
         rel: "alternate",
@@ -390,7 +393,9 @@ const founderQuotes = [
 ] as const;
 
 
-function Index() {
+function Index() { return <WeddingMagazineHome />; }
+
+function LegacyIndex() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <Header />
