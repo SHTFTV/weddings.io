@@ -2,6 +2,7 @@ import { blogPosts } from "../lib/blogPosts";
 
 const story = (slug: string) => blogPosts.find((post) => post.slug === slug);
 const desks = [
+  ["Latest", "#latest"],
   ["Real & celebrity weddings", "#real-weddings"], ["Culture & tradition", "#culture"],
   ["Destinations", "#destinations"], ["Style & details", "#style"],
   ["Planning", "#planning"], ["The business", "#business"],
@@ -53,6 +54,14 @@ export function WeddingMagazineHome() {
         </aside>
       </section>
       <div className="wm-note wm-shell"><span>THE WEDDINGS.IO POINT OF VIEW</span><p>Inspiration worth saving. Traditions worth understanding. Tools that help you get from “yes” to the day itself.</p></div>
+      <section id="latest" className="wm-shell wm-section"><div className="wm-section-heading"><div><p className="wm-kicker">Fresh from the editorial desk / October 20, 2026</p><h2>The latest <em>wedding edit.</em></h2></div><a href="/blog/">All stories ↗</a></div><div className="wm-grid wm-grid-three">
+        <StoryCard slug="selena-benny-wedding-signature-style" label="Celebrity Weddings" />
+        <StoryCard slug="briana-andalore-wedding-style-with-personality" label="Real Weddings" />
+        <StoryCard slug="multicultural-wedding-family-conversation" label="Culture & Tradition" />
+        <StoryCard slug="destination-wedding-guest-journey" label="Destinations" />
+        <StoryCard slug="wedding-vendor-quotes-same-brief" label="The Business of Weddings" />
+        <StoryCard slug="wedding-table-design-space-for-guests" label="Style & Details" />
+      </div></section>
       <section id="real-weddings" className="wm-shell wm-section"><div className="wm-section-heading"><div><p className="wm-kicker">People, not just Pinterest</p><h2>The stories behind <em>the celebration.</em></h2></div><a href="/blog/">Explore the journal ↗</a></div>
         <div className="wm-grid wm-grid-three">
           <StoryCard slug="how-to-plan-a-multicultural-wedding" label="Culture & connection" title="A wedding with room for both of you." image="/images/cultures/persian-hero.jpg" />

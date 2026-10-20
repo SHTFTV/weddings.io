@@ -72,6 +72,219 @@ export function normalizeSources(post: BlogPost): BlogPost {
 
 const allBlogPosts: BlogPost[] = [
 {
+  "slug": "selena-benny-wedding-signature-style",
+  "title": "Selena & Benny: The Case for a Signature Wedding Look",
+  "subtitle": "An archive wedding, a lasting style lesson: make a few choices work beautifully together.",
+  "category": "Celebrity Weddings",
+  "image": "/images/hall-night-candlelit.webp",
+  "imageAlt": "Illustrative candlelit wedding reception setting; not a photograph of Selena Gomez and Benny Blanco’s wedding.",
+  "excerpt": "A look back at Selena and Benny’s wedding, followed by our own guide to a coherent wedding style without copying a celebrity budget.",
+  "focusKeywords": [
+    "celebrity wedding style",
+    "Selena Gomez wedding"
+  ],
+  "body": [
+    "*Archive wedding commentary · Published October 20, 2026. The opening report refers to a 2025 wedding; the planning advice below is our own editorial perspective.*",
+    "Vogue’s September 28, 2025 coverage placed Selena Gomez and Benny Blanco’s wedding in Santa Barbara and identified Ralph Lauren as the designer for both. Gomez’s look paired a satin halter-neck gown with a lily-of-the-valley bouquet. [Read Vogue’s original reporting and photographs](https://www.vogue.com/article/selena-gomez-and-benny-blanco-are-married).",
+    "## The useful idea isn’t the price tag",
+    "A wedding moodboard can become a collection of unrelated favourites: one dress, another table, a third ceremony backdrop. Each is lovely; together they can pull in different directions. Our takeaway is to choose a thread before choosing more things.",
+    "Write three words for the atmosphere you want. They might be warm, intimate and playful, or sculptural, quiet and modern. Use those words to discuss the setting, clothes and table with your suppliers. They are a brief, not a demand that everything match.",
+    "## Choose the anchor",
+    "Pick the element you care about most. If it is an heirloom outfit, build around its colours and character. If it is a remarkable venue, let the room lead. If food is the heart of the celebration, devote your attention to the menu and the guest experience. Other choices can support that anchor without competing for equal attention.",
+    "## Leave room to enjoy it",
+    "An elegant idea still has to work for the people wearing, carrying or sitting beside it. Think about movement, weather, shoe changes and how much time you want to spend away from your guests. A second outfit is an option, not a wedding requirement.",
+    "Bring one short brief to your next supplier conversation: the anchor, the three atmosphere words, your priorities and the budget you can actually sustain. That gives inspiration somewhere useful to land.",
+    "Explore our [planning tools](https://weddings.io/tools/) and [wedding photography guide](https://weddings.io/blog/south-asian-wedding-photography-videography/). The reception image is illustrative; this is independent commentary, with no affiliation to the couple or Vogue."
+  ],
+  "sources": [
+    {
+      "label": "Selena Gomez and Benny Blanco Are Married!",
+      "url": "https://www.vogue.com/article/selena-gomez-and-benny-blanco-are-married",
+      "publisher": "Vogue",
+      "date": "2025-09-28"
+    }
+  ],
+  "date": "2026-10-20",
+  "dateLabel": "October 20, 2026",
+  "readTime": "3 min",
+  "seoTitle": "Selena & Benny: The Case for a Signature Wedding Look | Weddings.io",
+  "metaDescription": "A look back at Selena and Benny’s wedding, followed by our own guide to a coherent wedding style without copying a celebrity budget."
+},
+{
+  "slug": "briana-andalore-wedding-style-with-personality",
+  "title": "Six Looks, One Point of View: A Wedding With Personality",
+  "subtitle": "Briana Andalore’s reported wedding wardrobe offers a starting point for a different question: what feels like you?",
+  "category": "Real Weddings",
+  "image": "/images/cultures/western-hero.jpg",
+  "imageAlt": "Illustrative wedding fashion setting; not a photograph of Briana Andalore or her wedding.",
+  "excerpt": "Inspired by Vogue’s October wedding profile, we consider personal style, outfit changes and why a wedding should not feel like a costume.",
+  "focusKeywords": [
+    "personal wedding style",
+    "wedding outfit changes"
+  ],
+  "body": [
+    "*Reported inspiration and original planning commentary · October 20, 2026.*",
+    "In its October 14, 2026 profile, Vogue reported that stylist Briana Andalore wore six vintage and bespoke looks for her September 5 wedding to Payam Panahi at his family’s New Jersey estate. Her ceremony outfit was by Viktor & Rolf. [See the original profile and credited photographs](https://www.vogue.com/article/briana-andalore-wedding-something-bold-something-new).",
+    "## Personality is the point",
+    "Our interest is not in turning six changes into a new bridal target. Most celebrations do not need a wardrobe department. The useful question is whether the clothes feel connected to the person wearing them.",
+    "Start with what already makes you feel comfortable and recognisable: a favourite neckline, a colour you always return to, glasses, jewellery with a family story. A wedding can heighten your style without erasing it. You should still recognise yourself when the photographs arrive.",
+    "## Give every change a job",
+    "If you want more than one look, say what the change achieves. Is the ceremony outfit too heavy for dancing? Does a later event call for different cultural clothing? Will the temperature shift? Practical reasons can help decide the number of changes more effectively than a social-media checklist.",
+    "Write each change into the timeline, including the place, the people helping and where the first outfit goes. Ask your photographer which moments need coverage. Leaving a reception for a change also means missing part of your own party; decide whether that trade is worth it to you.",
+    "## Tell guests enough, without directing their wardrobes",
+    "A useful dress code explains formality, terrain and weather. Guests need to know about grass, gravel, a long walk or a cold evening more than they need a perfectly prescribed colour palette. Where ceremonial dress or etiquette matters, offer a welcoming explanation and someone to ask.",
+    "Personal style works best when it makes room for people. Pick the clothes you love, plan the logistics, then give yourself permission to forget about the outfit for a while.",
+    "Continue with our [multicultural wedding guide](https://weddings.io/blog/how-to-plan-a-multicultural-wedding/) or [planning tools](https://weddings.io/tools/). The accompanying image is illustrative, not an image of this couple. No interview or affiliation is implied."
+  ],
+  "sources": [
+    {
+      "label": "This Stylist Bride Wore 6 Avant-Garde Looks on Her Wedding Day—and Helped Dress Her Guests",
+      "url": "https://www.vogue.com/article/briana-andalore-wedding-something-bold-something-new",
+      "publisher": "Vogue",
+      "date": "2026-10-14"
+    }
+  ],
+  "date": "2026-10-20",
+  "dateLabel": "October 20, 2026",
+  "readTime": "3 min",
+  "seoTitle": "Six Looks, One Point of View: A Wedding With Personality | Weddings.io",
+  "metaDescription": "Inspired by Vogue’s October wedding profile, we consider personal style, outfit changes and why a wedding should not feel like a costume."
+},
+{
+  "slug": "multicultural-wedding-family-conversation",
+  "title": "Before the Moodboard: The Family Conversation",
+  "subtitle": "A practical way to make space for traditions without turning the wedding into a negotiation that never ends.",
+  "category": "Culture & Tradition",
+  "image": "/images/cultures/persian-hero.jpg",
+  "imageAlt": "Illustrative Persian wedding ceremony arrangement with candles and decorative objects.",
+  "excerpt": "Build a shared ceremony plan around meaning, family priorities and the people who will guide the rituals.",
+  "focusKeywords": [
+    "multicultural wedding planning",
+    "wedding family traditions"
+  ],
+  "body": [
+    "The first useful wedding meeting may not involve a venue, a florist or a colour palette. It may simply be the two of you asking what each family imagines when they hear the word wedding.",
+    "## Start separately, then compare",
+    "Each partner can write a short list: what feels essential, what would be lovely, and what does not feel right for you. Include ceremonies, clothing, food, music, languages and the people you want involved. Agree what you want as a couple before asking everyone else to weigh in.",
+    "Keep meaning separate from habit. A ritual may carry religious significance, family memory, both, or neither for you. Two relatives from the same background may understand it differently. Treat a guide as a conversation starter rather than proof that a whole community celebrates in one way.",
+    "## Ask for the story behind the request",
+    "When a parent proposes a tradition, ask what they value about it. Sometimes the meaningful part is a blessing, the participation of an elder or a particular family object. Knowing that can reveal options that a simple yes-or-no argument misses.",
+    "A useful working sheet has four headings: the moment, why it matters, who will guide it and what it needs. Add timing, space, translation and equipment only after you understand the intention.",
+    "## Let the right people advise on the ceremony",
+    "Discuss the proposed sequence with the celebrants or community members involved. Ask what can be adapted, what needs to remain distinct and what guests should understand. Do not assume ceremonies can be merged simply because the schedule is tight.",
+    "If several languages are involved, consider a short programme explaining the main moments. It need not narrate every movement. A welcoming explanation can help guests participate without feeling tested.",
+    "## Make decisions visible",
+    "Record what you agreed, who is responsible and which questions remain open. Set a date to settle those questions. A clear shared plan is kinder than letting different relatives carry different versions of the day.",
+    "Read the fuller [multicultural wedding planning guide](https://weddings.io/blog/how-to-plan-a-multicultural-wedding/), explore the [culture guides](https://weddings.io/cultures/) and use the [planning hub](https://weddings.io/tools/) to organise the next steps."
+  ],
+  "date": "2026-10-20",
+  "dateLabel": "October 20, 2026",
+  "readTime": "3 min",
+  "seoTitle": "Before the Moodboard: The Family Conversation | Weddings.io",
+  "metaDescription": "Build a shared ceremony plan around meaning, family priorities and the people who will guide the rituals."
+},
+{
+  "slug": "destination-wedding-guest-journey",
+  "title": "The Destination Wedding Test: Would You Enjoy Being a Guest?",
+  "subtitle": "The view wins the moodboard. The journey decides how the weekend feels.",
+  "category": "Destinations",
+  "image": "/images/blog-destination.webp",
+  "imageAlt": "Illustrative destination wedding setting overlooking a scenic landscape.",
+  "excerpt": "Before booking a destination wedding, walk through the travel, transfers, downtime and costs from your guests’ point of view.",
+  "focusKeywords": [
+    "destination wedding planning",
+    "destination wedding guests"
+  ],
+  "body": [
+    "A destination wedding can give everyone time together that a single evening rarely allows. It can also ask a great deal of the people you love. Before choosing a backdrop, try planning the weekend as a guest.",
+    "## Begin at their front door",
+    "Imagine a guest finishing work, reaching an airport, travelling onward and arriving at their accommodation. Then imagine the same route for someone with a child, limited mobility or a tight budget. Ask the venue and accommodation providers specific questions rather than relying on a destination’s general reputation.",
+    "How do transfers work? What happens after a late arrival? How far is the ceremony from the rooms? Are accessible routes available throughout the itinerary? An excellent answer is practical and specific.",
+    "## Price the whole invitation",
+    "Prepare a sample guest budget that includes accommodation, local transport, meals outside the hosted events and the length of stay. Avoid presenting an attractive room rate as the whole cost. Be clear about what you are hosting and what guests would arrange themselves.",
+    "If a room block is proposed, confirm the booking process and deadlines directly with the provider before sending information to guests. Travel and entry requirements vary by person and destination; point guests to the relevant official authorities for current information.",
+    "## Protect some empty time",
+    "A welcome evening, ceremony, reception and farewell breakfast may sound relaxed on paper. Add transfers, outfit changes and family obligations, and the weekend fills quickly. Make optional activities visibly optional. Guests should be able to rest without feeling they have failed the itinerary.",
+    "## Ask about the unglamorous backup",
+    "Tour the rain plan as carefully as the outdoor ceremony spot. Ask about heat, wind, shade, transport changes and how decisions are communicated. Beautiful photographs cannot tell you whether a backup room comfortably fits the event.",
+    "Choose the place where the celebration and the guest journey work together. The best destination is not simply somewhere you want to be photographed; it is somewhere you can thoughtfully host.",
+    "Explore [destinations](https://weddings.io/destinations/), [venues](https://weddings.io/venues/) and our [destination wedding planning guide](https://weddings.io/blog/destination-south-asian-weddings-guide/). This is a planning framework, not a recommendation of a particular property."
+  ],
+  "date": "2026-10-20",
+  "dateLabel": "October 20, 2026",
+  "readTime": "3 min",
+  "seoTitle": "The Destination Wedding Test: Would You Enjoy Being a Guest?",
+  "metaDescription": "Before booking a destination wedding, walk through the travel, transfers, downtime and costs from your guests’ point of view."
+},
+{
+  "slug": "wedding-vendor-quotes-same-brief",
+  "title": "Three Wedding Quotes, Three Different Weddings",
+  "subtitle": "Before deciding which supplier is expensive, check whether everyone has priced the same brief.",
+  "category": "The Business of Weddings",
+  "image": "/images/venue-day-real.jpg",
+  "imageAlt": "A wedding venue prepared for a celebration with tables and ceremony space.",
+  "excerpt": "A simple supplier comparison starts with the scope: coverage, staffing, delivery, setup and the details hidden behind a headline price.",
+  "focusKeywords": [
+    "compare wedding vendor quotes",
+    "wedding supplier pricing"
+  ],
+  "body": [
+    "One florist has included setup. Another has priced collection from the studio. A photographer has quoted six hours; another has included the whole reception. The totals look comparable until you notice they describe different days.",
+    "## Give everyone the same starting point",
+    "Prepare one short brief with the date, location, event timings, approximate guest count and the service you need. Mark uncertain details as uncertain. If your plans change, update the suppliers you are comparing so they can respond to the same version.",
+    "Separate essentials from extras you are curious about. That lets a supplier explain the core service and price optional additions without guessing which version of the wedding you want.",
+    "## Compare the work, not just the total",
+    "For each quote, record what is included, what is excluded, the staffing or coverage period, setup and collection arrangements, and the deliverables. Ask whether the quoted amount includes applicable taxes and the travel or delivery needed for your location.",
+    "Photography might turn on hours and delivery. Catering may depend on the service format and facilities. Decor can involve installation and removal as much as the objects themselves. A single price-per-guest column cannot explain every supplier.",
+    "## Ask what changes the price",
+    "Useful questions are specific: what if the finish time moves, the guest count changes or another location is added? Ask for the provider’s process for revised quotes and approval of extra work. Keep the answers with the quote so you can revisit them together.",
+    "Payment schedules, cancellation terms and responsibilities deserve attention before you book. Ask the supplier to explain anything unclear in writing; obtain appropriate independent advice where you need it. This article is an organisational guide, not a review of any particular contract.",
+    "## Choose for fit as well as cost",
+    "A cheaper service that omits something essential may not be the cheaper way to deliver your plan. Equally, an elaborate package can contain things you do not need. The aim is a clear match between the work, your priorities and the amount you are prepared to spend.",
+    "Explore the [vendor directory](https://weddings.io/vendors/) and [planning tools](https://weddings.io/tools/). For a starting estimate for a South Asian multi-event celebration, try the [budget calculator](https://weddings.io/calculator.html); it is not a supplier quote."
+  ],
+  "date": "2026-10-20",
+  "dateLabel": "October 20, 2026",
+  "readTime": "3 min",
+  "seoTitle": "Three Wedding Quotes, Three Different Weddings | Weddings.io",
+  "metaDescription": "A simple supplier comparison starts with the scope: coverage, staffing, delivery, setup and the details hidden behind a headline price."
+},
+{
+  "slug": "wedding-table-design-space-for-guests",
+  "title": "A Beautiful Table Still Needs Room for Dinner",
+  "subtitle": "Design the reception for the people sitting at it, not only the photograph taken before they arrive.",
+  "category": "Style & Details",
+  "image": "/images/hall-night-candlelit.webp",
+  "imageAlt": "A candlelit wedding reception with dressed tables and warm ambient light.",
+  "excerpt": "Think about conversation, serving space, sightlines and comfort before filling the reception table with decor.",
+  "focusKeywords": [
+    "wedding table design",
+    "wedding reception styling"
+  ],
+  "body": [
+    "A reception table has several jobs. It holds dinner, gives people somewhere to talk and contributes to the atmosphere. The photograph matters, but it captures only one of those jobs.",
+    "## Set a place for an actual person",
+    "Ask to see a sample place setting with the tableware and serving format you expect. Add water, wine if served, the bread plate, shared dishes where relevant and anything guests need to read. Now consider where elbows, bags and a conversation might go.",
+    "An empty table can make an arrangement look beautifully restrained. The same arrangement may feel crowded once service begins. Ask your venue, caterer and stylist to review the complete setup together.",
+    "## Check the view across the table",
+    "A striking centrepiece can become a screen between guests. Look at the arrangement from seated height, not only standing beside it. If the room’s main feature is a view or a ceremony backdrop, decide whether the decor is helping or hiding it.",
+    "Consider lighting from the same position. Guests need enough light to navigate and eat comfortably. Confirm candle policies and any installation requirements with the venue rather than assuming a saved image can be recreated there.",
+    "## Design around the meal",
+    "A shared feast, plated dinner and buffet create different needs. Shared dishes need landing space; service staff need workable access. Tell the designer how the meal will operate before finalising the objects that will occupy the table.",
+    "If cultural or family objects are part of the setting, explain their meaning and handling needs. Give them a deliberate place rather than squeezing them into whatever room remains.",
+    "## Spend on the experience you want",
+    "Choose a few elements that carry the mood: linen, light, flowers or a meaningful object. Repetition and a clear palette can provide coherence without making every surface busy.",
+    "The useful test is simple: would you want to spend two hours at this table? If the answer depends on moving half the decor, the design is not finished.",
+    "Read our [reception table and room-layout guide](https://weddings.io/blog/that-15-person-table-viral-reels/), explore [venues](https://weddings.io/venues/) and return to the [wedding magazine](https://weddings.io/#style) for more details."
+  ],
+  "date": "2026-10-20",
+  "dateLabel": "October 20, 2026",
+  "readTime": "3 min",
+  "seoTitle": "A Beautiful Table Still Needs Room for Dinner | Weddings.io",
+  "metaDescription": "Think about conversation, serving space, sightlines and comfort before filling the reception table with decor."
+},
+
+{
   "slug": "wedding-content-creator-next-day-videos",
   "title": "Wedding Content Creators: Decide What You Want Before You Book",
   "subtitle": "Next-day clips can be a lovely way to revisit your celebration. Start with the moments, delivery promise and sharing boundaries that matter to you.",
@@ -3602,6 +3815,12 @@ const allBlogPosts: BlogPost[] = [
 
 
 const visibleBlogSlugs = [
+  "selena-benny-wedding-signature-style",
+  "briana-andalore-wedding-style-with-personality",
+  "multicultural-wedding-family-conversation",
+  "destination-wedding-guest-journey",
+  "wedding-vendor-quotes-same-brief",
+  "wedding-table-design-space-for-guests",
   "wedding-content-creator-next-day-videos",
   "earning-our-place-weddings-io-founder",
   "shaadi-south-asian-wedding-planning-platform",
