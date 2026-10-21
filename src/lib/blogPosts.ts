@@ -3869,6 +3869,7 @@ const allBlogPosts: BlogPost[] = [
 
 
 const visibleBlogSlugs = [
+  "next-great-wedding-idea-behind-the-scenes",
   "selena-benny-wedding-signature-style",
   "briana-andalore-wedding-style-with-personality",
   "multicultural-wedding-family-conversation",
