@@ -54,7 +54,8 @@ export function WeddingMagazineHome() {
         </aside>
       </section>
       <div className="wm-note wm-shell"><span>THE WEDDINGS.IO POINT OF VIEW</span><p>Inspiration worth saving. Traditions worth understanding. Tools that help you get from “yes” to the day itself.</p></div>
-      <section id="latest" className="wm-shell wm-section"><div className="wm-section-heading"><div><p className="wm-kicker">Fresh from the editorial desk / October 20, 2026</p><h2>The latest <em>wedding edit.</em></h2></div><a href="/blog/">All stories ↗</a></div><div className="wm-grid wm-grid-three">
+      <section id="latest" className="wm-shell wm-section"><div className="wm-section-heading"><div><p className="wm-kicker">Fresh from the editorial desk / October 21, 2026</p><h2>The latest <em>wedding edit.</em></h2></div><a href="/blog/">All stories ↗</a></div><div className="wm-grid wm-grid-three">
+        <StoryCard slug="next-great-wedding-idea-behind-the-scenes" />
         <StoryCard slug="selena-benny-wedding-signature-style" label="Celebrity Weddings" />
         <StoryCard slug="briana-andalore-wedding-style-with-personality" label="Real Weddings" />
         <StoryCard slug="multicultural-wedding-family-conversation" label="Culture & Tradition" />
