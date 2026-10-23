@@ -80,7 +80,6 @@ const allBlogPosts: BlogPost[] = [
   "dateLabel": "October 23, 2026",
   "category": "Real & Celebrity Weddings",
   "image": "/images/blog/meaningful-venue-hero.jpg",
-  "ogImage": "/images/blog/meaningful-venue-share.jpg",
   "imageAlt": "Original planning illustration connecting a place’s personal meaning with guest access and a weather plan.",
   "readTime": "4 min",
   "excerpt": "Ejae and Samuel Kim’s Seoul celebration offers a starting point for your own venue questions: the memories, the guest journey and what happens when the plan changes.",
@@ -106,10 +105,10 @@ const allBlogPosts: BlogPost[] = [
     "A personal setting can remain meaningful when the forecast changes. The aim is to understand that version of the day before it becomes urgent.",
     "## Make room for more than one family story",
     "One partner may have a strong connection to the venue while the other brings a different tradition, place or memory. Look for ways to make both visible through the ceremony, menu, music or words spoken during the celebration.",
-    "Ask relatives which details matter to them, then decide together what belongs in your day. One couple’s choices do not define a universal cultural rule. Our [multicultural wedding guide](/blog/how-to-plan-a-multicultural-wedding) can help begin that conversation.",
+    "Ask relatives which details matter to them, then decide together what belongs in your day. One couple’s choices do not define a universal cultural rule. Our [multicultural wedding guide](https://weddings.io/blog/how-to-plan-a-multicultural-wedding) can help begin that conversation.",
     "## Leave the visit with a shared brief",
     "Write a one-page note after each visit: why the place matters, how guests will move through it, the alternative plan and the open questions. Share the same version with the people helping you decide.",
-    "For a celebration away from home, continue with our [destination wedding guide](/blog/destination-south-asian-weddings-guide). The most useful inspiration is something you can translate into your own circumstances.",
+    "For a celebration away from home, continue with our [destination wedding guide](https://weddings.io/blog/destination-south-asian-weddings-guide). The most useful inspiration is something you can translate into your own circumstances.",
     "Ejae’s venue story is a reminder to begin with meaning. Your next step is to give that meaning a practical home.",
     "*Source checked October 23, 2026. Celebrity-event facts are attributed to Vogue; the venue-planning questions are original Weddings.io editorial commentary. No third-party wedding photographs are reproduced.*"
   ],
@@ -120,7 +119,8 @@ const allBlogPosts: BlogPost[] = [
       "publisher": "Vogue / Shelby Wax",
       "date": "2026-10-19"
     }
-  ]
+  ],
+  "ogImage": "/images/blog/meaningful-venue-share.jpg"
 },
 {
   "slug": "next-great-wedding-idea-behind-the-scenes",
@@ -3920,6 +3920,7 @@ const allBlogPosts: BlogPost[] = [
 
 
 const visibleBlogSlugs = [
+  "ejae-seoul-wedding-venue-with-personal-history",
   "next-great-wedding-idea-behind-the-scenes",
   "selena-benny-wedding-signature-style",
   "briana-andalore-wedding-style-with-personality",
@@ -4141,5 +4142,4 @@ export function getCategoryBySlug(slug: string): TopicSummary | undefined {
 export function getTagBySlug(slug: string): TopicSummary | undefined {
   return allTags.find((t) => t.slug === slug);
 }
-
 
