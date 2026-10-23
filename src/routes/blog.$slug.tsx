@@ -145,13 +145,13 @@ export const Route = createFileRoute("/blog/$slug")({
     const description = withKeyword.length > 160 ? `${withKeyword.slice(0, 159)}…` : withKeyword;
     const keywords = post?.focusKeywords?.join(", ");
     const url = `https://weddings.io/blog/${params.slug}/`;
-    const image = post?.ogImage ?? post?.image ?? "/opengraph.jpg";
+    const image = post?.image ?? "/opengraph.jpg";
     const versionedImage = withImageVersion(image);
     const absoluteImage = versionedImage.startsWith("http") ? versionedImage : `https://weddings.io${versionedImage}`;
 
     const isEcosystemVideoPost = canonicalSlug === ECOSYSTEM_VIDEO_SLUG;
-    const socialOgImage = isEcosystemVideoPost ? absUrl(ECOSYSTEM_VIDEO_OG_IMAGE) : absoluteImage;
-    const socialTwitterImage = isEcosystemVideoPost ? absUrl(ECOSYSTEM_VIDEO_TWITTER_IMAGE) : absoluteImage;
+    const socialOgImage = isEcosystemVideoPost ? absUrl(ECOSYSTEM_VIDEO_OG_IMAGE) : (post?.ogImage ? absUrl(post.ogImage) : absoluteImage);
+    const socialTwitterImage = isEcosystemVideoPost ? absUrl(ECOSYSTEM_VIDEO_TWITTER_IMAGE) : (post?.ogImage ? absUrl(post.ogImage) : absoluteImage);
 
     const idx = post ? sortedBlogPosts.findIndex((p) => p.slug === post.slug) : -1;
     const newerPost = idx > 0 ? sortedBlogPosts[idx - 1] : null;
