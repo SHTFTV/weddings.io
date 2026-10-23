@@ -84,6 +84,7 @@ const allBlogPosts: BlogPost[] = [
   "readTime": "4 min",
   "excerpt": "Ejae and Samuel Kim’s Seoul celebration offers a starting point for your own venue questions: the memories, the guest journey and what happens when the plan changes.",
   "seoTitle": "Ejae’s Seoul Wedding: A Venue With Personal History | Weddings.io",
+  "focusKeywords": ["Ejae’s Seoul wedding", "meaningful wedding venue"],
   "metaDescription": "What Ejae’s meaningful Seoul wedding setting can prompt couples to ask about their own venue: memory, access, weather and a clear practical plan.",
   "body": [
     "*Original explanatory artwork: Weddings.io Editorial. A venue-planning diagram, not a photograph of Ejae’s wedding or Stage 28.*",
