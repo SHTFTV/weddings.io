@@ -145,7 +145,7 @@ export const Route = createFileRoute("/blog/$slug")({
     const description = withKeyword.length > 160 ? `${withKeyword.slice(0, 159)}…` : withKeyword;
     const keywords = post?.focusKeywords?.join(", ");
     const url = `https://weddings.io/blog/${params.slug}/`;
-    const image = post?.image ?? "/opengraph.jpg";
+    const image = post?.ogImage ?? post?.image ?? "/opengraph.jpg";
     const versionedImage = withImageVersion(image);
     const absoluteImage = versionedImage.startsWith("http") ? versionedImage : `https://weddings.io${versionedImage}`;
 
@@ -171,6 +171,7 @@ export const Route = createFileRoute("/blog/$slug")({
         { property: "og:description", content: description },
         { property: "og:url", content: url },
         { property: "og:image", content: socialOgImage },
+        ...(post?.ogImage ? [{property:"og:image:type",content:"image/jpeg"},{property:"og:image:width",content:"1200"},{property:"og:image:height",content:"630"},{property:"og:image:alt",content:post.imageAlt ?? post.title},{property:"og:site_name",content:"Weddings.io"},{name:"twitter:image:alt",content:post.imageAlt ?? post.title}] : []),
         ...(isEcosystemVideoPost
           ? [
               { property: "og:video", content: absUrl(ECOSYSTEM_VIDEO_URL) },
@@ -475,6 +476,7 @@ function BlogPostPage() {
           {post.slug === "next-saas-moat-shared-success" && (
             <EcosystemVideo className="mt-10" autoplayOnView />
           )}
+          {post.slug === "ejae-seoul-wedding-venue-with-personal-history" && <aside style={{marginTop:24,padding:"16px 20px",background:"#302723",color:"#faf7f1",borderRadius:8,fontSize:14}}>WEDDINGS.IO / ADVERTISING OPPORTUNITY · <a style={{textDecoration:"underline"}} href="mailto:colin@industryarmymarketing.com?subject=Advertise%20on%20Weddings.io">Advertise here</a></aside>}
           {(() => {
             const body = post.body ?? [];
             const headingSlug = (t: string) =>
@@ -702,3 +704,4 @@ function BlogPostPage() {
     </main>
   );
 }
+

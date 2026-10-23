@@ -25,13 +25,14 @@ function StoryCard({ slug, label, title, image, copy }: { slug: string; label?: 
     <img src={image || post.image} alt={post.imageAlt || post.title} loading="lazy" width="800" height="540" />
   </a><p className="wm-kicker">{label || post.category}</p>
     <h3><a href={`/blog/${slug}`}>{title || post.title}</a></h3>
-    <p>{copy || post.excerpt}</p><a className="wm-read" href={`/blog/${slug}`}>Read the story <span aria-hidden="true">↗</span></a></article>;
+    <p>{copy || post.excerpt}</p><time dateTime={post.date} style={{display:"block",fontSize:".8rem",marginBottom:".8rem"}}>{post.dateLabel}</time><a className="wm-read" href={`/blog/${slug}`}>Read the story <span aria-hidden="true">↗</span></a></article>;
 }
 function Chapter({ id, number, title, copy, image, href }: { id: string; number: string; title: string; copy: string; image: string; href: string }) {
   return <section id={id} className="wm-chapter"><img src={image} alt="" loading="lazy" width="1800" height="700" />
     <div><p className="wm-kicker">The wedding edit / {number}</p><h2>{title}</h2><p>{copy}</p><a href={href}>Explore the edit <span aria-hidden="true">↗</span></a></div></section>;
 }
 export function WeddingMagazineHome() {
+  const latest = [...blogPosts].sort((a,b)=>b.date.localeCompare(a.date)).slice(0,4);
   return <div className="wm">
     <a className="wm-skip" href="#wm-main">Skip to stories</a>
     <div className="wm-topline"><span>A whole world of weddings.</span><a href="/tools/">Open your planning tools ↗</a></div>
@@ -54,14 +55,8 @@ export function WeddingMagazineHome() {
         </aside>
       </section>
       <div className="wm-note wm-shell"><span>THE WEDDINGS.IO POINT OF VIEW</span><p>Inspiration worth saving. Traditions worth understanding. Tools that help you get from “yes” to the day itself.</p></div>
-      <section id="latest" className="wm-shell wm-section"><div className="wm-section-heading"><div><p className="wm-kicker">Fresh from the editorial desk / October 21, 2026</p><h2>The latest <em>wedding edit.</em></h2></div><a href="/blog/">All stories ↗</a></div><div className="wm-grid wm-grid-three">
-        <StoryCard slug="next-great-wedding-idea-behind-the-scenes" />
-        <StoryCard slug="selena-benny-wedding-signature-style" label="Celebrity Weddings" />
-        <StoryCard slug="briana-andalore-wedding-style-with-personality" label="Real Weddings" />
-        <StoryCard slug="multicultural-wedding-family-conversation" label="Culture & Tradition" />
-        <StoryCard slug="destination-wedding-guest-journey" label="Destinations" />
-        <StoryCard slug="wedding-vendor-quotes-same-brief" label="The Business of Weddings" />
-        <StoryCard slug="wedding-table-design-space-for-guests" label="Style & Details" />
+      <section id="latest" className="wm-shell wm-section"><div className="wm-section-heading"><div><p className="wm-kicker">Latest publication / {latest[0]?.dateLabel}</p><h2>The latest <em>wedding edit.</em></h2></div><a href="/blog/">All stories ↗</a></div><div className="wm-grid wm-grid-three">
+        {latest.map(post=><StoryCard key={post.slug} slug={post.slug} />)}
       </div></section>
       <section id="real-weddings" className="wm-shell wm-section"><div className="wm-section-heading"><div><p className="wm-kicker">People, not just Pinterest</p><h2>The stories behind <em>the celebration.</em></h2></div><a href="/blog/">Explore the journal ↗</a></div>
         <div className="wm-grid wm-grid-three">
@@ -105,3 +100,4 @@ export function WeddingMagazineHome() {
     <footer className="wm-footer wm-shell"><a className="wm-footer-logo" href="/">Weddings.io</a><p>An independent wedding magazine and planning platform.<br />For the celebration, the traditions and everything in between.</p><nav aria-label="More from Weddings.io"><a href="/cultures">Cultures</a><a href="/destinations">Destinations</a><a href="/vendors">Vendors</a><a href="/ecosystem">Our platform</a><a href="/pricing">Business pricing</a><a href="/guest-post/">Contribute</a><a href="/blog/">Journal</a></nav><small>Weddings.io Technologies · Inspiration and planning guides. Confirm costs, availability and ceremony requirements directly with your providers.</small></footer>
   </div>;
 }
+

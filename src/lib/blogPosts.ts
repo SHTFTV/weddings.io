@@ -19,6 +19,7 @@ export type BlogPost = {
   dateLabel: string;
   category: string;
   image: string;
+  ogImage?: string;
   imageAlt?: string;
   /** Optional WebP source (large, e.g. 1600w) used inside <picture>. Original `image` remains the JPEG fallback + og:image. */
   imageWebp?: string;
@@ -71,6 +72,56 @@ export function normalizeSources(post: BlogPost): BlogPost {
 }
 
 const allBlogPosts: BlogPost[] = [
+{
+  "slug": "ejae-seoul-wedding-venue-with-personal-history",
+  "title": "Ejae’s Seoul Wedding: Choosing a Place With a Personal History",
+  "subtitle": "A meaningful setting can give a celebration its emotional centre. The practical plan still needs its own careful conversation.",
+  "date": "2026-10-23",
+  "dateLabel": "October 23, 2026",
+  "category": "Real & Celebrity Weddings",
+  "image": "/images/blog/meaningful-venue-hero.jpg",
+  "ogImage": "/images/blog/meaningful-venue-share.jpg",
+  "imageAlt": "Original planning illustration connecting a place’s personal meaning with guest access and a weather plan.",
+  "readTime": "4 min",
+  "excerpt": "Ejae and Samuel Kim’s Seoul celebration offers a starting point for your own venue questions: the memories, the guest journey and what happens when the plan changes.",
+  "seoTitle": "Ejae’s Seoul Wedding: A Venue With Personal History | Weddings.io",
+  "metaDescription": "What Ejae’s meaningful Seoul wedding setting can prompt couples to ask about their own venue: memory, access, weather and a clear practical plan.",
+  "body": [
+    "*Original explanatory artwork: Weddings.io Editorial. A venue-planning diagram, not a photograph of Ejae’s wedding or Stage 28.*",
+    "Some places already belong to your story before you begin planning a wedding.",
+    "In Vogue’s October 19 report, Ejae and Samuel Kim married in Seoul on October 17, 2026. Their venue, Stage 28, included a home where her grandparents had lived and a garden she remembered from childhood. [Read the original report and photographs](https://www.vogue.com/slideshow/ejae-and-samuel-kim-wedding).",
+    "That personal connection is the part worth pausing over. A setting can mean more than its appearance: it may hold family memories, mark a shared chapter or make someone important feel present.",
+    "Our planning question is separate from the celebrity report: how do you preserve that meaning while making the day comfortable for the people joining you?",
+    "## Start with the memory you want to carry forward",
+    "Before comparing venues, each partner can write a short answer to one question: what would make this place feel like ours? The answer might be a familiar landscape, a room where family gathers or a connection to a city where your relationship began.",
+    "Keep the answer specific. “A place we can return to” points toward a different choice from “a room large enough for everyone to dance together.” Both are useful priorities. Neither requires reproducing another couple’s celebration.",
+    "Share the answers before booking visits. They give you a reason to include a venue on the shortlist and a way to explain why a beautiful alternative may feel less right.",
+    "## Walk the day as a guest",
+    "On a visit, follow the route from arrival to ceremony, meal and departure. Notice the transitions. Where will guests wait? How far is each walk? What information would someone need if they had never visited the area?",
+    "Ask the venue team about step-free routes, seating, toilets, transport and the practical support your particular guests may need. Record what is available and what still requires a separate arrangement. A reassuring conversation becomes more useful when its details are written down.",
+    "If different spaces carry different parts of the celebration, review the handoff between them. A memorable garden and an inviting reception room still need a workable route, realistic timing and a named person responsible for guiding the move.",
+    "## Give the weather plan the same attention",
+    "For an outdoor element, ask to see the alternative setup with your intended guest count and ceremony layout. Check which parts of the original idea can carry across and which decisions must change.",
+    "Agree when the decision is made, who makes it and how suppliers hear about it. These are questions for your own venue and team; they are not claims about the arrangements at Ejae’s wedding.",
+    "A personal setting can remain meaningful when the forecast changes. The aim is to understand that version of the day before it becomes urgent.",
+    "## Make room for more than one family story",
+    "One partner may have a strong connection to the venue while the other brings a different tradition, place or memory. Look for ways to make both visible through the ceremony, menu, music or words spoken during the celebration.",
+    "Ask relatives which details matter to them, then decide together what belongs in your day. One couple’s choices do not define a universal cultural rule. Our [multicultural wedding guide](/blog/how-to-plan-a-multicultural-wedding) can help begin that conversation.",
+    "## Leave the visit with a shared brief",
+    "Write a one-page note after each visit: why the place matters, how guests will move through it, the alternative plan and the open questions. Share the same version with the people helping you decide.",
+    "For a celebration away from home, continue with our [destination wedding guide](/blog/destination-south-asian-weddings-guide). The most useful inspiration is something you can translate into your own circumstances.",
+    "Ejae’s venue story is a reminder to begin with meaning. Your next step is to give that meaning a practical home.",
+    "*Source checked October 23, 2026. Celebrity-event facts are attributed to Vogue; the venue-planning questions are original Weddings.io editorial commentary. No third-party wedding photographs are reproduced.*"
+  ],
+  "sources": [
+    {
+      "label": "Ejae and Samuel Kim’s garden wedding in Seoul",
+      "url": "https://www.vogue.com/slideshow/ejae-and-samuel-kim-wedding",
+      "publisher": "Vogue / Shelby Wax",
+      "date": "2026-10-19"
+    }
+  ]
+},
 {
   "slug": "next-great-wedding-idea-behind-the-scenes",
   "title": "The Next Great Wedding Idea Might Come From Behind the Scenes",
@@ -4090,4 +4141,5 @@ export function getCategoryBySlug(slug: string): TopicSummary | undefined {
 export function getTagBySlug(slug: string): TopicSummary | undefined {
   return allTags.find((t) => t.slug === slug);
 }
+
 
