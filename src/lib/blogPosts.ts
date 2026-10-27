@@ -4063,6 +4063,8 @@ const allBlogPosts: BlogPost[] = [
 
 
 const visibleBlogSlugs = [
+  "wedding-rental-return-plan-last-box",
+  "wedding-room-reset-ceremony-reception",
   "wedding-day-contact-sheet-right-person-current-plan",
   "ejae-seoul-wedding-venue-with-personal-history",
   "next-great-wedding-idea-behind-the-scenes",
