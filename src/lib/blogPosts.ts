@@ -3970,6 +3970,7 @@ const allBlogPosts: BlogPost[] = [
 
 
 const visibleBlogSlugs = [
+  "wedding-day-contact-sheet-right-person-current-plan",
   "ejae-seoul-wedding-venue-with-personal-history",
   "next-great-wedding-idea-behind-the-scenes",
   "selena-benny-wedding-signature-style",
