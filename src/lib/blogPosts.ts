@@ -73,6 +73,98 @@ export function normalizeSources(post: BlogPost): BlogPost {
 
 const allBlogPosts: BlogPost[] = [
 {
+  "slug": "wedding-rental-return-plan-last-box",
+  "title": "Wedding Rental Returns: Decide Who Owns the Last Box",
+  "subtitle": "A useful close-out plan starts before the first delivery, with agreed collection, counts and responsibility.",
+  "date": "2026-10-27",
+  "dateLabel": "October 27, 2026",
+  "category": "Wedding Planning",
+  "image": "/images/blog/wedding-rental-return-plan-last-box-hero.jpg",
+  "ogImage": "/images/blog/wedding-rental-return-plan-last-box-share.jpg",
+  "imageAlt": "Original Weddings.io diagram illustrating rental ownership, packing and collection",
+  "readTime": "4 min",
+  "excerpt": "A useful close-out plan starts before the first delivery, with agreed collection, counts and responsibility.",
+  "seoTitle": "Wedding Rental Returns: Decide Who Owns the Last Box | Weddings.io",
+  "metaDescription": "A useful close-out plan starts before the first delivery, with agreed collection, counts and responsibility.",
+  "focusKeywords": [
+    "wedding rental returns"
+  ],
+  "body": [
+    "*Original explanatory illustration by Weddings.io Editorial. A fictional planning diagram, not a wedding photograph or app screenshot.*",
+    "## Make the finish part of the plan",
+    "A beautifully arranged reception still has a last chair, a box of hired glassware and someone wondering which van they belong in. The end of a wedding deserves a small plan of its own. This original Weddings.io planning guide proposes an ordinary handover exercise; it does not describe a particular wedding, supplier promise or app feature.",
+    "## Separate the items by owner",
+    "Create a simple inventory with three groups: items belonging to the couple, items belonging to the venue, and hired items belonging to named suppliers. A visual theme does not tell the team who owns an object. Label the transport containers as well as the items, and identify pieces that arrive with their own protective packaging. Ask suppliers how they want their property counted and returned rather than inventing a universal rule.",
+    "## Distinguish collection from packing",
+    "The person collecting a rental may not be the person responsible for taking down decor or putting it into boxes. Discuss those tasks separately. Record who may move each item, who packs it, who confirms the collection count, and the agreed pickup point. Keep any work involving equipment, access restrictions or venue operations with the people authorised to do it. A friend carrying personal gifts should not discover they have also been assigned a commercial dismantling job.",
+    "## Ask about the actual deadline",
+    "Write down the collection window supplied by the venue and rental business, including the calendar date if the event finishes after midnight. Distinguish the time guests leave from the time a room must be clear. If a pickup is proposed for the following morning, check where items can remain and who can provide access. These details need agreement with the businesses involved; this article sets no standard cutoff or fee.",
+    "## Choose one close-out owner and a backup",
+    "Ask a willing person to hold the working return list. They need the correct supplier instructions and permission to contact the appropriate person, not responsibility for every problem at the event. Agree when they start, when they finish and what they should escalate. If a couple has hired a planner or coordinator, clarify how this list fits that professional scope rather than creating a second competing set of instructions.",
+    "## Rehearse one missing item",
+    "Use a fictional example: the packing list says twelve candle holders, but the collection pile contains eleven. Who checks the table area? Who records the discrepancy? Who tells the supplier? The answer should not be a guess about blame or payment. Keep a dated note of what was observed and follow the supplier agreement. Photographs can help identify a labelled box, but do not include guests or private material unnecessarily.",
+    "## Give personal items their own route",
+    "Cards, gifts, clothing and sentimental pieces need a separate handover agreed with their owners. Do not pack them into a hired container simply because it has spare space. Decide who will receive each group and how the receiving person will acknowledge it. Keep sensitive valuables and private documents out of a general shared inventory. A short clear personal-item list is more useful than a public catalogue of everything brought to the celebration.",
+    "## Use a compact return record",
+    "Start with six fields: item group, owner, expected quantity, packing instructions, collection window and agreed responsible person. Add an unresolved column for anything still awaiting confirmation. Review the record before the wedding and after supplier instructions change. The point is a calmer finish, not paperwork for its own sake. Pair this with our wedding-day contact sheet so the close-out team can find the current instruction and the person authorised to answer a question.",
+    "Related planning: [the wedding-day contact sheet](/blog/wedding-day-contact-sheet-right-person-current-plan) and [our companion planning guide](/blog/wedding-room-reset-ceremony-reception)."
+  ],
+  "sources": [
+    {
+      "label": "Related original Weddings.io planning guide: wedding-day contact sheet",
+      "url": "https://weddings.io/blog/wedding-day-contact-sheet-right-person-current-plan/",
+      "publisher": "Weddings.io Editorial",
+      "date": "2026-10-26"
+    }
+  ]
+},
+{
+  "slug": "wedding-room-reset-ceremony-reception",
+  "title": "From Ceremony to Reception: Plan the Room Reset",
+  "subtitle": "Treat the change between two beautiful settings as a sequence of agreed handovers, not an invisible gap.",
+  "date": "2026-10-27",
+  "dateLabel": "October 27, 2026",
+  "category": "Wedding Planning",
+  "image": "/images/blog/wedding-room-reset-ceremony-reception-hero.jpg",
+  "ogImage": "/images/blog/wedding-room-reset-ceremony-reception-share.jpg",
+  "imageAlt": "Original Weddings.io diagram illustrating ceremony, guest waiting area and reception reset",
+  "readTime": "4 min",
+  "excerpt": "Treat the change between two beautiful settings as a sequence of agreed handovers, not an invisible gap.",
+  "seoTitle": "From Ceremony to Reception: Plan the Room Reset | Weddings.io",
+  "metaDescription": "Treat the change between two beautiful settings as a sequence of agreed handovers, not an invisible gap.",
+  "focusKeywords": [
+    "wedding room reset"
+  ],
+  "body": [
+    "*Original explanatory illustration by Weddings.io Editorial. A fictional planning diagram, not a wedding photograph or app screenshot.*",
+    "## Look at the space between the photographs",
+    "A ceremony layout and a reception layout can each look complete while the transition between them remains unexplained. This original Weddings.io practical guide focuses on that middle period: where guests wait, who moves what, and how the next team knows the room is ready. It is a planning exercise, not a venue operating instruction or a claim that any particular turnover time is achievable.",
+    "## Draw two layouts and one waiting place",
+    "Ask the venue which layouts it can support and who must approve them. Mark where guests go while the space changes, where suppliers can enter, and which areas stay available. Do not assume an empty corridor is a permitted waiting area. The venue controls its own access and operational procedures. The couple needs a clear guest journey that works alongside those requirements, not a drawing that overrides them.",
+    "## Identify what actually changes",
+    "List the objects and setups that move: chairs, ceremony decor, tables, sound equipment, signage or personal items. Identify what remains in place. A reused floral arrangement may need its own handling and transport plan; it is not automatically free labour because it already exists in the room. Ask the relevant supplier whether moving or resetting it is within the agreed scope. Record any decision that changes their work or staffing.",
+    "## Build the sequence with the working team",
+    "Invite the venue and relevant suppliers to describe dependencies. A table cannot be dressed while it is still being placed; a sound check may need a quiet room. Use their estimates rather than deriving a turnaround duration from a social-media clip. Record which task releases the next task and who confirms that release. Leave uncertain timing visible until the responsible business has reviewed it.",
+    "## Create a guest-facing instruction",
+    "Guests do not need the full production schedule. They need to know where to go, what is available while they wait and who can answer a routine question. Keep signage and spoken instructions consistent. Consider the needs guests have told you about directly, and ask the venue how to make the waiting arrangement workable. Do not publish private accessibility or health details in a general schedule.",
+    "## Name the person who accepts the room",
+    "Completion is more useful when it has a recipient. Agree who checks that the room is ready for the next phase and which suppliers must finish their own checks first. This is not a substitute for venue safety procedures or professional equipment checks. It is a communication step: the room has moved from one agreed use to the next, and the appropriate people know what is still outstanding.",
+    "## Rehearse a delay without blaming anyone",
+    "Try one invented scenario: a speech runs late and a supplier cannot start the next task at the expected time. Who receives the revised instruction? Which guest message changes? Who has authority to approve a different sequence? An exercise can expose a missing decision without predicting a real failure. Keep any change to contracted work with the people entitled to agree it.",
+    "## Keep the final plan small enough to use",
+    "Create a one-page transition summary with the two layouts, waiting location, task sequence, responsible contacts and latest revision. Keep detailed supplier documents available separately. Review the summary together rather than assuming a shared file equals agreement. For the information handover itself, read our wedding-day contact-sheet guide. For the end of the celebration, the rental-return plan covers a different question: who owns the final box.",
+    "Related planning: [the wedding-day contact sheet](/blog/wedding-day-contact-sheet-right-person-current-plan) and [our companion planning guide](/blog/wedding-rental-return-plan-last-box)."
+  ],
+  "sources": [
+    {
+      "label": "Related original Weddings.io planning guide: wedding-day contact sheet",
+      "url": "https://weddings.io/blog/wedding-day-contact-sheet-right-person-current-plan/",
+      "publisher": "Weddings.io Editorial",
+      "date": "2026-10-26"
+    }
+  ]
+},
+{
   "slug": "wedding-day-contact-sheet-right-person-current-plan",
   "focusKeywords": ["wedding-day contact sheet", "wedding contact plan"],
   "title": "Your Wedding-Day Contact Sheet: The Right Person, the Current Plan",
