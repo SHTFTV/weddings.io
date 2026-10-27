@@ -73,6 +73,55 @@ export function normalizeSources(post: BlogPost): BlogPost {
 
 const allBlogPosts: BlogPost[] = [
 {
+  "slug": "wedding-day-contact-sheet-right-person-current-plan",
+  "title": "Your Wedding-Day Contact Sheet: The Right Person, the Current Plan",
+  "subtitle": "Give the people supporting your celebration a clear handover, without turning the couple into the switchboard.",
+  "date": "2026-10-26",
+  "dateLabel": "October 26, 2026",
+  "category": "Wedding Planning",
+  "image": "/images/blog/contact-sheet-hero.jpg",
+  "ogImage": "/images/blog/contact-sheet-share.jpg",
+  "imageAlt": "Original planning diagram connecting a question, an agreed contact, the current plan and a backup.",
+  "readTime": "4 min",
+  "excerpt": "An original practical guide to agreed responsibilities, current instructions and a contact sheet people can actually use.",
+  "seoTitle": "Wedding-Day Contact Sheet: People, Roles & Current Instructions | Weddings.io",
+  "metaDescription": "Prepare a wedding-day contact sheet with agreed roles, a current plan and backup contacts. A practical original guide from Weddings.io.",
+  "body": [
+    "*Original explanatory artwork: Weddings.io Editorial. A planning diagram, not a photograph of a wedding or an app screenshot.*",
+    "A wedding-day contact sheet should help the right person answer the next question without making the couple the switchboard. It is a small document with a very practical job: connect a decision, a responsible person and a reliable way to reach them.",
+    "This is an original planning exercise, not a report of a particular wedding or a promise that a software product handles the handover automatically. Work through the plan with the people who have agreed to carry it out.",
+    "## Start with decisions, then add names",
+    "Instead of copying every supplier contact into one long list, write down the questions that may need an answer. Who can clarify the agreed arrival point? Who holds the current room plan? Who should receive a message about a delayed delivery? The answers may belong to different people.",
+    "For each question, identify one first contact and a backup who has actually agreed to help. A name on a spreadsheet does not create responsibility. Ask each person whether the role makes sense, what information they need and when they expect to be available.",
+    "## Give each reader only what they need",
+    "The version for guests and the version for the working team can serve different purposes. Guests may need an arrival instruction and a clear way to ask a question. A supplier may need a setup contact, an access instruction and a defined handover point. Decide with each person which contact details can be shared with which group.",
+    "Avoid putting a private working document on an open public page simply because a link is easy to send. Use the sharing controls you understand, check who can open it and remove information that does not help that reader. This is practical information planning, not a claim about any product’s security.",
+    "## Put a version and a current owner on the sheet",
+    "Add a plain title, the event date, a revision date and the person maintaining the document. A filename such as “final-new-latest” does little to explain whether an older attachment has been replaced. Give people one agreed location for the current version and explain how changes will be communicated.",
+    "If an important detail changes, tell the affected people directly rather than assuming they will notice an edited file. Keep the message specific: what changed, which instruction replaces the previous one and whether they need to acknowledge it. Confirm the communication method with the team before the day.",
+    "## Rehearse two ordinary interruptions",
+    "Choose two fictional situations, such as a supplier arriving at a different entrance or a guest asking where to wait. Ask someone who did not create the sheet to identify the first contact, the backup and the current instruction. Notice whether they have to call the couple to interpret the plan.",
+    "The exercise is not a test of anyone’s competence. It reveals missing context while there is time to add it. If every decision points to one busy person, discuss a more workable division of responsibilities. Do not assign authority over contracts, payments or venue operations without the appropriate agreement.",
+    "## Keep emergency arrangements separate",
+    "A wedding contact sheet is not an emergency response plan. Ask the venue how it communicates its own procedures and who is responsible for them. Keep routine delivery or guest questions distinct from situations that need the venue’s designated process or emergency services.",
+    "## Make the handover feel human",
+    "Before sharing the final version, thank the people taking on a role and check the spelling, contact route and availability with them. A shorter list of agreed responsibilities is more useful than a comprehensive directory no one has reviewed.",
+    "The goal is not to remove the couple from their own celebration. It is to give the people supporting them enough context to handle ordinary questions. For the venue side of the plan, [read our guide to choosing a place with personal meaning](/blog/ejae-seoul-wedding-venue-with-personal-history).",
+    "## A simple starting layout",
+    "Use six columns: question or decision; first contact; agreed contact method; backup; current instruction; last checked. Complete one realistic row together before filling the rest. Keep unresolved decisions visible rather than filling a blank with a guess."
+  ],
+  "faq": [
+    {
+      "question": "Who belongs on a wedding-day contact sheet?",
+      "answer": "Include people who have agreed to handle a defined question or decision. Confirm their contact route, availability and backup before sharing."
+    },
+    {
+      "question": "Should guests receive the full supplier contact list?",
+      "answer": "Prepare the information each group actually needs and agree what contact details may be shared. Check the current document’s access before sending it."
+    }
+  ]
+},
+{
   "slug": "ejae-seoul-wedding-venue-with-personal-history",
   "title": "Ejae’s Seoul Wedding: Choosing a Place With a Personal History",
   "subtitle": "A meaningful setting can give a celebration its emotional centre. The practical plan still needs its own careful conversation.",
@@ -4143,4 +4192,5 @@ export function getCategoryBySlug(slug: string): TopicSummary | undefined {
 export function getTagBySlug(slug: string): TopicSummary | undefined {
   return allTags.find((t) => t.slug === slug);
 }
+
 

@@ -476,7 +476,7 @@ function BlogPostPage() {
           {post.slug === "next-saas-moat-shared-success" && (
             <EcosystemVideo className="mt-10" autoplayOnView />
           )}
-          {post.slug === "ejae-seoul-wedding-venue-with-personal-history" && <aside style={{marginTop:24,padding:"16px 20px",background:"#302723",color:"#faf7f1",borderRadius:8,fontSize:14}}>WEDDINGS.IO / ADVERTISING OPPORTUNITY · <a style={{textDecoration:"underline"}} href="mailto:colin@industryarmymarketing.com?subject=Advertise%20on%20Weddings.io">Advertise here</a></aside>}
+          {["ejae-seoul-wedding-venue-with-personal-history", "wedding-day-contact-sheet-right-person-current-plan"].includes(post.slug) && <aside style={{marginTop:24,padding:"16px 20px",background:"#302723",color:"#faf7f1",borderRadius:8,fontSize:14}}>WEDDINGS.IO / ADVERTISING OPPORTUNITY · <a style={{textDecoration:"underline"}} href="mailto:colin@industryarmymarketing.com?subject=Advertise%20on%20Weddings.io">Advertise here</a></aside>}
           {(() => {
             const body = post.body ?? [];
             const headingSlug = (t: string) =>
@@ -704,4 +704,5 @@ function BlogPostPage() {
     </main>
   );
 }
+
 
