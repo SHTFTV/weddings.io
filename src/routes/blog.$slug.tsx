@@ -477,6 +477,8 @@ function BlogPostPage() {
             <EcosystemVideo className="mt-10" autoplayOnView />
           )}
           {["ejae-seoul-wedding-venue-with-personal-history", "wedding-day-contact-sheet-right-person-current-plan", "wedding-rental-return-plan-last-box", "wedding-room-reset-ceremony-reception"].includes(post.slug) && <aside style={{marginTop:24,padding:"16px 20px",background:"#302723",color:"#faf7f1",borderRadius:8,fontSize:14}}>WEDDINGS.IO / ADVERTISING OPPORTUNITY · <a style={{textDecoration:"underline"}} href="mailto:colin@industryarmymarketing.com?subject=Advertise%20on%20Weddings.io">Advertise here</a></aside>}
+          {["wedding-rental-return-plan-last-box","wedding-room-reset-ceremony-reception"].includes(post.slug) && <nav aria-label="Related planning guides" className="mt-6 rounded-lg border border-border p-5 text-sm"><strong>Related planning guides</strong><ul className="mt-3 space-y-2"><li><a className="underline" href="/blog/wedding-day-contact-sheet-right-person-current-plan/">Wedding-day contact sheet</a></li><li><a className="underline" href="/blog/wedding-rental-return-plan-last-box/">Wedding rental return plan</a></li><li><a className="underline" href="/blog/wedding-room-reset-ceremony-reception/">Ceremony-to-reception room reset</a></li></ul></nav>}
+          {["wedding-rental-return-plan-last-box","wedding-room-reset-ceremony-reception"].includes(post.slug) && <details style={{position:"fixed",bottom:16,right:16,zIndex:40,maxWidth:260,padding:"12px 16px",background:"#302723",color:"#faf7f1",border:"1px solid #a78657",borderRadius:10,fontSize:14}}><summary style={{cursor:"pointer"}}>Weddings.io · Contact IAM</summary><p style={{marginTop:10}}>Marketing, brand participation or editorial enquiries.</p><a style={{textDecoration:"underline"}} href="mailto:colin@industryarmymarketing.com">Email Colin at IAM</a></details>}
           {(() => {
             const body = post.body ?? [];
             const headingSlug = (t: string) =>
@@ -523,6 +525,7 @@ function BlogPostPage() {
                 )}
                 <div className="mt-12 space-y-7 text-lg leading-9 text-muted-foreground">
                   {body.map((paragraph) => {
+                    if (["wedding-rental-return-plan-last-box", "wedding-room-reset-ceremony-reception"].includes(post.slug) && paragraph.startsWith("Related planning:")) return null;
                     const imgMatch = paragraph.match(/^!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)$/);
                     if (imgMatch) {
                       const [, alt, src, caption] = imgMatch;
