@@ -74,6 +74,7 @@ export function normalizeSources(post: BlogPost): BlogPost {
 const allBlogPosts: BlogPost[] = [
 {
   "slug": "wedding-day-contact-sheet-right-person-current-plan",
+  "focusKeywords": ["wedding-day contact sheet", "wedding contact plan"],
   "title": "Your Wedding-Day Contact Sheet: The Right Person, the Current Plan",
   "subtitle": "Give the people supporting your celebration a clear handover, without turning the couple into the switchboard.",
   "date": "2026-10-26",
