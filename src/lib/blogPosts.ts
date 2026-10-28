@@ -73,6 +73,54 @@ export function normalizeSources(post: BlogPost): BlogPost {
 
 const allBlogPosts: BlogPost[] = [
 {
+  "slug": "wedding-speeches-language-running-order",
+  "title": "Wedding Speeches in More Than One Language: Plan the Handover",
+  "subtitle": "Make space for personal words, clear introductions and an agreed language arrangement.",
+  "date": "2026-10-28",
+  "dateLabel": "October 28, 2026",
+  "category": "Wedding Planning",
+  "image": "/images/blog/wedding-speeches-language-running-order-hero.jpg",
+  "ogImage": "/images/blog/wedding-speeches-language-running-order-share.jpg",
+  "imageAlt": "Original diagram of a wedding speech moving from speaker to interpreter to host",
+  "readTime": "4 min",
+  "excerpt": "A practical guide to planning multilingual wedding speeches with the people giving them.",
+  "seoTitle": "Multilingual Wedding Speeches: Plan the Handover | Weddings.io",
+  "metaDescription": "Plan multilingual wedding speeches with willing speakers, clear introductions, an agreed interpretation approach and a simple microphone handover.",
+  "focusKeywords": [
+    "multilingual wedding speeches"
+  ],
+  "body": [
+    "*Original Weddings.io planning exercise. Illustrations are explanatory diagrams, not photographs of a real wedding.*",
+    "## Make room for every voice",
+    "A wedding speech can carry a family story across generations and languages. The planning challenge is to give each speaker a comfortable place in the evening without turning a personal moment into a production test. This original Weddings.io guide proposes a conversation and a simple running order. It does not prescribe a cultural tradition, describe a real celebration or promise a particular venue setup.",
+    "## Ask speakers what they actually want",
+    "Begin with the people invited to speak. Ask which language or languages they would like to use, whether they want help with an introduction, and what would make the moment feel comfortable. Do not assume someone should translate because they speak two languages, or that a relative wants to address the room. A willing speaker and a willing interpreter are separate roles. Let people decline either invitation without needing to justify it.",
+    "![Speech handover planning diagram](/images/blog/wedding-speeches-language-running-order-break-2.jpg \"Original Weddings.io illustration: Agree the language arrangement with the people speaking.\")",
+    "## Choose what the audience needs to understand",
+    "Full consecutive interpretation, a short introduction in another language, a printed summary and an occasional explanation from an emcee create different experiences. Discuss these options with the speakers and anyone helping them. Decide what needs to be understood in the moment and what can remain a personal expression. Avoid a single rule for an entire family or culture. The people involved should shape how their words are shared.",
+    "## Agree the order before estimating the time",
+    "List each contribution, its purpose and the person introducing it. A welcome, a blessing, a toast and a speech may have different roles in this celebration. Ask the speakers what they are preparing, then discuss timing with the planner, venue and catering team. Translation or interpretation needs its own place in that conversation. A short social-media clip is not evidence of how long the same moment will take in your room.",
+    "## Use a cue sheet rather than a transcript",
+    "The working team usually needs a name, pronunciation, introduction, microphone handover and the cue that ends the segment. They do not necessarily need a private draft of every speech. Keep personal stories and unpublished words with their authors unless sharing them serves an agreed purpose. Mark the current version of the cue sheet and name the person who may change it. Share corrections with the people relying on it.",
+    "![Speech handover planning diagram](/images/blog/wedding-speeches-language-running-order-break-5.jpg \"Original Weddings.io illustration: A clear cue connects the speaker, interpreter and host.\")",
+    "## Check the practical handover",
+    "Ask the venue or sound professional how the microphone will reach each speaker and who will provide help. If a reader will use a phone or printed page, discuss a comfortable place to put it. Confirm any display or captioning arrangement with its actual provider instead of assuming it comes with the room. Access requirements should be discussed privately with the relevant person and the venue; a general running order should not expose personal health details.",
+    "## Rehearse a missed cue with fictional words",
+    "Try a brief practice using invented lines: the introduction ends, the speaker begins, the interpreter waits, and the emcee receives the microphone again. Ask who responds if someone loses their place or chooses to stop. A pause can be handled kindly when the team knows who is helping. Keep this rehearsal about the handover, not about editing someone’s memories or judging their accent.",
+    "## Keep the final plan small",
+    "Use a single page with the agreed order, introductions, language arrangement, microphone route and working contact. Leave any unconfirmed item visibly open. Review it with the people delivering the evening and stop circulating older versions. The aim is to protect the warmth of the moment by resolving a few practical questions early. Pair this plan with the current contact sheet so a last-minute change reaches the right person.",
+    "Related planning: [the wedding-day contact sheet](/blog/wedding-day-contact-sheet-right-person-current-plan/) and [ceremony-to-reception room reset](/blog/wedding-room-reset-ceremony-reception/)."
+  ],
+  "sources": [
+    {
+      "label": "Related original planning guide: the wedding-day contact sheet",
+      "url": "https://weddings.io/blog/wedding-day-contact-sheet-right-person-current-plan/",
+      "publisher": "Weddings.io Editorial",
+      "date": "2026-10-26"
+    }
+  ]
+},
+{
   "slug": "wedding-rental-return-plan-last-box",
   "title": "Wedding Rental Returns: Decide Who Owns the Last Box",
   "subtitle": "A useful close-out plan starts before the first delivery, with agreed collection, counts and responsibility.",
@@ -4063,6 +4111,7 @@ const allBlogPosts: BlogPost[] = [
 
 
 const visibleBlogSlugs = [
+  "wedding-speeches-language-running-order",
   "wedding-rental-return-plan-last-box",
   "wedding-room-reset-ceremony-reception",
   "wedding-day-contact-sheet-right-person-current-plan",
