@@ -79,9 +79,9 @@ const allBlogPosts: BlogPost[] = [
   "date": "2026-10-28",
   "dateLabel": "October 28, 2026",
   "category": "Wedding Planning",
-  "image": "/images/blog/wedding-speeches-language-running-order-hero.jpg",
+  "image": "/images/blog/wedding-speeches-language-running-order-hero-v2.jpg",
   "ogImage": "/images/blog/wedding-speeches-language-running-order-share.jpg",
-  "imageAlt": "Original diagram of a wedding speech moving from speaker to interpreter to host",
+  "imageAlt": "AI editorial illustration of a warm wedding reception with a speech card, microphone and guests",
   "readTime": "4 min",
   "excerpt": "A practical guide to planning multilingual wedding speeches with the people giving them.",
   "seoTitle": "Multilingual Wedding Speeches: Plan the Handover | Weddings.io",
@@ -90,7 +90,7 @@ const allBlogPosts: BlogPost[] = [
     "multilingual wedding speeches"
   ],
   "body": [
-    "*Original Weddings.io planning exercise. Illustrations are explanatory diagrams, not photographs of a real wedding.*",
+    "*Original Weddings.io planning exercise. Hero: original AI-assisted editorial illustration of an imagined reception, not a real wedding. In-article diagrams explain the planning steps.*",
     "## Make room for every voice",
     "A wedding speech can carry a family story across generations and languages. The planning challenge is to give each speaker a comfortable place in the evening without turning a personal moment into a production test. This original Weddings.io guide proposes a conversation and a simple running order. It does not prescribe a cultural tradition, describe a real celebration or promise a particular venue setup.",
     "## Ask speakers what they actually want",
