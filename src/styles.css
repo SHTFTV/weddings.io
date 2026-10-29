@@ -145,3 +145,8 @@
     color: var(--color-foreground);
   }
 }
+
+/* Magazine reading palette, scoped away from business and planning tools. */
+.wm-journal{--background:#fffdf9;--foreground:#251e1e;--card:#fffdf9;--card-foreground:#251e1e;--popover:#fffdf9;--popover-foreground:#251e1e;--primary:#792f45;--primary-foreground:#fffdf9;--secondary:#f3ece9;--secondary-foreground:#251e1e;--muted:#f3ece9;--muted-foreground:#71635f;--accent:#f1e3e7;--accent-foreground:#792f45;--border:#dfd5cf;--input:#dfd5cf;--ring:#792f45;}
+.wm-journal article.group{border-radius:0;box-shadow:none;border-left:0;border-right:0;border-top:0;}
+.wm-journal article.group:hover{transform:none;}

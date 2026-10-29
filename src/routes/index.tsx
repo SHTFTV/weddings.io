@@ -58,10 +58,10 @@ export const Route = createFileRoute("/")({
         content:
           "Explore the wedding edit: meaningful traditions, distinctive celebrations, destination ideas and practical tools for your kind of wedding.",
       },
-      { property: "og:image", content: "https://weddings.io/opengraph.jpg" },
+      { property: "og:image", content: "https://weddings.io/images/editorial/wedding-edit-share.jpg" },
       {
         property: "og:image:alt",
-        content: "Weddings.io Technologies — Wedding SaaS Ecosystem, Est. May 13, 2015",
+        content: "Weddings.io — The Wedding Edit. Illustrative photograph by Giuseppe Messina / Pexels.",
       },
       { property: "og:locale", content: "en_CA" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -72,7 +72,7 @@ export const Route = createFileRoute("/")({
         content:
           "A whole world of weddings: real stories, traditions, style, destinations and planning tools.",
       },
-      { name: "twitter:image", content: "https://weddings.io/opengraph.jpg" },
+      { name: "twitter:image", content: "https://weddings.io/images/editorial/wedding-edit-share.jpg" },
     ],
     links: [
       { rel: "stylesheet", href: weddingMagazineCss },

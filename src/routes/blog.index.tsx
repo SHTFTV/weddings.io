@@ -23,7 +23,7 @@ export const Route = createFileRoute("/blog/")({
         property: "og:description",
         content: "Global wedding stories and eventful reporting from Weddings.io — sister publication to WeddingSaaS.com. Every culture, every city.",
       },
-      { property: "og:image", content: "https://weddings.io/opengraph.jpg" },
+      { property: "og:image", content: "https://weddings.io/images/editorial/wedding-edit-share.jpg" },
       { property: "og:url", content: "https://weddings.io/blog/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -50,7 +50,7 @@ export function BlogIndexView({ page }: { page: number }) {
   const nextHref = page < pageCount ? `/blog/page/${page + 1}/` : null;
 
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    <main className="wm-journal min-h-screen bg-background text-foreground">
       <SiteHeader />
       <section className="border-b border-border bg-secondary/40 px-5 py-16 text-center md:px-8 md:py-24">
         <p className="mb-4 text-xs font-semibold uppercase tracking-[0.32em] text-primary">Weddings World · The Weddings.io Blog</p>
@@ -99,7 +99,7 @@ export function BlogIndexView({ page }: { page: number }) {
 
         {pageCount > 1 && (
           <nav
-            className="mx-auto mt-14 flex max-w-7xl items-center justify-between gap-4 border-t border-border pt-8"
+            className="mx-auto mt-14 flex max-w-7xl flex-wrap items-center justify-center gap-4 border-t border-border pt-8"
             aria-label="Blog pagination"
           >
             {prevHref ? (
@@ -112,7 +112,7 @@ export function BlogIndexView({ page }: { page: number }) {
             ) : (
               <span />
             )}
-            <div className="flex gap-2">
+            <div className="flex max-w-full flex-wrap justify-center gap-2">
               {Array.from({ length: pageCount }, (_, i) => i + 1).map((p) => {
                 const href = p === 1 ? "/blog/" : `/blog/page/${p}/`;
                 const active = p === page;

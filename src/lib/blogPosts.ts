@@ -21,6 +21,7 @@ export type BlogPost = {
   image: string;
   ogImage?: string;
   imageAlt?: string;
+  imageCredit?: string;
   /** Optional WebP source (large, e.g. 1600w) used inside <picture>. Original `image` remains the JPEG fallback + og:image. */
   imageWebp?: string;
   /** Optional smaller WebP variant (e.g. 800w) used in srcset for card grids and mobile. */
@@ -79,9 +80,10 @@ const allBlogPosts: BlogPost[] = [
   "date": "2026-10-28",
   "dateLabel": "October 28, 2026",
   "category": "Wedding Planning",
-  "image": "/images/blog/wedding-speeches-language-running-order-hero-v2.jpg",
+  "image": "/images/editorial/8063149.jpg",
   "ogImage": "/images/blog/wedding-speeches-language-running-order-share.jpg",
-  "imageAlt": "AI editorial illustration of a warm wedding reception with a speech card, microphone and guests",
+  "imageAlt": "A speaker addressing guests at a wedding reception",
+  "imageCredit": "Illustrative photograph: Jay jay Redelinghuys / Pexels. Not a report of this photographed wedding.",
   "readTime": "4 min",
   "excerpt": "A practical guide to planning multilingual wedding speeches with the people giving them.",
   "seoTitle": "Multilingual Wedding Speeches: Plan the Handover | Weddings.io",
@@ -90,7 +92,7 @@ const allBlogPosts: BlogPost[] = [
     "multilingual wedding speeches"
   ],
   "body": [
-    "*Original Weddings.io planning exercise. Hero: original AI-assisted editorial illustration of an imagined reception, not a real wedding. In-article diagrams explain the planning steps.*",
+    "*Original Weddings.io planning exercise. Hero photograph: Jay jay Redelinghuys / Pexels, used illustratively; this guide does not report on the photographed wedding. In-article diagrams explain the planning steps.*",
     "## Make room for every voice",
     "A wedding speech can carry a family story across generations and languages. The planning challenge is to give each speaker a comfortable place in the evening without turning a personal moment into a production test. This original Weddings.io guide proposes a conversation and a simple running order. It does not prescribe a cultural tradition, describe a real celebration or promise a particular venue setup.",
     "## Ask speakers what they actually want",
@@ -127,9 +129,10 @@ const allBlogPosts: BlogPost[] = [
   "date": "2026-10-27",
   "dateLabel": "October 27, 2026",
   "category": "Wedding Planning",
-  "image": "/images/blog/wedding-rental-return-plan-last-box-hero.jpg",
+  "image": "/images/editorial/24023403.jpg",
   "ogImage": "/images/blog/wedding-rental-return-plan-last-box-share.jpg",
-  "imageAlt": "Original Weddings.io diagram illustrating rental ownership, packing and collection",
+  "imageAlt": "Flowers and glassware on a wedding reception table",
+  "imageCredit": "Illustrative photograph: Ahmed / Pexels. Not a report of this photographed wedding.",
   "readTime": "4 min",
   "excerpt": "A useful close-out plan starts before the first delivery, with agreed collection, counts and responsibility.",
   "seoTitle": "Wedding Rental Returns: Decide Who Owns the Last Box | Weddings.io",
@@ -138,9 +141,11 @@ const allBlogPosts: BlogPost[] = [
     "wedding rental returns"
   ],
   "body": [
-    "*Original explanatory illustration by Weddings.io Editorial. A fictional planning diagram, not a wedding photograph or app screenshot.*",
+    "*In-article planning diagram: Weddings.io Editorial. The hero photograph is credited separately.*",
     "## Make the finish part of the plan",
     "A beautifully arranged reception still has a last chair, a box of hired glassware and someone wondering which van they belong in. The end of a wedding deserves a small plan of its own. This original Weddings.io planning guide proposes an ordinary handover exercise; it does not describe a particular wedding, supplier promise or app feature.",
+    "![A simple rental-return handover plan](/images/blog/wedding-rental-return-plan-last-box-hero.jpg)",
+    "*Original Weddings.io explanatory planning diagram.*",
     "## Separate the items by owner",
     "Create a simple inventory with three groups: items belonging to the couple, items belonging to the venue, and hired items belonging to named suppliers. A visual theme does not tell the team who owns an object. Label the transport containers as well as the items, and identify pieces that arrive with their own protective packaging. Ask suppliers how they want their property counted and returned rather than inventing a universal rule.",
     "## Distinguish collection from packing",
@@ -173,9 +178,10 @@ const allBlogPosts: BlogPost[] = [
   "date": "2026-10-27",
   "dateLabel": "October 27, 2026",
   "category": "Wedding Planning",
-  "image": "/images/blog/wedding-room-reset-ceremony-reception-hero.jpg",
+  "image": "/images/editorial/5038747.jpg",
   "ogImage": "/images/blog/wedding-room-reset-ceremony-reception-share.jpg",
-  "imageAlt": "Original Weddings.io diagram illustrating ceremony, guest waiting area and reception reset",
+  "imageAlt": "A wedding reception table decorated with flowers and hanging lights",
+  "imageCredit": "Illustrative photograph: Leeloo The First / Pexels. Not a report of this photographed wedding.",
   "readTime": "4 min",
   "excerpt": "Treat the change between two beautiful settings as a sequence of agreed handovers, not an invisible gap.",
   "seoTitle": "From Ceremony to Reception: Plan the Room Reset | Weddings.io",
@@ -184,7 +190,9 @@ const allBlogPosts: BlogPost[] = [
     "wedding room reset"
   ],
   "body": [
-    "*Original explanatory illustration by Weddings.io Editorial. A fictional planning diagram, not a wedding photograph or app screenshot.*",
+    "*In-article planning diagram: Weddings.io Editorial. The hero photograph is credited separately.*",
+    "![Planning the ceremony-to-reception room reset](/images/blog/wedding-room-reset-ceremony-reception-hero.jpg)",
+    "*Original Weddings.io explanatory planning diagram.*",
     "## Look at the space between the photographs",
     "A ceremony layout and a reception layout can each look complete while the transition between them remains unexplained. This original Weddings.io practical guide focuses on that middle period: where guests wait, who moves what, and how the next team knows the room is ready. It is a planning exercise, not a venue operating instruction or a claim that any particular turnover time is achievable.",
     "## Draw two layouts and one waiting place",
@@ -220,17 +228,20 @@ const allBlogPosts: BlogPost[] = [
   "date": "2026-10-26",
   "dateLabel": "October 26, 2026",
   "category": "Wedding Planning",
-  "image": "/images/blog/contact-sheet-hero.jpg",
+  "image": "/images/editorial/15964966.jpg",
   "ogImage": "/images/blog/contact-sheet-share.jpg",
-  "imageAlt": "Original planning diagram connecting a question, an agreed contact, the current plan and a backup.",
+  "imageAlt": "Guests gathering around newlyweds at an evening reception",
+  "imageCredit": "Illustrative photograph: Danik Prihodko / Pexels. Not a report of this photographed wedding.",
   "readTime": "4 min",
   "excerpt": "An original practical guide to agreed responsibilities, current instructions and a contact sheet people can actually use.",
   "seoTitle": "Wedding-Day Contact Sheet: People, Roles & Current Instructions | Weddings.io",
   "metaDescription": "Prepare a wedding-day contact sheet with agreed roles, a current plan and backup contacts. A practical original guide from Weddings.io.",
   "body": [
-    "*Original explanatory artwork: Weddings.io Editorial. A planning diagram, not a photograph of a wedding or an app screenshot.*",
+    "*In-article planning diagram: Weddings.io Editorial. The hero photograph is credited separately.*",
     "A wedding-day contact sheet should help the right person answer the next question without making the couple the switchboard. It is a small document with a very practical job: connect a decision, a responsible person and a reliable way to reach them.",
     "This is an original planning exercise, not a report of a particular wedding or a promise that a software product handles the handover automatically. Work through the plan with the people who have agreed to carry it out.",
+    "![The question, agreed contact, current version and backup person](/images/blog/contact-sheet-hero.jpg)",
+    "*Original Weddings.io explanatory planning diagram.*",
     "## Start with decisions, then add names",
     "Instead of copying every supplier contact into one long list, write down the questions that may need an answer. Who can clarify the agreed arrival point? Who holds the current room plan? Who should receive a message about a delayed delivery? The answers may belong to different people.",
     "For each question, identify one first contact and a backup who has actually agreed to help. A name on a spreadsheet does not create responsibility. Ask each person whether the role makes sense, what information they need and when they expect to be available.",

@@ -394,7 +394,7 @@ function BlogPostPage() {
 
   if (!post) {
     return (
-      <main className="min-h-screen bg-background text-foreground">
+      <main className="wm-journal min-h-screen bg-background text-foreground">
         <SiteHeader />
         <section className="mx-auto max-w-3xl px-5 py-24 text-center md:px-8">
           <h1 className="font-serif text-5xl text-foreground">Article not found</h1>
@@ -408,7 +408,7 @@ function BlogPostPage() {
   }
 
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    <main className="wm-journal min-h-screen bg-background text-foreground">
       <SiteHeader />
       <article className="px-5 py-12 md:px-8 md:py-18">
         <div className="mx-auto max-w-3xl">
@@ -472,6 +472,7 @@ function BlogPostPage() {
                 fetchPriority="high"
               />
             </picture>
+            {post.imageCredit && <figcaption className="px-4 py-3 text-xs leading-relaxed text-muted-foreground">{post.imageCredit}</figcaption>}
           </figure>
           {post.slug === "next-saas-moat-shared-success" && (
             <EcosystemVideo className="mt-10" autoplayOnView />

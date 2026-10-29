@@ -2,22 +2,18 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
     <loc>https://weddings.io/sitemap-pages.xml</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-10-29</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://weddings.io/sitemap-topics.xml</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-10-29</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://weddings.io/sitemap-posts.xml</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-10-28</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://weddings.io/sitemap-images.xml</loc>
-    <lastmod>2026-08-01</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://weddings.io/sitemap-cities.xml</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-10-29</lastmod>
   </sitemap>
 </sitemapindex>

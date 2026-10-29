@@ -1,0 +1,47 @@
+{
+  "checked_at": "2026-10-29T17:58:18.189812+00:00",
+  "license": "https://www.pexels.com/license/",
+  "use": "Illustrative licensed photography, no endorsement or specific-event coverage claimed. Credited on homepage and relevant articles.",
+  "photos": [
+    {
+      "path": "public/images/editorial/4364780.jpg",
+      "photographer": "Giuseppe Messina",
+      "source": "https://www.pexels.com/photo/a-couple-having-a-beach-wedding-4364780/"
+    },
+    {
+      "path": "public/images/editorial/5038747.jpg",
+      "photographer": "Leeloo The First",
+      "source": "https://www.pexels.com/photo/reception-table-with-flower-arrangements-5038747/"
+    },
+    {
+      "path": "public/images/editorial/4121033.jpg",
+      "photographer": "Krishna Videotech",
+      "source": "https://www.pexels.com/photo/cheerful-indian-couple-smiling-during-wedding-celebration-4121033/"
+    },
+    {
+      "path": "public/images/editorial/15964966.jpg",
+      "photographer": "Danik Prihodko",
+      "source": "https://www.pexels.com/photo/wedding-guests-holding-sparklers-and-standing-around-the-newlyweds-dancing-15964966/"
+    },
+    {
+      "path": "public/images/editorial/19408255.jpg",
+      "photographer": "Luis Felipe P\u00e9rez",
+      "source": "https://www.pexels.com/photo/flower-arrangements-standing-on-a-table-at-a-wedding-reception-19408255/"
+    },
+    {
+      "path": "public/images/editorial/24023403.jpg",
+      "photographer": "Ahmed",
+      "source": "https://www.pexels.com/photo/a-table-with-wedding-decorations-24023403/"
+    },
+    {
+      "path": "public/images/editorial/8063149.jpg",
+      "photographer": "Jay jay Redelinghuys",
+      "source": "https://www.pexels.com/photo/man-talking-to-microphone-on-wedding-8063149/"
+    },
+    {
+      "path": "public/images/editorial/4959848.jpg",
+      "photographer": "Kseniia Lopyreva",
+      "source": "https://www.pexels.com/photo/bride-in-wedding-dress-putting-shoes-on-4959848/"
+    }
+  ]
+}
