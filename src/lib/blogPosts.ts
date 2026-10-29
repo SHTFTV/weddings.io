@@ -74,6 +74,109 @@ export function normalizeSources(post: BlogPost): BlogPost {
 
 const allBlogPosts: BlogPost[] = [
 {
+  "slug": "2027-wedding-trends-emerging-planning-decisions",
+  "title": "2027 Wedding Trends: What’s Emerging and What’s Worth Planning For",
+  "subtitle": "A forecast, a feeling and a practical brief for your own celebration.",
+  "date": "2026-10-29",
+  "dateLabel": "October 29, 2026",
+  "category": "Style & Details",
+  "image": "/images/editorial/5038747.jpg",
+  "ogImage": "/images/blog/2027-wedding-trends-emerging-planning-decisions-share.jpg",
+  "imageAlt": "Wedding reception tables with flowers and warm overhead lights",
+  "imageCredit": "Illustrative photograph: Leeloo The First / Pexels. Not a report of the photographed wedding.",
+  "readTime": "6 min",
+  "excerpt": "A forecast, a feeling and a practical brief for your own celebration.",
+  "seoTitle": "2027 Wedding Trends: What’s Emerging and What’s Worth Planning For | Weddings.io",
+  "metaDescription": "A forecast, a feeling and a practical brief for your own celebration. Original Weddings.io analysis with source scope and useful planning questions.",
+  "focusKeywords": [
+    "2027 wedding trends"
+  ],
+  "body": [
+    "## A forecast is a conversation starter",
+    "Planning a 2027 wedding can begin with a feeling: an open-air dinner, a room that glows after sunset, music that brings two families together. A trend report can help name that feeling. It cannot tell you what your family values, what your venue can deliver or which extra purchase deserves a place in your budget. This is Weddings.io’s original planning analysis, published October 29, 2026, of a forecast for the year ahead.",
+    "## What the source actually forecasts",
+    "The Knot Worldwide published its 2027 Wedding Trends Report on September 28, 2026. It highlights Italian beach-club styling, silver accents, single-variety floral installations, culturally meaningful menus, editorial/cinematic photography and celebrations spread across several moments. Its methodology combines editorial and vendor judgement with January–June 2026 activity on its own platform and research involving U.S. couples. These are publisher forecasts, not completed 2027 wedding results or proof of universal demand. [Read the original report and methodology](https://www.theknotww.com/press-releases/the-knot-2027-wedding-trends-report-couples-embrace-italian-beach-clubs-the-silver-age-and-maximizing-every-moment).",
+    "## Coastal atmosphere without importing an entire wedding",
+    "Our take: separate the mood from the destination. If you like the beach-club direction, describe what attracts you: relaxed seating, striped textiles, a long dinner or an unhurried welcome. Then ask your actual venue which parts suit its space and operating arrangements. A coastal reference does not require international travel, and a photograph does not reveal wind, shade, accessible routes or the work needed to reset a room. Write down the experience before commissioning the objects.",
+    "![A mood reference becomes one clear priority, then a venue question](/images/blog/2027-wedding-trends-emerging-planning-decisions-strip-1.svg \"Original Weddings.io planning illustration.\")",
+    "## Silver and flowers: choose one visual thread",
+    "Our take: a single repeated detail can be more coherent than several unrelated trends. Try a silver-toned place setting against the linen already included with your venue. Ask the rental supplier to show the actual finish under the room’s lighting. For flowers, describe the shape, placement and feeling you want before insisting on one variety. Ask the florist about seasonal availability, substitutions, transport and reuse between spaces. The report’s aesthetic forecast is not a quotation or a guarantee that a particular flower will be available on your date.",
+    "## Make a cultural menu with the people whose story it tells",
+    "Our take: begin with the dishes that mean something to you and the relatives you want involved. Ask the caterer what can be prepared and served well in this venue, how dishes will be identified and which dietary requirements need a private conversation. Avoid treating a cuisine as a decorative theme or asking one guest to represent an entire community. A small, clearly explained selection can carry a family story without turning dinner into a test of how much you can include.",
+    "![A shared table connects meaning, dietary conversations and practical service](/images/blog/2027-wedding-trends-emerging-planning-decisions-strip-2.svg \"Original Weddings.io planning illustration.\")",
+    "## Photography: name the moments, not just the style",
+    "Our take: show a photographer a few references and explain what you see in them. Is it movement, quiet portraits, direct flash or the way a whole room appears in one frame? Ask which moments need direction and which you want left alone. An editorial reference can involve time and coordination; a cinematic feeling does not establish a particular filming package. Request a clear scope and ask how photography fits around the ceremony, meal and time with guests. Share images only where you have permission to do so.",
+    "## A wedding weekend still needs room to breathe",
+    "Our take: a welcome gathering and a next-day meal can feel generous, but they also ask more of guests and suppliers. Decide which events are optional and communicate that plainly. Consider travel, rest, childcare and the cost of attending before adding another invitation. Give each gathering a purpose. If it repeats the same experience, removing it may improve the weekend. Suppliers should receive an agreed schedule and scope rather than discovering another event inside a moodboard.",
+    "![Keep one meaningful experience, check the scope, leave room for guests](/images/blog/2027-wedding-trends-emerging-planning-decisions-strip-3.svg \"Original Weddings.io planning illustration.\")",
+    "## Turn inspiration into a brief you can compare",
+    "Choose three priorities together, then name what you are comfortable leaving out. Send the same practical brief to prospective suppliers: venue, dates, guest context, required work, access assumptions and unresolved decisions. Ask for inclusions, exclusions and optional upgrades to be separated. This makes comparison more useful than collecting differently scoped totals. No trend should quietly become an obligation because it appeared in a popular report.",
+    "For music, continue with [our 2026 season-to-date music reflection](/blog/2026-wedding-music-year-to-date-country-pop-punjabi/). For the working handover, use [a current wedding-day contact sheet](/blog/wedding-day-contact-sheet-right-person-current-plan/). Our editorial position is simple: borrow an idea when it serves the celebration, and leave it when it does not."
+  ],
+  "sources": [
+    {
+      "label": "The Knot Worldwide 2027 forecast — September 28, 2026",
+      "url": "https://www.theknotww.com/press-releases/the-knot-2027-wedding-trends-report-couples-embrace-italian-beach-clubs-the-silver-age-and-maximizing-every-moment",
+      "publisher": "The Knot Worldwide",
+      "date": "2026-09-28"
+    }
+  ]
+},
+{
+  "slug": "2026-wedding-music-year-to-date-country-pop-punjabi",
+  "title": "2026 Wedding Music So Far: Country, Pop, Punjabi and Your 2027 Playlist",
+  "subtitle": "A season-to-date reflection, clearly scoped request evidence and listening ideas.",
+  "date": "2026-10-29",
+  "dateLabel": "October 29, 2026",
+  "category": "Wedding Music",
+  "image": "/images/editorial/15964966.jpg",
+  "ogImage": "/images/blog/2026-wedding-music-year-to-date-country-pop-punjabi-share.jpg",
+  "imageAlt": "A wedding couple dancing with guests and sparklers around them",
+  "imageCredit": "Illustrative photograph: Danik Prihodko / Pexels. Not a report of the photographed wedding.",
+  "readTime": "6 min",
+  "excerpt": "A season-to-date reflection, clearly scoped request evidence and listening ideas.",
+  "seoTitle": "2026 Wedding Music So Far: Country, Pop, Punjabi and Your 2027 Playlist | Weddings.io",
+  "metaDescription": "A season-to-date reflection, clearly scoped request evidence and listening ideas. Original Weddings.io analysis with source scope and useful planning questions.",
+  "focusKeywords": [
+    "2026 wedding music"
+  ],
+  "body": [
+    "## The 2026 wedding season is still unfolding",
+    "Which songs have defined your wedding season so far: a country ballad, a pop chorus, Punjabi dance music, soul or something entirely different? As of October 29, 2026, the year is not finished. This Weddings.io reflection separates published request evidence from our own listening suggestions and from ideas for 2027. It is not a global ranking, a complete-year result or a report that every wedding shared the same soundtrack.",
+    "## What the request evidence can tell us",
+    "SEK Productions’ Dance Floor Report, published in May 2026, draws on its client planning portals from 2024–2026, largely couples aged 25–35 in South Jersey, Greater Philadelphia and the Jersey Shore. It lists Lady Gaga and Bruno Mars’ Die With A Smile among first-dance requests and includes country crossover and current pop in its discussion. That is one provider’s regional request sample, not a measurement of the entire 2026 season. [Read SEK’s report and methodology](https://sekpro.com/reports/dance-floor-report-2026).",
+    "Sam Hill Entertainment labels its Wedding Playlist Index Summer 2026, but explicitly gives its data window as January 2023 through April 2026. Its U.S. live-band client requests include soul, funk, classic rock and newer pop. We have not treated the edition label as evidence of summer-only outcomes. [Read the index and its boundaries](https://www.samhillbands.com/wedding-playlist-index). Neither source establishes which genre leads weddings worldwide.",
+    "![Evidence describes a particular sample; your playlist describes your people](/images/blog/2026-wedding-music-year-to-date-country-pop-punjabi-strip-1.svg \"Original Weddings.io planning illustration.\")",
+    "## Pop: a shared chorus, chosen for the right moment",
+    "Editorial selection: Die With A Smile — Lady Gaga and Bruno Mars — is a starting point for a first-dance listening conversation because it appears in SEK’s request report. Listen to the complete recording together before selecting it. Discuss whether you want the full track, an agreed edit or a live arrangement. Those are different choices for your DJ or band. The title’s presence in a request list does not show how your guests will respond, and a popular chorus does not decide whether the whole song feels right for your relationship.",
+    "## Country: let the personal connection lead",
+    "Editorial selection: Joy Of My Life — Chris Stapleton — offers another first-dance or quieter-set conversation. SEK includes Stapleton in its country-crossover discussion; our choice here is not a claim that this song topped the 2026 wedding year. [Listen to the artist’s official audio](https://www.youtube.com/watch?v=jsE_zp_4vyo). If country is important to you, identify the particular artists and songs rather than asking the provider for an undefined country set. Tell them which moments belong to you and which should welcome the wider room.",
+    "![Choose a moment, agree the recording or arrangement, then confirm the cue](/images/blog/2026-wedding-music-year-to-date-country-pop-punjabi-strip-2.svg \"Original Weddings.io planning illustration.\")",
+    "## Punjabi and bhangra: a meaningful part of the brief",
+    "Editorial selection: Born To Shine — Diljit Dosanjh — is a Punjabi-pop listening suggestion for discussing an entrance or dance set, not a measured 2026 wedding-chart entry. It is an older recording, selected here for a current planning conversation. [Watch the artist’s official video](https://www.youtube.com/watch?v=dCmp56tSSmA). Punjabi pop, bhangra, Bollywood and a family’s ceremonial music are not interchangeable categories. Ask the people involved which songs and traditions matter, who should advise on pronunciation or meaning, and whether a live performer has a separate role. Do not assign one track to every Punjabi celebration.",
+    "## Soul, funk and the music between generations",
+    "Editorial direction: use the soul, funk and classic-rock discussion in Sam Hill’s index as a prompt to ask guests and family about their own favourites. A song that feels welcoming in one room may feel overplayed in another. A brief can name a few loved recordings and a few firm exclusions without trying to prescribe every transition. Leave your actual professional room to build a set around the agreed priorities. Their judgement should respond to your event, not to a generic playlist copied from the internet.",
+    "![Must-play, do-not-play and a flexible space for the room](/images/blog/2026-wedding-music-year-to-date-country-pop-punjabi-strip-3.svg \"Original Weddings.io planning illustration.\")",
+    "## Confirm versions and comfort before the day",
+    "For every selected track, record the artist, exact recording or arrangement, event moment and start or finish cue. Ask the provider to confirm whether a clean or explicit version is intended; do not assume the radio, album and live versions match. Where a song is in a language you do not understand, ask someone you trust about its meaning and context. Discuss volume, breaks and venue limits with the actual sound team. These are practical questions, not a guarantee of what any individual supplier provides.",
+    "## Which genre could lead your 2027 wedding?",
+    "Our forecast is a planning question rather than a predicted winner: more specific briefs can make room for country, pop, bhangra and other music without making each compete for the whole evening. A ceremony, first dance and late set can express different parts of the same couple. Which genre will define your 2027 wedding—country, pop, bhangra, or something else? [Email your music ideas to Colin at IAM](mailto:colin@industryarmymarketing.com?subject=Weddings.io%202027%20music%20ideas). We are inviting correspondence, not offering a public comments feature or claiming a reader poll has been conducted.",
+    "Continue with [2027 wedding trends and the decisions behind them](/blog/2027-wedding-trends-emerging-planning-decisions/), or [plan a multilingual speech handover](/blog/wedding-speeches-language-running-order/). No lyrics, audio files or source photographs are reproduced in this guide."
+  ],
+  "sources": [
+    {
+      "label": "SEK regional request report — May 2026; 2024–2026 sample",
+      "url": "https://sekpro.com/reports/dance-floor-report-2026",
+      "publisher": "SEK Productions"
+    },
+    {
+      "label": "Sam Hill Wedding Playlist Index — data through April 2026",
+      "url": "https://www.samhillbands.com/wedding-playlist-index",
+      "publisher": "Sam Hill Entertainment"
+    }
+  ]
+},
+{
   "slug": "wedding-speeches-language-running-order",
   "title": "Wedding Speeches in More Than One Language: Plan the Handover",
   "subtitle": "Make space for personal words, clear introductions and an agreed language arrangement.",
@@ -4122,6 +4225,8 @@ const allBlogPosts: BlogPost[] = [
 
 
 const visibleBlogSlugs = [
+  "2027-wedding-trends-emerging-planning-decisions",
+  "2026-wedding-music-year-to-date-country-pop-punjabi",
   "wedding-speeches-language-running-order",
   "wedding-rental-return-plan-last-box",
   "wedding-room-reset-ceremony-reception",

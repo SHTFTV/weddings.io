@@ -53,10 +53,10 @@ const cultures = [
 function StoryCard({ slug, label, title, copy }: { slug: string; label?: string; title?: string; copy?: string }) {
   const post = story(slug);
   if (!post) return null;
-  const photo = photos[editorialPhoto[slug] || "details"];
+  const photo = editorialPhoto[slug] ? photos[editorialPhoto[slug]] : { src: post.image, alt: post.imageAlt || post.title, credit: post.imageCredit || "Weddings.io Editorial" };
   return <article className="wm-story"><a href={`/blog/${slug}`} className="wm-story-image">
     <img src={photo.src} alt={photo.alt} loading="lazy" width="800" height="540" />
-  </a><small className="wm-photo-credit">{photo.credit} / Pexels · Illustrative photography</small><p className="wm-kicker">{label || post.category}</p>
+  </a><small className="wm-photo-credit">{editorialPhoto[slug] ? `${photo.credit} / Pexels · Illustrative photography` : photo.credit}</small><p className="wm-kicker">{label || post.category}</p>
     <h3><a href={`/blog/${slug}`}>{title || post.title}</a></h3>
     <p>{copy || post.excerpt}</p><time dateTime={post.date} style={{display:"block",fontSize:".8rem",marginBottom:".8rem"}}>{post.dateLabel}</time><a className="wm-read" href={`/blog/${slug}`}>Read the story <span aria-hidden="true">↗</span></a></article>;
 }
@@ -65,7 +65,13 @@ function Chapter({ id, number, title, copy, image, href }: { id: string; number:
     <div><p className="wm-kicker">The wedding edit / {number}</p><h2>{title}</h2><p>{copy}</p><a href={href}>Explore the edit <span aria-hidden="true">↗</span></a></div></section>;
 }
 export function WeddingMagazineHome() {
-  const latest = [...blogPosts].sort((a,b)=>b.date.localeCompare(a.date)).slice(0,4);
+  const sorted = [...blogPosts].sort((a,b)=>b.date.localeCompare(a.date));
+  const latest = sorted.slice(0,4);
+  const relevant = (match: RegExp, count = 3) => sorted.filter(post => match.test(`${post.category} ${post.slug} ${post.title}`)).slice(0,count);
+  const celebrations = relevant(/Real.*Wedding|Celebrity|Culture.*Tradition|Wedding Music/);
+  const destinations = relevant(/Destination|Venue|guest-journey/);
+  const details = relevant(/Style.*Details|Wedding Music|Catering|mandap/ , 2);
+  const business = relevant(/The Business of Weddings|wedding-rental-return|wedding-room-reset|wedding-day-contact/);
   return <div className="wm">
     <a className="wm-skip" href="#wm-main">Skip to stories</a>
     <div className="wm-topline"><span>A whole world of weddings.</span><a href="/tools/">Open your planning tools ↗</a></div>
@@ -88,32 +94,27 @@ export function WeddingMagazineHome() {
         </aside>
       </section>
       <div className="wm-note wm-shell"><span>THE WHOLE WORLD OF WEDDINGS</span><p>The people. The places. The traditions. The little things you’ll remember forever. A wedding magazine for the way you want to celebrate.</p></div>
+      <section id="latest" className="wm-shell wm-section"><div className="wm-section-heading"><div><p className="wm-kicker">Latest publication / {latest[0]?.dateLabel}</p><h2>The latest <em>wedding edit.</em></h2></div><a href="/blog/">All stories ↗</a></div><div className="wm-grid wm-latest-grid">
+        {latest.map(post=><StoryCard key={post.slug} slug={post.slug} />)}
+      </div></section>
       <section id="real-weddings" className="wm-shell wm-section"><div className="wm-section-heading"><div><p className="wm-kicker">People, not just Pinterest</p><h2>The stories behind <em>the celebration.</em></h2></div><a href="/blog/">Explore the journal ↗</a></div>
         <div className="wm-grid wm-grid-three">
-          <StoryCard slug="multicultural-wedding-family-conversation" label="Culture & connection" title="A wedding with room for both of you." />
-          <StoryCard slug="briana-andalore-wedding-style-with-personality" label="Style & personality" title="A wedding look with a story of its own." />
-          <StoryCard slug="wedding-table-design-space-for-guests" label="The details" title="A beautiful table. Room for everyone." />
+          {celebrations.map(post => <StoryCard key={post.slug} slug={post.slug} />)}
         </div>
         <div className="wm-celebrity"><div><p className="wm-kicker">Celebrity weddings / From the archive</p><h3>Selena & Benny:<br /><em>the case for a signature look.</em></h3></div><div><p>Vogue’s September 28, 2025 report on Selena Gomez and Benny Blanco’s Santa Barbara wedding describes Ralph Lauren looks for both, with Gomez choosing a satin halter-neck gown and lily-of-the-valley bouquet.</p><p><strong>Our take:</strong> You don’t need the celebrity guest list to borrow the idea. Choose one clear visual thread—a silhouette, a fabric, a colour—and let the smaller decisions support it.</p><a className="wm-read" href="https://www.vogue.com/article/selena-gomez-and-benny-blanco-are-married" target="_blank" rel="noopener noreferrer">Read Vogue’s original report & photographs ↗</a><small>Archive coverage, not a new wedding announcement. Photographs remain with the original publisher.</small></div></div>
         <div className="wm-editor-note"><p className="wm-kicker">The story is in the choices</p><p>From intimate ceremonies to extraordinary celebrations, we look for the people and decisions behind the day. Real-wedding submissions should include the couple’s permission and photographer credits.</p><a href="/guest-post/">Share your wedding story ↗</a></div>
       </section>
-      <section id="latest" className="wm-shell wm-section"><div className="wm-section-heading"><div><p className="wm-kicker">Latest publication / {latest[0]?.dateLabel}</p><h2>The latest <em>wedding edit.</em></h2></div><a href="/blog/">All stories ↗</a></div><div className="wm-grid wm-latest-grid">
-        {latest.map(post=><StoryCard key={post.slug} slug={post.slug} />)}
-      </div></section>
       <Chapter id="culture" number="01" title="Tradition, with room for you." copy="Not a rulebook. A starting point for the conversations that make your celebration meaningful." image={photos.culture.src} href="/cultures" />
       <section className="wm-shell wm-section"><div className="wm-section-heading"><div><p className="wm-kicker">Culture & tradition</p><h2>Many ways <em>to say yes.</em></h2></div><p>Every family has its own story. Explore a guide, then shape the details with your family, celebrant and community.</p></div>
         <div className="wm-cultures">{cultures.map(([name, image, slug]) => <a key={slug} href={`/blog/${slug}`}><span className="wm-culture-number">{String(cultures.findIndex(c=>c[1]===image)+1).padStart(2,"0")}</span><h3>{name} <span aria-hidden="true">↗</span></h3></a>)}</div>
       </section>
       <Chapter id="destinations" number="02" title="Somewhere unforgettable." copy="A faraway celebration, a place close to home, or a whole weekend together." image={photos.beach.src} href="/destinations" />
       <section className="wm-shell wm-section"><div className="wm-destination-intro"><p className="wm-kicker">Places & possibilities</p><h2>Find the setting.<br /><em>Think beyond the scenery.</em></h2><p>A beautiful location is the beginning. The best fit also makes sense for your guests, ceremonies, accessibility, travel and budget.</p><a className="wm-read" href="/venues">Explore venues ↗</a></div><div className="wm-grid wm-grid-three">
-        <StoryCard slug="destination-wedding-guest-journey" label="The destination guide" title="The wedding away: a practical starting point." />
-        <StoryCard slug="choosing-perfect-south-asian-wedding-venue" label="From the planning archive" title="Before you fall in love with a venue, ask these questions." />
-        <StoryCard slug="honeymoon-destinations-2026" label="After the celebration" title="Just the two of you. Where next?" />
+        {destinations.map(post => <StoryCard key={post.slug} slug={post.slug} />)}
       </div></section>
       <Chapter id="style" number="03" title="It’s all in the details." copy="The table, the menu, the music. The little choices that make the day yours." image={photos.table.src} href="/blog/" />
       <section className="wm-shell wm-section"><div className="wm-grid wm-grid-two">
-        <StoryCard slug="mandap-design-guide-sizes-materials-vendors" label="Design & atmosphere" title="A ceremony setting with meaning." />
-        <StoryCard slug="south-asian-wedding-catering-traditional-to-fusion" label="At the table" title="Something familiar. Something unexpected. A menu to remember." />
+        {details.map(post => <StoryCard key={post.slug} slug={post.slug} />)}
       </div></section>
       <section id="planning" className="wm-planning"><div className="wm-shell"><div className="wm-section-heading"><div><p className="wm-kicker">From the moodboard to the actual day</p><h2>A beautiful wedding.<br /><em>A little less chaos.</em></h2></div><p>The magazine is where you find your ideas. The planning tools are where you start putting them together.</p></div>
         <div className="wm-tools">{[
@@ -123,10 +124,8 @@ export function WeddingMagazineHome() {
         ].map(([n, title, copy, href, cta]) => <a key={n} href={href}><span>{n}</span><h3>{title}</h3><p>{copy}</p><b>{cta} ↗</b></a>)}</div>
         <div className="wm-planning-bottom"><p>Looking for the people who bring it together?</p><a href="/vendors">Browse the vendor directory ↗</a><a href="/planners">Find a planner ↗</a></div>
       </div></section>
-      <section id="business" className="wm-shell wm-section"><div className="wm-section-heading"><div><p className="wm-kicker">Behind the celebration</p><h2>The business <em>of weddings.</em></h2></div><p>The people, technology and economics behind the day. A separate desk for the industry that makes it happen.</p></div><div className="wm-grid wm-grid-three">
-        <StoryCard slug="next-great-wedding-idea-behind-the-scenes" label="Behind the scenes" title="The next great wedding idea starts with the people doing the work." />
-        <StoryCard slug="why-vendor-verification-matters" copy="What to ask about references, contracts, experience and the people you’re trusting with the day." label="Trust & transparency" title="A beautiful portfolio is a start. What should you check next?" />
-        <StoryCard slug="india-wedding-market-data-2026" copy="A look at the scale of India’s wedding industry and the companies building around it." label="The market" title="Inside India’s wedding economy." />
+      <section id="business" className="wm-shell wm-section"><div className="wm-section-heading"><div><p className="wm-kicker">Behind the celebration</p><h2>The business <em>of weddings.</em></h2></div><p>The people, technology and economics behind the day. Recent journal stories for the people bringing the celebration together.</p></div><div className="wm-grid wm-grid-three">
+        {business.map(post => <StoryCard key={post.slug} slug={post.slug} />)}
       </div></section>
       <section className="wm-endnote"><p className="wm-kicker">The whole wedding. The bigger picture.</p><h2>Make it meaningful.<br /><em>Make it yours.</em></h2><a href="/tools/">Start planning ↗</a><a href="/blog/">Keep reading ↗</a></section>
     </main>
