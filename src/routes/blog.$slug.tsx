@@ -410,7 +410,7 @@ function BlogPostPage() {
   return (
     <main className="wm-journal min-h-screen bg-background text-foreground">
       <SiteHeader />
-      <article className="px-5 py-12 md:px-8 md:py-18">
+      <article className="px-5 py-12 md:px-8 md:py-18" style={["2027-wedding-trends-emerging-planning-decisions", "2026-wedding-music-year-to-date-country-pop-punjabi"].includes(post.slug) ? { overflowWrap: "anywhere" } : undefined}>
         <div className="mx-auto max-w-3xl">
           <nav className="mb-8 text-sm text-muted-foreground" aria-label="Breadcrumb">
             <a href="/" className="hover:text-primary">Home</a> <span aria-hidden="true">›</span> <a href="/blog/" className="hover:text-primary">Blog</a>
@@ -532,7 +532,10 @@ function BlogPostPage() {
                       const [, alt, src, caption] = imgMatch;
                       return (
                         <figure key={paragraph} className="my-4 overflow-hidden rounded-lg border border-border bg-secondary/30">
-                          <img src={src} alt={alt} className="w-full h-auto" loading="lazy" decoding="async" />
+                          <picture>
+                            {(["2027-wedding-trends-emerging-planning-decisions", "2026-wedding-music-year-to-date-country-pop-punjabi"].includes(post.slug) && /-strip-[123]\.svg$/.test(src)) && <source media="(max-width: 600px)" srcSet={src.replace(".svg", "-phone.svg")} />}
+                            <img src={src} alt={alt} className="w-full h-auto" loading="lazy" decoding="async" />
+                          </picture>
                           {caption && (
                             <figcaption className="px-4 py-3 text-sm italic text-muted-foreground">{caption}</figcaption>
                           )}
