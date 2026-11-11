@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { findCityEntry, formatCityPrice, cityPrice, type CityEntry } from "@/lib/cityDirectory";
+import { findCityEntry, formatCityPrice, type CityEntry } from "@/lib/cityDirectory";
 
 function metaFor(city: CityEntry) {
   const title = `${city.name} Wedding Planner App — Exclusive Territory | Weddings.io`;
@@ -22,7 +22,6 @@ export const Route = createFileRoute("/cities/$slug")({
     }
     const city = loaderData.city;
     const { title, description, canonical } = metaFor(city);
-    const price = cityPrice(city);
     return {
       meta: [
         { title },
@@ -54,19 +53,25 @@ export const Route = createFileRoute("/cities/$slug")({
                 publisher: { "@id": "https://weddings.io/#organization" },
               },
               {
-                "@type": "LocalBusiness",
-                "@id": `${canonical}#localbusiness`,
-                name: `Weddings.io ${city.name}`,
+                "@type": "Service",
+                "@id": `${canonical}#service`,
+                name: `Weddings.io wedding planning platform for ${city.name}`,
                 url: canonical,
-                areaServed: city.name,
-                priceRange: `$${price}/mo`,
-                foundingDate: "2015-05-13",
-                address: {
-                  "@type": "PostalAddress",
-                  addressLocality: city.name,
-                  addressCountry: city.country,
+                areaServed: {
+                  "@type": "City",
+                  name: city.name,
+                  containedInPlace: { "@type": "Country", name: city.countryName },
                 },
-                parentOrganization: { "@id": "https://weddings.io/#organization" },
+                provider: { "@id": "https://weddings.io/#organization" },
+              },
+              {
+                "@type": "WebPage",
+                "@id": `${canonical}#webpage`,
+                url: canonical,
+                name: title,
+                description,
+                mainEntity: { "@id": `${canonical}#service` },
+                isPartOf: { "@id": "https://weddings.io/#website" },
               },
             ],
           }),
