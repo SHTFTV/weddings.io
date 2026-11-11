@@ -12,16 +12,18 @@ jobs:
         with:
           node-version: "20"
       - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: "1.4.4"
       - name: Regenerate feeds (sitemap.xml, sitemap-images.xml, rss.xml)
         run: bun scripts/regen-feeds.mjs
       - name: Blog SEO — unique titles / descriptions / focus keywords
-        run: node scripts/validate-blog-post-seo.mjs
+        run: bun scripts/validate-blog-post-seo.mjs
       - name: Blog canonicals — self-reference https://weddings.io/blog/<slug>/
-        run: node scripts/validate-blog-canonicals.mjs
+        run: bun scripts/validate-blog-canonicals.mjs
       - name: Blog feeds — sitemap.xml + sitemap-images.xml + rss.xml coverage
-        run: node scripts/validate-blog-feed-coverage.mjs
+        run: bun scripts/validate-blog-feed-coverage.mjs
       - name: Blog og:image URLs — absolute + HTTP 200 image/*
-        run: node scripts/validate-blog-og-http.mjs
+        run: bun scripts/validate-blog-og-http.mjs
       - name: SEO CI gate (JSON-LD, share previews, schema IDs)
         run: node scripts/ci-seo-check.mjs
       - name: Upload homepage JSON-LD snapshot
