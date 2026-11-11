@@ -15,6 +15,7 @@ export function BuildBadge() {
 
   const pricingMismatch = PRICING_CODE_VERSION !== LATEST_PRICING_CODE_VERSION;
   return (
+    <aside aria-label="Development build information">
     <a
       href="/admin/verify"
       title={`Deployed ${BUILD_TIME_LABEL} · commit ${BUILD_COMMIT_SHORT}`}
@@ -27,5 +28,6 @@ export function BuildBadge() {
     >
       build {BUILD_COMMIT_SHORT} · pricing {pricingMismatch ? "stale" : "current"} · {BUILD_TIME_LABEL}
     </a>
+    </aside>
   );
 }

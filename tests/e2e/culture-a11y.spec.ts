@@ -51,14 +51,17 @@ for (const path of ["/", "/cultures/", "/tools/"]) {
   });
 }
 
-test("Hispanic Heritage label is present and semantically labeled", async ({ page }) => {
+test("magazine culture card links to its Mexican and Latino guide", async ({ page }) => {
   await page.goto("/");
-  // Culture card title
+  await expect(page.getByRole("heading", { name: /Mexican & Latino/i })).toBeVisible();
+  await expect(page.getByRole("link", { name: /Mexican & Latino/i })).toHaveAttribute("href", "/blog/mexican-wedding-planning-guide-2026");
+  await expect(page.locator("footer").getByRole("link", { name: /^Cultures$/i })).toHaveAttribute("href", "/cultures");
+});
+
+test("Hispanic Heritage directory label and tools remain accessible", async ({ page }) => {
+  await page.goto("/cultures/");
   await expect(page.getByRole("heading", { name: /Hispanic Heritage/i }).first()).toBeVisible();
-  // CTA has an accessible name mentioning it
-  await expect(page.getByRole("link", { name: /Open Hispanic Heritage Tools/i }).first()).toBeVisible();
-  // Footer link
-  await expect(page.locator("footer").getByRole("link", { name: /^Hispanic Heritage$/i })).toBeVisible();
+  await expect(page.getByRole("link", { name: /Open Hispanic Heritage Tools/i }).first()).toHaveAttribute("href", "/tools/mexican/");
 });
 
 test("routes still resolve — /tools/mexican/ + /tools/traditional/ return 200", async ({ page }) => {

@@ -74,7 +74,7 @@ export function WeddingMagazineHome() {
   const business = relevant(/The Business of Weddings|wedding-rental-return|wedding-room-reset|wedding-day-contact/);
   return <div className="wm">
     <a className="wm-skip" href="#wm-main">Skip to stories</a>
-    <div className="wm-topline"><span>A whole world of weddings.</span><a href="/tools/">Open your planning tools ↗</a></div>
+    <div className="wm-topline" role="region" aria-label="Wedding introduction"><span>A whole world of weddings.</span><a href="/tools/">Open your planning tools ↗</a></div>
     <header className="wm-header">
       <div className="wm-masthead"><span className="wm-edition">Ideas. Traditions.<br />Your kind of celebration.</span>
       <a href="/" className="wm-logo" aria-label="Weddings.io home">Weddings<span>.io</span><i>THE WEDDING EDIT</i></a>
