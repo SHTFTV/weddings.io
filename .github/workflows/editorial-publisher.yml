@@ -1,0 +1,63 @@
+name: Weddings editorial publisher
+on:
+  schedule:
+    - cron: '23,53 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: weddings-editorial-sole-writer
+  cancel-in-progress: false
+jobs:
+  publish:
+    # This proposal is inert until the specific activation approval is granted.
+    if: vars.WEDDINGS_PUBLISHER_ENABLED == 'true'
+    environment: weddings-publishing
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6
+      - run: bun scripts/validate-editorial-runtime.mjs
+      - run: bun install --frozen-lockfile
+      - run: bun test scripts/publish-queue.test.mjs scripts/intake-wedding-news.test.mjs
+      - run: bun scripts/intake-wedding-news.mjs
+        env:
+          WEDDINGS_PRIVATE_SOT_JSON: ${{ secrets.WEDDINGS_PRIVATE_SOT_JSON }}
+      - run: bun scripts/publish-queue.mjs
+        env:
+          WEDDINGS_PRIVATE_SOT_JSON: ${{ secrets.WEDDINGS_PRIVATE_SOT_JSON }}
+      - run: bun scripts/materialize-editorial-posts.mjs
+      - run: bun scripts/regen-feeds.mjs
+      - run: |
+          bun scripts/validate-blog-post-seo.mjs
+          bun scripts/validate-blog-canonicals.mjs
+          bun scripts/validate-blog-feed-coverage.mjs
+      - name: Persist changed queue and source release only
+        run: |
+          git config user.name 'Weddings Editorial Publisher'
+          git config user.email 'publisher@users.noreply.github.com'
+          git add publishing/queue.json src/lib/scheduledBlogPosts.json
+          git diff --cached --quiet && exit 0
+          git add publishing/latest-run.json publishing/receipts.jsonl
+          git commit -m 'Release eligible Weddings article source and queue state'
+          git push origin HEAD:main
+      - run: bun scripts/verify-editorial-live.mjs
+      - name: Persist changed live-verification state
+        if: always()
+        run: |
+          git add publishing/queue.json
+          git diff --cached --quiet && exit 0
+          git add publishing/live-receipts.jsonl
+          git commit -m 'Record actual Weddings live verification'
+          git push origin HEAD:main
+      - if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: weddings-publisher-retained-receipts
+          path: |
+            publishing/latest-run.json
+            publishing/receipts.jsonl
+            publishing/live-receipts.jsonl
