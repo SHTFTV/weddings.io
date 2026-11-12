@@ -70,7 +70,7 @@ export const Route = createFileRoute("/")({
       {
         name: "twitter:description",
         content:
-          "A whole world of weddings: real stories, traditions, style, destinations and planning tools.",
+          "Explore the wedding edit: meaningful traditions, distinctive celebrations, destination ideas and practical tools for your kind of wedding.",
       },
       { name: "twitter:image", content: "https://weddings.io/images/editorial/wedding-edit-share.jpg" },
     ],

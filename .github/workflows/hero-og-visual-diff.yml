@@ -7,6 +7,8 @@ on:
     branches: [main]
     paths:
       - "src/lib/scheduledBlogPosts.json"
+      - "src/routes/index.tsx"
+      - "src/routes/blog.index.tsx"
       - "src/routes/blog.$slug.tsx"
       - "src/components/BlogCard.tsx"
       - "scripts/production-visual-check.mjs"
