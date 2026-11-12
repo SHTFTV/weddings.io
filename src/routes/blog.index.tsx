@@ -9,6 +9,8 @@ import {
   sortedBlogPosts,
 } from "../lib/blogPosts";
 
+const blogPreviewImage = new URL(sortedBlogPosts[0]?.ogImage || sortedBlogPosts[0]?.image || "/images/editorial/wedding-edit-share.jpg", "https://weddings.io").href;
+
 export const Route = createFileRoute("/blog/")({
   head: () => ({
     meta: [
@@ -23,9 +25,12 @@ export const Route = createFileRoute("/blog/")({
         property: "og:description",
         content: "Global wedding stories and eventful reporting from Weddings.io — sister publication to WeddingSaaS.com. Every culture, every city.",
       },
-      { property: "og:image", content: "https://weddings.io/images/editorial/wedding-edit-share.jpg" },
+      { property: "og:image", content: blogPreviewImage },
       { property: "og:url", content: "https://weddings.io/blog/" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Weddings World — The Weddings.io Blog" },
+      { name: "twitter:description", content: "Global wedding stories, traditions and practical planning from Weddings.io." },
+      { name: "twitter:image", content: blogPreviewImage },
     ],
     links: [
       { rel: "canonical", href: "https://weddings.io/blog/" },

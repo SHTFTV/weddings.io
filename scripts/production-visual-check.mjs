@@ -8,7 +8,13 @@ const posts=JSON.parse(await fs.readFile('src/lib/scheduledBlogPosts.json','utf8
 const latest=[...posts].sort((a,b)=>b.date.localeCompare(a.date))[0];
 if(!latest)throw Error('No actual published article registered');
 const runRef=process.env.GITHUB_RUN_ID?`https://github.com/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`:null;
-const build=await (await fetch(origin+'/build-info.json',{signal:AbortSignal.timeout(20000)})).json();
+let build;
+for(let attempt=0;attempt<18;attempt++){
+ build=await (await fetch(origin+'/build-info.json',{signal:AbortSignal.timeout(20000)})).json();
+ if(!process.env.GITHUB_SHA||build.commitFull===process.env.GITHUB_SHA)break;
+ if(attempt===17)throw Error('Exact checked source revision is not deployed');
+ await new Promise(resolve=>setTimeout(resolve,10000));
+}
 const sot=await fs.readFile('docs/WEDDINGS-IO-SOT.md','utf8');
 const receipt={loadedRevision:process.env.GITHUB_SHA||null,loadedHash:createHash('sha256').update(sot).digest('hex'),sotPath:'docs/WEDDINGS-IO-SOT.md',site:'weddings.io',repository:'SHTFTV/weddings.io',sourceCommit:build.commitFull,check:'role:visual-checker',environment:'production',synthetic:false,actorId:'weddings-production-visual-checker',executionProvider:'github-actions',schedulerIdentity:'.github/workflows/hero-og-visual-diff.yml',trigger:process.env.GITHUB_EVENT_NAME||'local',runRef,proofRef:runRef?runRef+'#artifacts':null,observedAt:new Date().toISOString(),status:'failed',pageUrls:[],checks:[],errors:[]};
 const browser=await chromium.launch();
@@ -24,6 +30,7 @@ try{
     await page.locator('body').waitFor();
     await page.evaluate(async()=>{await document.fonts.ready;await Promise.all([...document.images].filter(i=>i.loading!=='lazy').map(i=>i.decode().catch(()=>{})));});
     const metadata=await page.evaluate(()=>({title:document.title,description:document.querySelector('meta[name="description"]')?.content,canonical:document.querySelector('link[rel="canonical"]')?.href,ogTitle:document.querySelector('meta[property="og:title"]')?.content,ogDescription:document.querySelector('meta[property="og:description"]')?.content,ogImage:document.querySelector('meta[property="og:image"]')?.content,twitterCard:document.querySelector('meta[name="twitter:card"]')?.content,twitterImage:document.querySelector('meta[name="twitter:image"]')?.content,icon:document.querySelector('link[rel~="icon"]')?.href,overflow:document.documentElement.scrollWidth>innerWidth+1,bodyFont:parseFloat(getComputedStyle(document.body).fontSize)}));
+    if(metadata.ogImage!==metadata.twitterImage)throw Error('Open Graph/Twitter image mismatch');
     if(metadata.bodyFont<16)throw Error('Body text below 16px');
     if(metadata.overflow)throw Error('Horizontal overflow');
     if(!metadata.title||!metadata.description||!metadata.canonical||!metadata.ogTitle||!metadata.ogDescription||!metadata.ogImage||!metadata.twitterImage||!metadata.twitterCard||!metadata.icon)throw Error('Required page or preview metadata missing');
@@ -53,8 +60,9 @@ try{
   await context.close();
  }
  receipt.pageUrls=[...new Set(receipt.pageUrls)];
- receipt.desktopRenderRef=receipt.proofRef?receipt.proofRef+'/desktop-article-hero.png':null;
- receipt.phoneRenderRef=receipt.proofRef?receipt.proofRef+'/phone-article-hero.png':null;
+ receipt.desktopRenderRef=receipt.proofRef?receipt.proofRef:null;
+ receipt.phoneRenderRef=receipt.proofRef?receipt.proofRef:null;
+ receipt.renderArtifactPaths={desktop:'desktop-article-hero.png',phone:'phone-article-hero.png'};
  receipt.status=receipt.errors.length?'failed':'passed';
 }finally{
  await browser.close();
