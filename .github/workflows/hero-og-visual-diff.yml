@@ -12,6 +12,8 @@ on:
       - "src/routes/blog.$slug.tsx"
       - "src/components/BlogCard.tsx"
       - "scripts/production-visual-check.mjs"
+      - "scripts/weddings-supervisor.mjs"
+      - "scripts/weddings-supervisor.test.mjs"
       - ".github/workflows/hero-og-visual-diff.yml"
 permissions:
   contents: read
@@ -33,3 +35,17 @@ jobs:
         with:
           name: hero-og-visual-diff
           path: tests/visual-regression/hero-og/
+
+  supervisor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6
+      - run: bun test scripts/weddings-supervisor.test.mjs
+      - run: bun scripts/weddings-supervisor.mjs
+      - if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: weddings-supervisor
+          path: tests/visual-regression/supervisor/
