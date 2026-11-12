@@ -37,6 +37,7 @@ export async function run() {
   // Workflow concurrency is the cloud lease. Atomic local lock prevents overlapping local writers.
   const lock='publishing/.writer-lock'; const fd=fs.openSync(lock,'wx');
   try {
+    const baseSot=fs.readFileSync('docs/WEDDINGS-IO-SOT.md','utf8');
     const config=JSON.parse(process.env.WEDDINGS_PRIVATE_SOT_JSON||'null');
     if(config?.approved!==true||!config.revision||!config.canonicalRef||!config.policy||config.contentHash!==hash(JSON.stringify(config.policy)))throw Error('APPROVED_PRIVATE_POLICY_REQUIRED');
     const policy=config.policy;
@@ -60,7 +61,7 @@ export async function run() {
         await response.arrayBuffer();
       }
     }});
-    const receipt={at:new Date().toISOString(),event:process.env.GITHUB_EVENT_NAME||'local',runId:process.env.GITHUB_RUN_ID||null,sot:{canonicalRef:config.canonicalRef,approvedRevision:config.revision,loadedRevision:config.revision,approvedHash:config.contentHash,loadedHash:hash(JSON.stringify(policy))},results};
+    const receipt={at:new Date().toISOString(),event:process.env.GITHUB_EVENT_NAME||'local',runId:process.env.GITHUB_RUN_ID||null,baseSot:{path:'docs/WEDDINGS-IO-SOT.md',loadedRevision:process.env.GITHUB_SHA||null,loadedHash:hash(baseSot)},sot:{canonicalRef:config.canonicalRef,approvedRevision:config.revision,loadedRevision:config.revision,approvedHash:config.contentHash,loadedHash:hash(JSON.stringify(policy))},results};
     writeJsonAtomic('publishing/queue.json',queue);
     writeJsonAtomic('src/lib/scheduledBlogPosts.json',posts);
     fs.appendFileSync('publishing/receipts.jsonl',JSON.stringify(receipt)+'\n');
