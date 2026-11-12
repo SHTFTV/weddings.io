@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+import {execFileSync} from 'node:child_process';
+const repository=process.env.GITHUB_REPOSITORY;
+if(repository && repository!=='SHTFTV/weddings.io')throw Error('Unexpected publishing repository');
+const sourceRevision=execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();
+const response=await fetch('https://weddings.io/build-info.json',{signal:AbortSignal.timeout(20000)});
+if(!response.ok || new URL(response.url).protocol!=='https:')throw Error('Production/source preflight unavailable');
+const production=await response.json();
+const receipt={at:new Date().toISOString(),sourceRevision,production,status:'production-reachable',writeAccess:'proven-only-by-successful-commit-and-push',draftingProvider:'not-connected',requiredServices:{source:'GitHub scoped Actions token',deployment:'existing Vercel Git integration'}};
+fs.mkdirSync('publishing',{recursive:true});fs.writeFileSync('publishing/runtime-preflight.json',JSON.stringify(receipt,null,2)+'\n');
+console.log(JSON.stringify(receipt));
