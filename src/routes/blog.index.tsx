@@ -29,7 +29,7 @@ export const Route = createFileRoute("/blog/")({
       { property: "og:url", content: "https://weddings.io/blog/" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Weddings World — The Weddings.io Blog" },
-      { name: "twitter:description", content: "Global wedding stories, traditions and practical planning from Weddings.io." },
+      { name: "twitter:description", content: "Global wedding stories and eventful reporting from Weddings.io — sister publication to WeddingSaaS.com. Every culture, every city." },
       { name: "twitter:image", content: blogPreviewImage },
     ],
     links: [
