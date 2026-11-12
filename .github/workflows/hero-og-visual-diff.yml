@@ -1,5 +1,4 @@
 name: Hero + OG Visual Diff (staging vs prod)
-
 on:
   schedule:
     - cron: "15 */6 * * *"
@@ -7,27 +6,28 @@ on:
   push:
     branches: [main]
     paths:
-      - "src/lib/blogPosts.ts"
+      - "src/lib/scheduledBlogPosts.json"
       - "src/routes/blog.$slug.tsx"
       - "src/components/BlogCard.tsx"
-      - "scripts/hero-og-visual-diff.mjs"
-
+      - "scripts/production-visual-check.mjs"
+      - ".github/workflows/hero-og-visual-diff.yml"
+permissions:
+  contents: read
+concurrency:
+  group: weddings-existing-visual-checker
+  cancel-in-progress: false
 jobs:
   visual:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v2
-      - run: bun add -d playwright pixelmatch pngjs
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6
+      - run: bun install --frozen-lockfile
       - run: bunx playwright install --with-deps chromium
-      - env:
-          STAGING_URL: https://id-preview--f66519c0-b737-42fa-8d08-b4adf7e257fc.lovable.app
-          PROD_URL: https://weddings.io
-          STAGING_PROD_THRESHOLD: "0.03"
-          ALERT_WEBHOOK_URL: ${{ secrets.ALERT_WEBHOOK_URL }}
-        run: node scripts/hero-og-visual-diff.mjs
+      - run: bun scripts/production-visual-check.mjs
       - if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: hero-og-visual-diff
           path: tests/visual-regression/hero-og/
