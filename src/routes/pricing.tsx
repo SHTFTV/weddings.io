@@ -84,10 +84,12 @@ function PricingPage() {
   const defaultCity =
     SUPPORTED_CITIES.find((c) => c.city === "Vancouver, BC") ?? SUPPORTED_CITIES[0];
   const [selected, setSelected] = useState<SupportedCity>(defaultCity);
+  const [cityReady, setCityReady] = useState(false);
   useEffect(() => {
     const initial = loadInitialCity(defaultCity);
     if (initial.city !== defaultCity.city) setSelected(initial);
     persistCity(initial);
+    setCityReady(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const monthly = priceForCity(selected);
@@ -129,6 +131,8 @@ function PricingPage() {
           </label>
           <select
             id="pricing-city"
+            disabled={!cityReady}
+            aria-busy={!cityReady}
             value={selected.city}
             onChange={(e) => {
               const next = SUPPORTED_CITIES.find((c) => c.city === e.target.value);

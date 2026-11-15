@@ -2181,8 +2181,6 @@ const allBlogPosts: BlogPost[] = [
     dateLabel: "July 14, 2026",
     category: "SEO",
     image: "/__l5e/assets-v1/4a675ab5-dda1-4f17-a788-af287ea86cff/iam-weddings-seo.jpg",
-    imageWebp: "/__l5e/assets-v1/7c2d74dd-a348-4f2c-9116-1d0a62bc4dca/iam-weddings-seo-1600.webp",
-    imageWebpSmall: "/__l5e/assets-v1/86fb2387-00e5-40dd-81a2-6d63b42f27e1/iam-weddings-seo-800.webp",
     imageAlt: "IAM Weddings SEO — laptop showing wedding vendor search rankings climbing, with blush roses, wedding ring and editorial flat-lay styling",
     readTime: "6 min",
     excerpt: "IAM Weddings SEO is the done-for-you SEO team behind Weddings.io — city-scoped SEO Marketing Pages, high-authority dofollow backlinks, technical SEO, and real editorial content, $10–$2,000/mo, PPP-adjusted per city.",

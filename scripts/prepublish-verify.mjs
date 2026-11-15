@@ -5,7 +5,7 @@
  * Blocks a deploy from going live unless, for every blog post:
  *   1. The post appears in public/sitemap.xml at
  *      https://weddings.io/blog/<slug>/  (trailing slash).
- *   2. Its hero image + every inline ![](path) reference in body/subtitle
+ *   2. Its hero, optional responsive variants + every inline ![](path) reference in body/subtitle
  *      resolves to an existing file under public/  (so production won't 404).
  *   3. The route's derived canonical + og:url match
  *      https://weddings.io/blog/<slug>/.
@@ -40,7 +40,9 @@ if (!/"@type":\s*"BlogPosting"/.test(routeSrc)) {
 
 const extractImageRefs = (post) => {
   const refs = new Set();
-  if (post.image) refs.add(post.image);
+  for (const field of ["image", "imageWebp", "imageWebpSmall", "imageAvif", "imageAvifSmall"]) {
+    if (post[field]) refs.add(post[field]);
+  }
   const scan = (s) => {
     if (typeof s !== "string") return;
     for (const m of s.matchAll(/!\[[^\]]*\]\(([^)\s]+)/g)) refs.add(m[1]);

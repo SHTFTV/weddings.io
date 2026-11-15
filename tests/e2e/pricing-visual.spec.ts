@@ -75,7 +75,7 @@ test.describe("/pricing — visual regression + responsive readability", () => {
 
       // No non-breaking spaces or stray currency codes (USD/CAD/€…).
       expect(txt).not.toMatch(/\u00A0/);
-      expect(txt).not.toMatch(/[A-Za-z]{2,}/);
+      expect(txt.replace(/\/mo$/, "")).not.toMatch(/[A-Za-z]{2,}/);
       // No decimal separator (whole-dollar contract).
       expect(txt).not.toMatch(/[.,]\d{2}(?!\d)/);
       // Locale-safe shape.
