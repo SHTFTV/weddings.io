@@ -15,11 +15,12 @@ describe("blogPosts date ordering", () => {
     }
   });
 
-  it("homepageCarouselPosts hard-pins the newest entity authority post first", () => {
-    expect(homepageCarouselPosts[0]?.slug).toBe("entity-authority-modern-seo");
-    expect(homepageCarouselPosts.map((p) => p.slug).sort()).toEqual(
-      sortedBlogPosts.map((p) => p.slug).sort(),
-    );
+  it("homepageCarouselPosts stays newest-first without pinning an old article", () => {
+    expect(homepageCarouselPosts.length).toBeGreaterThan(0);
+    const eligible = sortedBlogPosts.filter(post => post.slug !== "weddings-io-public-record-prior-use-continuous-operation");
+    expect(homepageCarouselPosts[0].date).toBe(eligible[0].date);
+    expect(homepageCarouselPosts.map(post => post.slug).sort()).toEqual(eligible.map(post => post.slug).sort());
+    expect(homepageCarouselPosts.some(post => post.slug === "weddings-io-public-record-prior-use-continuous-operation")).toBe(false);
   });
 
   it("every post has an ISO-8601 (YYYY-MM-DD) date", () => {

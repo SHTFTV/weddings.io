@@ -60,7 +60,7 @@ for (const post of targets) {
 
   // (2) local image files exist under public/
   for (const ref of extractImageRefs(post)) {
-    if (/^https?:\/\//i.test(ref) || ref.startsWith("/__l5e/")) continue;
+    if (/^https?:\/\//i.test(ref)) continue;
     const local = join(ROOT, "public", ref.replace(/^\//, ""));
     if (!existsSync(local)) {
       errors.push(`${post.slug}: image reference "${ref}" not found at public${ref}`);

@@ -17,7 +17,7 @@ jobs:
       - name: Unit tests — territory pricing
         run: bunx vitest run src/lib/__tests__/territoryPricing.test.ts
       - name: Install Playwright browsers
-        run: bunx playwright install --with-deps chromium
+        run: bunx playwright install --with-deps chromium webkit
       - name: Start dev server
         run: |
           bun run dev > /tmp/dev.log 2>&1 &
@@ -30,7 +30,7 @@ jobs:
           done
           echo "dev server failed to start"; cat /tmp/dev.log; exit 1
       - name: Playwright — pricing-formula spec
-        run: bun run test:e2e:pricing
+        run: bunx playwright test pricing-formula pricing-visual pricing-a11y-theme --project=desktop --project=tablet --project=mobile --project=mobile-small --project=mobile-android --project=mobile-large
       - name: Upload Playwright report
         if: always()
         uses: actions/upload-artifact@v4

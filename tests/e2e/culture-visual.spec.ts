@@ -9,15 +9,13 @@ import { test, expect } from "@playwright/test";
  */
 
 test.describe("Culture surface — visual regression", () => {
-  test("CultureFeatures grid — Hispanic Heritage card region", async ({ page }, testInfo) => {
+  test("Magazine culture grid — Mexican & Latino card region", async ({ page }, testInfo) => {
     await page.goto("/", { waitUntil: "networkidle" });
-    // Anchor on the card's heading, then screenshot its section container.
-    const heading = page.getByRole("heading", { name: /Hispanic Heritage/i }).first();
-    await heading.scrollIntoViewIfNeeded();
-    // Freeze the rotating headline animation before taking the shot.
-    await page.addStyleTag({ content: "*, *::before, *::after { animation: none !important; transition: none !important; }" });
-    const card = heading.locator("xpath=ancestor::article[1] | ancestor::section[1] | ancestor::div[contains(@class,'rounded')][1]").first();
-    await expect(card).toHaveScreenshot(`culture-card-hispanic-${testInfo.project.name}.png`);
+    const card = page.getByRole("link", {name: /Mexican & Latino/i}).first();
+    await expect(card).toBeVisible();
+    await card.scrollIntoViewIfNeeded();
+    await page.addStyleTag({content: "*, *::before, *::after { animation: none !important; transition: none !important; }"});
+    await expect(card).toHaveScreenshot(`culture-card-mexican-latino-${testInfo.project.name}.png`);
   });
 
   test("Rotating headline — first frame with animations disabled", async ({ page }, testInfo) => {
@@ -29,7 +27,7 @@ test.describe("Culture surface — visual regression", () => {
     await expect(h1).toHaveScreenshot(`rotating-headline-${testInfo.project.name}.png`);
   });
 
-  test("Footer — Cultures Served column includes Hispanic Heritage", async ({ page }, testInfo) => {
+  test("Footer — current magazine navigation", async ({ page }, testInfo) => {
     await page.goto("/", { waitUntil: "networkidle" });
     await page.addStyleTag({ content: "*, *::before, *::after { animation: none !important; transition: none !important; }" });
     const footer = page.locator("footer").first();

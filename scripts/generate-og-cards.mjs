@@ -149,12 +149,8 @@ for (const post of posts) {
   cards[post.slug] = { url: urlPath, hash, variant, width: 1200, height: 630 };
   if (existsSync(outPath)) continue;
 
-  // Purge older cards for this slug to keep the folder from growing forever.
-  for (const f of await fs.readdir(OUT_DIR).catch(() => [])) {
-    if (f.startsWith(`${post.slug}-`) && f.endsWith(".jpg") && f !== outName) {
-      await fs.unlink(path.join(OUT_DIR, f)).catch(() => {});
-    }
-  }
+  // Existing content-hashed card URLs may still be used by shared links and
+  // cached previews. Keep those immutable files when a new card is generated.
 
   const hero = heroFsPath(post);
   const overlay = Buffer.from(overlaySvg(post));

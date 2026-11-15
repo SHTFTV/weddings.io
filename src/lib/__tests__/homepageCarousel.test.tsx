@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
-import { homepageCarouselPosts, sortedBlogPosts } from "@/lib/blogPosts";
+import { homepageCarouselPosts, sortedBlogPosts, getBlogPost } from "@/lib/blogPosts";
 import { BlogCard, blogCardHref } from "@/components/BlogCard";
 
 // Render the same slice the homepage renders: `homepageCarouselPosts.slice(0, 4)`.
@@ -8,13 +8,13 @@ import { BlogCard, blogCardHref } from "@/components/BlogCard";
 // blog index order, and (3) PPP appears where its 2026-07-14 date puts it.
 
 const PPP_SLUG = "ppp-pricing-wedding-platform-industry-first";
-const ENTITY_AUTHORITY_SLUG = "entity-authority-modern-seo";
 
 describe("Homepage carousel — end-to-end order", () => {
   const latest = homepageCarouselPosts.slice(0, 4);
 
-  it("carousel starts with the newest entity authority post", () => {
-    expect(latest[0]?.slug).toBe(ENTITY_AUTHORITY_SLUG);
+  it("carousel starts at the newest eligible publication date", () => {
+    const eligible = sortedBlogPosts.filter(post => post.slug !== "weddings-io-public-record-prior-use-continuous-operation");
+    expect(latest[0]?.date).toBe(eligible[0]?.date);
   });
 
   it("carousel dates are strictly newest → oldest", () => {
@@ -23,9 +23,9 @@ describe("Homepage carousel — end-to-end order", () => {
     }
   });
 
-  it("PPP post is included in the top 4 (dated 2026-07-14)", () => {
-    const slugs = latest.map((p) => p.slug);
-    expect(slugs, `top 4 slugs: ${slugs.join(", ")}`).toContain(PPP_SLUG);
+  it("an older PPP article remains available without displacing newer stories", () => {
+    expect(getBlogPost(PPP_SLUG)?.date).toBe("2026-07-14");
+    if (latest.every(post => post.date > "2026-07-14")) expect(latest.map(post => post.slug)).not.toContain(PPP_SLUG);
   });
 
   it("renders one <article> per carousel card with the correct href and title", () => {
@@ -49,15 +49,8 @@ describe("Homepage carousel — end-to-end order", () => {
     }
   });
 
-  it("PPP card renders with a July 14, 2026 date label", () => {
-    render(
-      <div>
-        {latest.map((p) => (
-          <BlogCard key={p.slug} post={p} />
-        ))}
-      </div>,
-    );
-    // dateLabel is rendered in the card metadata row.
+  it("the retained PPP card renders its original July 14, 2026 date label", () => {
+    render(<BlogCard post={getBlogPost(PPP_SLUG)!} />);
     expect(screen.getAllByText(/July\s+14,\s+2026/).length).toBeGreaterThan(0);
   });
 });

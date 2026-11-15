@@ -23,7 +23,7 @@ test.describe("/pricing — performance", () => {
     const loadMs = Date.now() - t0;
     expect(loadMs, `nav→DCL took ${loadMs}ms`).toBeLessThan(LOAD_BUDGET_MS);
 
-    const callout = page.getByTestId("one-territory-rule");
+    const callout = page.getByTestId("territory-rule");
     const rows = page.getByTestId("city-row");
     await expect(callout).toBeVisible({ timeout: RENDER_BUDGET_MS });
     await expect(rows.first()).toBeVisible({ timeout: RENDER_BUDGET_MS });
@@ -34,7 +34,7 @@ test.describe("/pricing — performance", () => {
 test.describe("/pricing — accessibility (callout + formula table)", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto("/pricing");
-    await expect(page.getByTestId("one-territory-rule")).toBeVisible();
+    await expect(page.getByTestId("territory-rule")).toBeVisible();
   });
 
   test("h1 exists, headings are ordered, and table has a header row", async ({ page }) => {
@@ -42,25 +42,25 @@ test.describe("/pricing — accessibility (callout + formula table)", () => {
     await expect(page.locator("h1")).toHaveCount(1);
 
     // Callout has a heading-ish "The Rule" eyebrow + the h2-scale statement.
-    const callout = page.getByTestId("one-territory-rule");
-    await expect(callout).toContainText(/1 territory per city/i);
+    const callout = page.getByTestId("territory-rule");
+    await expect(callout).toContainText(/1 exclusive planner per city/i);
 
     // Formula table: has thead > th cells (semantic column headers).
     const table = page.locator("table").first();
     await expect(table).toBeVisible();
-    await expect(table.locator("thead th")).toHaveCount(3);
+    await expect(table.locator("thead th")).toHaveCount(4);
 
-    // Calculator input has a real <label for="pop">.
-    const label = page.locator('label[for="pop"]');
+    // City selector has a real linked label.
+    const label = page.locator('label[for="pricing-city"]');
     await expect(label).toBeVisible();
-    await expect(page.locator("#pop")).toBeVisible();
+    await expect(page.locator("#pricing-city")).toBeVisible();
   });
 
   test("axe: no serious/critical WCAG 2 AA violations on callout + formula scope", async ({
     page,
   }) => {
     const results = await new AxeBuilder({ page })
-      .include('[data-testid="one-territory-rule"]')
+      .include('[data-testid="territory-rule"]')
       .include("table")
       .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
       .analyze();
@@ -76,7 +76,7 @@ test.describe("/pricing — accessibility (callout + formula table)", () => {
 
   test("color-contrast passes for callout and city-price cells", async ({ page }) => {
     const results = await new AxeBuilder({ page })
-      .include('[data-testid="one-territory-rule"]')
+      .include('[data-testid="territory-rule"]')
       .include('[data-testid="city-price"]')
       .withRules(["color-contrast"])
       .analyze();
@@ -99,17 +99,17 @@ for (const theme of ["light", "dark"] as const) {
     });
 
     test(`callout screenshot (${theme})`, async ({ page }, testInfo) => {
-      const callout = page.getByTestId("one-territory-rule");
+      const callout = page.getByTestId("territory-rule");
       await expect(callout).toBeVisible();
       expect(await isNotTruncated(callout)).toBe(true);
       await expect(callout).toHaveScreenshot(`callout-${theme}-${testInfo.project.name}.png`);
     });
 
-    test(`formula + boundary examples screenshot (${theme})`, async ({ page }, testInfo) => {
-      const formula = page.locator("section", { hasText: /The Formula/i }).first();
+    test(`city calculator screenshot (${theme})`, async ({ page }, testInfo) => {
+      const formula = page.locator("section", { hasText: /City Price Calculator/i }).first();
       await expect(formula).toBeVisible();
       expect(await isNotTruncated(formula)).toBe(true);
-      await expect(formula).toHaveScreenshot(`formula-${theme}-${testInfo.project.name}.png`);
+      await expect(formula).toHaveScreenshot(`calculator-${theme}-${testInfo.project.name}.png`);
     });
 
     test(`example rows readable & not truncated (${theme})`, async ({ page }) => {

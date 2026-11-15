@@ -46,11 +46,12 @@ describe("Hispanic Heritage rename — visible labels", () => {
     expect(contribute).not.toMatch(/"🎺 Mexican"/);
   });
 
-  it("Homepage footer + JSON-LD list use Hispanic Heritage", () => {
-    expect(index).toContain(">Hispanic Heritage</a>");
-    expect(index).toMatch(/name:\s*"Hispanic Heritage Wedding Padrinos Tracker"/);
-    expect(index).not.toContain(">Mexican</a>");
-    expect(index).not.toMatch(/name:\s*"Mexican Wedding Padrinos Tracker"/);
+  it("the magazine links its culture edit and keeps the culture directory accessible", () => {
+    const magazine = readFileSync(join(ROOT, "src/components/WeddingMagazineHome.tsx"), "utf8");
+    expect(index).toContain("WeddingMagazineHome");
+    expect(magazine).toContain('["Mexican & Latino", "mexican", "mexican-wedding-planning-guide-2026"]');
+    expect(magazine).toContain('href="/cultures">Cultures</a>');
+    expect(cultureFeatures).toMatch(/name:\s*"Hispanic Heritage"/);
   });
 
   it("Existing /tools/mexican/ route + hero image are preserved (no broken links)", () => {

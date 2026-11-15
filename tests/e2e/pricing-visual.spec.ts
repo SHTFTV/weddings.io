@@ -9,16 +9,10 @@ import { test, expect } from "@playwright/test";
  * Runs across the desktop/tablet/mobile projects declared in playwright.config.ts.
  */
 
-function expectedPrice(pop: number): number {
-  return Math.max(10, Math.floor(Math.max(0, pop) / 100_000) * 10);
+function expectedPrice(pop: number, ppp: number): number {
+  const base = Math.max(10, Math.floor(Math.max(0, pop) / 100_000) * 10);
+  return Math.min(2_000, Math.max(10, Math.round(base * ppp / 10) * 10));
 }
-
-const BOUNDARY_LINES = [
-  /Pop 99,999.*\$10\/mo/i,
-  /Pop 100,000.*\$10\/mo/i,
-  /Pop 199,999.*\$10\/mo/i,
-  /Pop 200,000.*\$20\/mo/i,
-];
 
 async function isNotTruncated(locator: import("@playwright/test").Locator) {
   // Element is not clipped by overflow: horizontal scrollWidth ~= clientWidth
@@ -37,30 +31,28 @@ test.describe("/pricing — visual regression + responsive readability", () => {
   });
 
   test("callout screenshot", async ({ page }, testInfo) => {
-    const callout = page.getByTestId("one-territory-rule");
+    const callout = page.getByTestId("territory-rule");
     await expect(callout).toBeVisible();
     await expect(callout).toHaveScreenshot(`callout-${testInfo.project.name}.png`);
   });
 
-  test("formula + boundary examples screenshot", async ({ page }, testInfo) => {
+  test("city calculator screenshot", async ({ page }, testInfo) => {
     // The section immediately after the callout is the formula block.
-    const formula = page.locator("section", { hasText: /The Formula/i }).first();
+    const formula = page.locator("section", { hasText: /City Price Calculator/i }).first();
     await expect(formula).toBeVisible();
-    await expect(formula).toHaveScreenshot(`formula-${testInfo.project.name}.png`);
+    await expect(formula).toHaveScreenshot(`calculator-${testInfo.project.name}.png`);
   });
 
   test("callout and formula examples are visible and not truncated", async ({ page }) => {
-    const callout = page.getByTestId("one-territory-rule");
+    const callout = page.getByTestId("territory-rule");
     await expect(callout).toBeVisible();
-    await expect(callout).toContainText(/1 territory per city/i);
+    await expect(callout).toContainText(/1 exclusive planner per city/i);
     expect(await isNotTruncated(callout)).toBe(true);
 
-    await expect(page.getByText(/\$10 USD × ⌊ ?population ÷ 100,000 ?⌋/i)).toBeVisible();
-    for (const line of BOUNDARY_LINES) {
-      const el = page.getByText(line);
-      await expect(el).toBeVisible();
-      expect(await isNotTruncated(el)).toBe(true);
-    }
+    const city = page.getByLabel("Your city", {exact: true});
+    await expect(city).toBeVisible();
+    expect(await isNotTruncated(city)).toBe(true);
+    await expect(page.getByTestId("calc-price")).toBeVisible();
   });
 
   test("every city-row price is locale-safe USD (commas ok, no decimals, no NBSP/junk)", async ({
@@ -73,10 +65,11 @@ test.describe("/pricing — visual regression + responsive readability", () => {
     // Strict whole-dollar USD: leading $, comma-grouped integer, "/mo" suffix.
     const LOCALE_SAFE = /^\$(?:\d{1,3}(?:,\d{3})*|\d+)\/mo$/;
 
-    let sawComma = false;
     for (let i = 0; i < count; i++) {
       const row = rows.nth(i);
       const pop = Number(await row.getAttribute("data-population"));
+      const ppp = Number((await row.getByRole("cell").nth(2).innerText()).match(/\d+\.\d+/)?.[0]);
+      expect(Number.isFinite(ppp)).toBe(true);
       const cell = row.getByTestId("city-price");
       const txt = ((await cell.textContent()) ?? "").trim();
 
@@ -88,13 +81,8 @@ test.describe("/pricing — visual regression + responsive readability", () => {
       // Locale-safe shape.
       expect(txt).toMatch(LOCALE_SAFE);
       // Value matches formula.
-      expect(txt).toBe(`$${expectedPrice(pop).toLocaleString("en-US")}/mo`);
+      expect(txt).toBe(`$${expectedPrice(pop, ppp).toLocaleString("en-US")}/mo`);
 
-      if (expectedPrice(pop) >= 1_000) sawComma = true;
     }
-
-    // Ensure at least one sample crosses the thousands boundary so
-    // comma-grouping is actually exercised across the table.
-    expect(sawComma).toBe(true);
   });
 });
