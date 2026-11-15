@@ -82,7 +82,7 @@ const tools = [
   { slug: "mexican", name: "Hispanic Heritage", native: "La Boda · El Casamiento", desc: "Padrinos tracker, Mariachi scheduling, Lasso and arras coordination, reception flow templates.", emoji: "🎺" },
   { slug: "nordic", name: "Nordic", native: "Bröllop", desc: "Weather contingency builder, foraged floral sourcing, folk-music programming, Midsommar date checker.", emoji: "🌿" },
   { slug: "southeast-asian", name: "Southeast Asian", native: "งานแต่งงาน", desc: "Monk scheduling, outfit-change timelines, water blessing logistics, ballroom-ready ceremony briefs.", emoji: "🙏" },
-  { slug: "western", name: "Western Traditional", native: "Wedding", desc: "Ceremony order guide, order-of-speeches builder, string quartet vs DJ planner, first-dance choreography templates.", emoji: "💍" },
+  { slug: "western", name: "Western Traditional", native: "Wedding", desc: "Ceremony run-of-show, agreed speech order, and a clear music brief for your DJ or live musicians.", emoji: "💍" },
 ];
 
 function ToolsHub() {
