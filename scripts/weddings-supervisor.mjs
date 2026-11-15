@@ -14,6 +14,19 @@ export function evaluatePublisher(run,{now=Date.now(),maxAge=8*3600000}={}){
  if(run.status!=='completed'||run.conclusion!=='success')return 'Latest scheduled publisher is failed or incomplete';
  return null;
 }
+// The visual job and this supervisor share one workflow run. The run remains
+// in_progress until the supervisor finishes, and its overall failure can come
+// from publishing health rather than rendering. Inspect the exact visual job.
+export function evaluateVisual(run,jobs,{now=Date.now(),maxAge=8*3600000}={}){
+ if(!run)return 'Native scheduled visual run missing';
+ if(run.event!=='schedule')return 'Visual run was not native scheduled execution';
+ const age=now-Date.parse(run.updated_at);
+ if(!Number.isFinite(age)||age<0||age>maxAge)return 'Visual run is stale or has an invalid timestamp';
+ const job=jobs?.find(job=>job.run_id===run.id&&job.name==='visual');
+ if(!job)return 'Exact visual job evidence missing from the scheduled run';
+ if(job.status!=='completed'||job.conclusion!=='success')return 'Latest scheduled visual job is failed or incomplete';
+ return null;
+}
 async function getJson(url){const r=await fetch(url,{headers:{'User-Agent':'Weddings-read-only-supervisor'},signal:AbortSignal.timeout(25000)});if(!r.ok)throw Error(`HTTP ${r.status} at ${new URL(url).pathname}`);return r.json();}
 export async function run(){
  const posts=JSON.parse(await fs.readFile('src/lib/scheduledBlogPosts.json','utf8'));
@@ -37,7 +50,18 @@ export async function run(){
  const publisher=results.publisher.value?.workflow_runs?.[0];
  const publisherReason=evaluatePublisher(publisher);if(publisherReason)blockers.push({check:'publisher-runtime',reason:publisherReason});
  const visual=results.visual.value?.workflow_runs?.[0];
- const visualReason=evaluatePublisher(visual);if(visualReason)blockers.push({check:'visual-runtime',reason:visualReason.replaceAll('Publisher','Visual').replaceAll('publisher','visual')});
+ let visualJobs=[];
+ if(visual){
+  try{
+   const response=await getJson(`https://api.github.com/repos/${repository}/actions/runs/${visual.id}/jobs?filter=latest&per_page=100`);
+   visualJobs=response.jobs??[];
+   results.visualJob={status:'passed',value:visualJobs.find(job=>job.run_id===visual.id&&job.name==='visual')??null};
+  }catch(error){
+   results.visualJob={status:'failed',error:String(error.message||error)};
+   blockers.push({check:'visual-job-api',reason:results.visualJob.error});
+  }
+ }
+ const visualReason=evaluateVisual(visual,visualJobs);if(visualReason)blockers.push({check:'visual-runtime',reason:visualReason});
  // A successful wrapper is not a matching actual publication/queue/SOT receipt.
  if(publisher)blockers.push({check:'worker-receipt',reason:'Provider run status alone is insufficient; approved SOT and durable publication/queue/isolation receipt adapter must match the actual worker run.'});
  const runRef=process.env.GITHUB_RUN_ID?`https://github.com/${repository}/actions/runs/${process.env.GITHUB_RUN_ID}`:null;
