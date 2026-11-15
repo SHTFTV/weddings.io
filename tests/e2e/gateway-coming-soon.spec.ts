@@ -12,11 +12,12 @@ const GATEWAY_BUTTON_LABEL = "Coming Soon";
 const PARTNERSHIPS_EMAIL = "partnerships@industryarmymarketing.com";
 const POPOVER_EYEBROW = "Gateways closed — by design";
 
-const GATEWAY_ROUTES = ["/", "/directory", "/vendors"] as const;
+const GATEWAY_ROUTES = ["/pricing", "/directory", "/vendors"] as const;
 
 async function firstGateway(page: Page) {
   const stop = page.getByTestId("gateway-coming-soon").first();
   await stop.waitFor({ state: "visible" });
+  await expect(stop).toBeEnabled();
   return stop;
 }
 
@@ -51,7 +52,7 @@ for (const route of GATEWAY_ROUTES) {
 }
 
 test("no legacy Apply/Checkout/Subscribe anchors remain on gateway routes", async ({ page }) => {
-  for (const route of GATEWAY_ROUTES) {
+  for (const route of ["/", ...GATEWAY_ROUTES]) {
     await page.goto(route);
     // Anchor tags pointing to closed gateway prefixes should not exist —
     // they must be replaced by the GatewayComingSoon stop.

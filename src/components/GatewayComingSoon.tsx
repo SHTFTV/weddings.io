@@ -65,6 +65,7 @@ export function GatewayComingSoon({
   subject,
 }: Props) {
   const [open, setOpen] = useState(false);
+  const [ready, setReady] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
@@ -72,6 +73,9 @@ export function GatewayComingSoon({
   // Track whether the last open was initiated by keyboard so we know to
   // restore focus to the trigger on close.
   const openedByKeyboard = useRef(false);
+  const restoringFocus = useRef(false);
+
+  useEffect(() => setReady(true), []);
 
   const baseId = useId().replace(/:/g, "");
   const popoverId = `gateway-popover-${baseId}`;
@@ -101,7 +105,12 @@ export function GatewayComingSoon({
     openedByKeyboard.current = false;
     const t = triggerRef.current;
     // Defer to next tick so any in-flight blur/mousedown settles first.
-    const id = window.setTimeout(() => t?.focus(), 0);
+    const id = window.setTimeout(() => {
+      if (!t || document.activeElement === t) return;
+      restoringFocus.current = true;
+      t.focus();
+      restoringFocus.current = false;
+    }, 0);
     return () => window.clearTimeout(id);
   }, [open]);
 
@@ -164,16 +173,21 @@ export function GatewayComingSoon({
       <button
         ref={triggerRef}
         type="button"
+        disabled={!ready}
+        aria-busy={!ready}
         aria-haspopup="dialog"
         aria-expanded={open}
         aria-controls={popoverId}
         aria-label={`${GATEWAY_BUTTON_LABEL} — reveal partnerships email`}
         onClick={() => {
           openedByKeyboard.current = false;
-          setOpen((v) => !v);
+          // Pointer focus/hover may have already opened the popover before
+          // the click. Activation must still leave it open on touch screens.
+          setOpen(true);
         }}
         onKeyDown={onTriggerKeyDown}
         onFocus={() => {
+          if (restoringFocus.current) return;
           openedByKeyboard.current = true;
           setOpen(true);
         }}

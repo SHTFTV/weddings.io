@@ -1,16 +1,17 @@
 import { test, expect, type Page } from "@playwright/test";
 
-const GATEWAY_ROUTES = ["/", "/directory", "/vendors"] as const;
+const GATEWAY_ROUTES = ["/pricing", "/directory", "/vendors"] as const;
 
 async function firstTrigger(page: Page) {
   const t = page.getByTestId("gateway-coming-soon").first();
   await t.waitFor({ state: "visible" });
+  await expect(t).toBeEnabled();
   await t.scrollIntoViewIfNeeded();
   return t;
 }
 
 test("outside click closes popover and restores focus to trigger", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/pricing");
   const trigger = await firstTrigger(page);
 
   await trigger.focus();
@@ -26,11 +27,11 @@ test("outside click closes popover and restores focus to trigger", async ({ page
 });
 
 test("repeated open/close cycles never leave focus stuck", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/pricing");
   const trigger = await firstTrigger(page);
 
   for (let i = 0; i < 5; i++) {
-    await trigger.focus();
+    await trigger.press("Enter");
     await expect(trigger).toHaveAttribute("aria-expanded", "true");
     await page.keyboard.press("Escape");
     await expect(trigger).toHaveAttribute("aria-expanded", "false");

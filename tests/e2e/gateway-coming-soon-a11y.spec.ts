@@ -10,11 +10,12 @@ import { test, expect, type Page } from "@playwright/test";
  *   - Focus trap: Tab cycles between the trigger and the email link only
  */
 
-const GATEWAY_ROUTES = ["/", "/directory", "/vendors"] as const;
+const GATEWAY_ROUTES = ["/pricing", "/directory", "/vendors"] as const;
 
 async function firstTrigger(page: Page) {
   const t = page.getByTestId("gateway-coming-soon").first();
   await t.waitFor({ state: "visible" });
+  await expect(t).toBeEnabled();
   await t.scrollIntoViewIfNeeded();
   return t;
 }
@@ -36,6 +37,15 @@ for (const route of GATEWAY_ROUTES) {
       await expect(trigger).toHaveAttribute("aria-expanded", "false");
       await expect(popover).toBeHidden();
       await expect(trigger, "focus restored to trigger after Escape").toBeFocused();
+
+      // Enter must reopen an already-focused trigger. Closing from the email
+      // must restore focus without that programmatic focus reopening it.
+      await trigger.press("Enter");
+      await expect(popover).toBeVisible();
+      await page.getByTestId("gateway-coming-soon-email").first().focus();
+      await page.keyboard.press("Escape");
+      await expect(popover).toBeHidden();
+      await expect(trigger).toBeFocused();
     });
 
     test("popover role + aria-controls + aria-labelledby announce reliably", async ({ page }) => {

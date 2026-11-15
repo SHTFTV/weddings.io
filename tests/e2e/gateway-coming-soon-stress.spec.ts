@@ -6,12 +6,13 @@ import { test, expect, type Page } from "@playwright/test";
  * popover element being duplicated by remounts.
  */
 
-const GATEWAY_ROUTES = ["/", "/directory", "/vendors"] as const;
+const GATEWAY_ROUTES = ["/pricing", "/directory", "/vendors"] as const;
 const CYCLES = 25;
 
 async function firstTrigger(page: Page) {
   const t = page.getByTestId("gateway-coming-soon").first();
   await t.waitFor({ state: "visible" });
+  await expect(t).toBeEnabled();
   await t.scrollIntoViewIfNeeded();
   return t;
 }
@@ -28,7 +29,7 @@ for (const route of GATEWAY_ROUTES) {
     expect(initialTriggerCount).toBe(initialPopoverCount);
 
     for (let i = 0; i < CYCLES; i++) {
-      await trigger.focus();
+      await trigger.press("Enter");
       await expect(trigger, `expanded on cycle ${i}`).toHaveAttribute("aria-expanded", "true");
 
       const popover = page.getByTestId("gateway-coming-soon-popover").first();
