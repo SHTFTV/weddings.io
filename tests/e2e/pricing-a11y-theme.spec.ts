@@ -16,6 +16,30 @@ async function isNotTruncated(locator: import("@playwright/test").Locator) {
   });
 }
 
+async function logContrastContext(page: import("@playwright/test").Page) {
+  const context = await page.evaluate(() => {
+    const root = getComputedStyle(document.documentElement);
+    const selectors = ['[data-testid="territory-rule"]', '[data-testid="city-price"]', '#pricing-city'];
+    return {
+      userAgent: navigator.userAgent,
+      rootClass: document.documentElement.className,
+      backgroundToken: root.getPropertyValue('--background'),
+      colorBackgroundToken: root.getPropertyValue('--color-background'),
+      primaryToken: root.getPropertyValue('--primary'),
+      elements: selectors.map(selector => {
+        const element = document.querySelector(selector);
+        const ancestors = [];
+        for (let current = element; current; current = current.parentElement) {
+          const style = getComputedStyle(current);
+          ancestors.push({tag: current.tagName, className: current.className, color: style.color, background: style.backgroundColor, colorScheme: style.colorScheme});
+        }
+        return {selector, ancestors};
+      })
+    };
+  });
+  console.log('PRICING_CONTRAST_CONTEXT ' + JSON.stringify(context));
+}
+
 test.describe("/pricing — performance", () => {
   test("loads under the target time and renders callout + rows quickly", async ({ page }) => {
     const t0 = Date.now();
@@ -70,6 +94,7 @@ test.describe("/pricing — accessibility (callout + formula table)", () => {
     );
     if (blocking.length) {
       console.log(JSON.stringify(blocking.map((v) => ({ id: v.id, impact: v.impact, nodes: v.nodes.length })), null, 2));
+      await logContrastContext(page);
     }
     expect(blocking, "serious/critical a11y violations").toEqual([]);
   });
@@ -80,6 +105,7 @@ test.describe("/pricing — accessibility (callout + formula table)", () => {
       .include('[data-testid="city-price"]')
       .withRules(["color-contrast"])
       .analyze();
+    if (results.violations.length) await logContrastContext(page);
     expect(results.violations, JSON.stringify(results.violations, null, 2)).toEqual([]);
   });
 });

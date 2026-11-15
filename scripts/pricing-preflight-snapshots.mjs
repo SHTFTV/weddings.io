@@ -1,26 +1,29 @@
-#!/usr/bin/env node
+#!/usr/bin/env bun
 /**
  * Preflight: verify snapshot baselines exist for the pricing-rows-a11y spec.
  *
  * Snapshot names come from calls to `toHaveScreenshot(name)` in
  * tests/e2e/pricing-rows-a11y.spec.ts:
  *   - row-callout-{theme}-{project}.png
- *   - row-city-{i}-{theme}-{project}.png    (i = 0..CITY_EXAMPLES.length-1)
+ *   - row-city-{i}-{theme}-{project}.png    (i = 0..SUPPORTED_CITIES.length-1)
  *
  * Playwright stores them at:
- *   tests/e2e/pricing-rows-a11y.spec.ts-snapshots/<name>
+ *   tests/e2e/pricing-rows-a11y.spec.ts-snapshots/<name>-{project}-{platform}.png
+ * The screenshot argument already contains the project; Playwright appends
+ * the project and platform again using its default snapshot path template.
  *
  * Usage:
- *   node scripts/pricing-preflight-snapshots.mjs               # all cross-browser projects
- *   node scripts/pricing-preflight-snapshots.mjs chromium      # one browser
- *   node scripts/pricing-preflight-snapshots.mjs firefox webkit
+ *   bun scripts/pricing-preflight-snapshots.mjs               # all cross-browser projects
+ *   bun scripts/pricing-preflight-snapshots.mjs chromium      # one browser
+ *   bun scripts/pricing-preflight-snapshots.mjs firefox webkit
  *
  * Exit code: 0 = all baselines present, 1 = at least one missing.
  * Emits `missing=true|false` and a JSON `missing_files` list to $GITHUB_OUTPUT when set.
  */
-import { readFileSync, existsSync, appendFileSync } from "node:fs";
+import { existsSync, appendFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
+import { SUPPORTED_CITIES } from "../src/lib/territoryPricing.ts";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(__dirname, "..");
@@ -36,27 +39,13 @@ const PROJECTS_BY_BROWSER = {
   webkit: ["pricing-webkit-desktop", "pricing-webkit-mobile"],
 };
 
-function readCityCount() {
-  const src = readFileSync(
-    resolve(REPO_ROOT, "src/lib/territoryPricing.ts"),
-    "utf8"
-  );
-  // Count entries in CITY_EXAMPLES: lines starting with `{ city:`
-  const block = src.split("CITY_EXAMPLES")[1] ?? "";
-  const end = block.indexOf("] as const");
-  const body = end >= 0 ? block.slice(0, end) : block;
-  const n = (body.match(/\{\s*city\s*:/g) ?? []).length;
-  if (!n) throw new Error("Could not parse CITY_EXAMPLES length");
-  return n;
-}
-
 function expectedFilesFor(projects, cityCount) {
   const files = [];
   for (const project of projects) {
     for (const theme of THEMES) {
-      files.push(`row-callout-${theme}-${project}.png`);
+      files.push(`row-callout-${theme}-${project}-${project}-${process.platform}.png`);
       for (let i = 0; i < cityCount; i++) {
-        files.push(`row-city-${i}-${theme}-${project}.png`);
+        files.push(`row-city-${i}-${theme}-${project}-${project}-${process.platform}.png`);
       }
     }
   }
@@ -76,7 +65,8 @@ function main() {
     return p;
   });
 
-  const cityCount = readCityCount();
+  const cityCount = SUPPORTED_CITIES.length;
+  if (!cityCount) throw new Error("SUPPORTED_CITIES is empty");
   const expected = expectedFilesFor(projects, cityCount);
 
   const missing = expected.filter((f) => !existsSync(resolve(SNAP_DIR, f)));

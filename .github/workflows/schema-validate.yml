@@ -146,8 +146,9 @@ jobs:
 
   lighthouse:
     runs-on: ubuntu-latest
-    # Enforce Web Vitals budgets (LCP ≤ 2.5s, CLS ≤ 0.1, INP ≤ 200ms) on the
-    # deployed manifesto URL. Fails the build if any budget is exceeded.
+    # Navigation lab budgets: LCP ≤ 2.5s, CLS ≤ 0.1, TBT ≤ 200ms, score ≥ 0.9.
+    # INP requires user interactions/field data and is not measured by this run.
+    # https://web.dev/articles/vitals
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: validate
     steps:

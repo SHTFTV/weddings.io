@@ -133,6 +133,7 @@ function PricingPage() {
             id="pricing-city"
             disabled={!cityReady}
             aria-busy={!cityReady}
+            style={{colorScheme: "dark"}}
             value={selected.city}
             onChange={(e) => {
               const next = SUPPORTED_CITIES.find((c) => c.city === e.target.value);

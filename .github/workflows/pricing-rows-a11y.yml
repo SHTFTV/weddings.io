@@ -77,11 +77,11 @@ jobs:
       - name: Preflight — verify snapshot baselines exist
         id: preflight
         continue-on-error: true
-        run: node scripts/pricing-preflight-snapshots.mjs ${{ matrix.browser }}
+        run: bun scripts/pricing-preflight-snapshots.mjs ${{ matrix.browser }}
 
       - name: Run pricing-rows-a11y (${{ matrix.browser }} desktop + mobile)
         id: run
-        if: steps.preflight.outputs.missing != 'true'
+        if: steps.preflight.outputs.missing == 'false'
         run: |
           bunx playwright test pricing-rows-a11y \
             --project=pricing-${{ matrix.browser }}-desktop \
@@ -115,6 +115,12 @@ jobs:
             /tmp/manifest/missing-${{ matrix.browser }}.txt
           retention-days: 14
           if-no-files-found: error
+
+      - name: Require reviewed snapshot baselines
+        if: always() && steps.preflight.outputs.missing != 'false'
+        run: |
+          echo "::error::Snapshot baselines are missing or preflight failed. Generated candidates require visual review; this run is not a visual pass."
+          exit 1
 
       # Only-on-failure artifacts, per-browser filenames.
       - name: Upload Playwright HTML report (on failure)

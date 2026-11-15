@@ -47,7 +47,15 @@ const descWithKw = metaDescription ? rawDesc
   : primaryKw && !rawDesc.toLowerCase().includes(primaryKw.toLowerCase())
     ? `${primaryKw}: ${rawDesc}` : rawDesc;
 const expectedDesc = descWithKw.length > 160 ? `${descWithKw.slice(0, 159)}…` : descWithKw;
-const expectedImage = image?.startsWith("http") ? image : `${BASE}${image ?? "/opengraph.jpg"}`;
+// The article versions its hero using this exact content hash. Keep the
+// provenance query in the comparison so stale or unrelated versions still fail.
+const imageManifest = JSON.parse(readFileSync(join(ROOT, "src/lib/blogImageManifest.json"), "utf8"));
+const hero = image ?? "/opengraph.jpg";
+const heroPath = hero.replace(/^https:\/\/weddings\.io/, "");
+const hash = !hero.includes("?") && !/^https?:\/\//i.test(heroPath) ? imageManifest[heroPath] : null;
+const versionedHero = hash ? `${hero}?v=${hash}` : hero;
+const shareImage = pick("ogImage") ?? versionedHero;
+const expectedImage = shareImage.startsWith("http") ? shareImage : `${BASE}${shareImage}`;
 
 const errors = [];
 const warns = [];
