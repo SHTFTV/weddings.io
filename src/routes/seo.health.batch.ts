@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import {blogPosts} from "../lib/blogPosts";
 
 /**
  * GET  /seo/health/batch?slugs=a,b,c&origin=https://weddings.io
@@ -79,15 +80,7 @@ async function handle(request: Request) {
 }
 
 async function loadVisibleSlugs(): Promise<string[]> {
-  try {
-    const fs = await import("node:fs/promises");
-    const src = await fs.readFile("src/lib/blogPosts.ts", "utf8");
-    const m = src.match(/visibleBlogSlugs\s*=\s*\[([\s\S]*?)\]/);
-    if (m) return [...m[1].matchAll(/["'`]([^"'`]+)["'`]/g)].map((x) => x[1]);
-    return [...src.matchAll(/slug:\s*["'`]([^"'`]+)["'`]/g)].map((x) => x[1]);
-  } catch {
-    return [];
-  }
+  return blogPosts.map(post => post.slug);
 }
 
 function json(body: unknown, status = 200) {

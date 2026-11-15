@@ -14,29 +14,16 @@ jobs:
         with:
           node-version: "20"
 
-      # Fetch the current Supabase linter output and normalize it into the
+      # Fetch the current Supabase security advisors and normalize them into the
       # same shape as .security-scan-baseline.json expects. Uses the Supabase
       # Management API so no scanner service is required in CI.
-      - name: Fetch live Supabase linter warnings
+      - name: Test security advisor response handling
+        run: node --test scripts/security-advisor-scan.test.mjs
+      - name: Fetch live Supabase security advisors
         env:
           SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
           SUPABASE_PROJECT_REF: ${{ secrets.SUPABASE_PROJECT_REF }}
-        run: |
-          set -euo pipefail
-          curl -sf -H "Authorization: Bearer $SUPABASE_ACCESS_TOKEN" \
-            "https://api.supabase.com/v1/projects/$SUPABASE_PROJECT_REF/database/lints" \
-            > /tmp/lints.json
-          node -e '
-            const lints = JSON.parse(require("fs").readFileSync("/tmp/lints.json","utf8"));
-            const warns = (Array.isArray(lints) ? lints : []).filter(l => (l.level||"").toUpperCase()==="WARN");
-            const map = {
-              "0028_anon_security_definer_function_executable": "SUPA_anon_security_definer_function_executable",
-              "0029_authenticated_security_definer_function_executable": "SUPA_authenticated_security_definer_function_executable"
-            };
-            const findings = warns.map(w => ({ id: map[w.name] || `SUPA_${w.name}`, level: "warn" }));
-            require("fs").writeFileSync("/tmp/security-scan.json", JSON.stringify({ count: findings.length, findings }, null, 2));
-          '
-          cat /tmp/security-scan.json
+        run: node scripts/security-advisor-scan.mjs /tmp/security-scan.json
 
       - name: Compare scan to accepted baseline
         run: node scripts/check-security-baseline.mjs /tmp/security-scan.json
