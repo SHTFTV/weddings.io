@@ -171,7 +171,7 @@ export const Route = createFileRoute("/blog/$slug")({
         { property: "og:description", content: description },
         { property: "og:url", content: url },
         { property: "og:image", content: socialOgImage },
-        ...(post?.ogImage ? [{property:"og:image:type",content:"image/jpeg"},{property:"og:image:width",content:"1200"},{property:"og:image:height",content:"630"},{property:"og:image:alt",content:post.imageAlt ?? post.title},{property:"og:site_name",content:"Weddings.io"},{name:"twitter:image:alt",content:post.imageAlt ?? post.title}] : []),
+        ...(post?.ogImage ? [{property:"og:image:type",content:"image/jpeg"},{property:"og:image:width",content:post.image.includes("-cinematic-")?"1672":"1200"},{property:"og:image:height",content:post.image.includes("-cinematic-")?"941":"630"},{property:"og:image:alt",content:post.imageAlt ?? post.title},{property:"og:site_name",content:"Weddings.io"},{name:"twitter:image:alt",content:post.imageAlt ?? post.title}] : []),
         ...(isEcosystemVideoPost
           ? [
               { property: "og:video", content: absUrl(ECOSYSTEM_VIDEO_URL) },
@@ -247,8 +247,8 @@ export const Route = createFileRoute("/blog/$slug")({
                     image: {
                       "@type": "ImageObject",
                       url: absoluteImage,
-                      width: 1200,
-                      height: 630,
+                      width: post.image.includes("-cinematic-") ? 1672 : 1200,
+                      height: post.image.includes("-cinematic-") ? 941 : 630,
                     },
                     author: [
                       {
@@ -465,8 +465,8 @@ function BlogPostPage() {
                 src={withImageVersion(post.image)}
                 alt={post.imageAlt ?? post.title}
                 className="aspect-[16/9] w-full object-cover"
-                width={1200}
-                height={630}
+                width={post.image.includes("-cinematic-") ? 1672 : 1200}
+                height={post.image.includes("-cinematic-") ? 941 : 630}
                 loading="eager"
                 decoding="async"
                 fetchPriority="high"
