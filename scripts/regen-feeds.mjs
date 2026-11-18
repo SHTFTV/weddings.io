@@ -9,7 +9,7 @@ const BASE = 'https://weddings.io';
 // Keep this in sync when new static HTML posts are added.
 const extraStaticBlogPosts = [
   {
-  "slug": "top-100-wedding-songs-2026",
+  slug: 'top-100-wedding-songs-2026',
   "date": "2026-11-18",
   "title": "Top 100 wedding songs for 2026",
   "seoTitle": "Top 100 wedding songs for 2026 | Weddings.io",
