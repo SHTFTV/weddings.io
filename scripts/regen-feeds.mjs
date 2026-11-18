@@ -9,6 +9,15 @@ const BASE = 'https://weddings.io';
 // Keep this in sync when new static HTML posts are added.
 const extraStaticBlogPosts = [
   {
+  "slug": "top-100-wedding-songs-2026",
+  "date": "2026-11-18",
+  "title": "Top 100 wedding songs for 2026",
+  "seoTitle": "Top 100 wedding songs for 2026 | Weddings.io",
+  "category": "Music",
+  "excerpt": "100 editorial wedding song picks, grouped by ceremony, first dance, reception and last dance.",
+  "metaDescription": "100 editorial wedding song picks, grouped by ceremony, first dance, reception and last dance."
+},
+  {
     slug: 'transparent-territory-pricing-weddings-io',
     date: '2026-07-12',
     title: 'Transparent Territory Pricing: The Weddings.io Bracket Model',
