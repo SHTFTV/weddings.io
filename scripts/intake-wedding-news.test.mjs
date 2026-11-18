@@ -1,0 +1,4 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {intake} from './intake-wedding-news.mjs';
+const sources=[{id:'bad',url:'https://bad.example/',pathPattern:'^/story/'},{id:'good',url:'https://good.example/',pathPattern:'^/story/'}];
+const fetcher=async url=>{if(url.includes('bad.example'))throw Error('feed down');return {ok:true,text:async()=>'<a href="http://[broken">bad</a><a href="/story/one">one</a><a href="/story/two">two</a>'};};
+test('bad feed and malformed link do not stall same-run healthy links; retry bound and dedup survive restart',async()=>{let state={sources:{},candidates:[]};for(const day of [12,13,14,15]){const r=await intake(sources,state,{fetcher,now:new Date(`2026-11-${day}T12:00:00Z`)});state=JSON.parse(JSON.stringify(r.state));}assert.equal(state.sources.bad.status,'blocked');assert.equal(state.sources.bad.attempts,3);assert.equal(state.sources.good.status,'ok');assert.equal(state.candidates.length,2);});
