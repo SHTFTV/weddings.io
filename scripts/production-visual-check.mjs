@@ -38,6 +38,28 @@ try{
     if(!metadata.title||!metadata.description||!metadata.canonical||!metadata.ogTitle||!metadata.ogDescription||!metadata.ogImage||!metadata.twitterImage||!metadata.twitterCard||!metadata.icon)throw Error('Required page or preview metadata missing');
     if(new URL(metadata.canonical).pathname.replace(/\/$/,'')!==new URL(url).pathname.replace(/\/$/,''))throw Error('Canonical mismatch');
     for(const asset of [metadata.ogImage,metadata.twitterImage,metadata.icon])if(!(await page.request.get(asset)).ok())throw Error('Missing preview/icon asset');
+    if(label==='home'){
+     const cover=page.getByRole('region',{name:'Featured wedding stories'});
+     await cover.waitFor();
+     await cover.getByRole('button',{name:'Pause stories',exact:true}).click();
+     const choices=cover.locator('nav button');
+     const count=await choices.count();
+     if(count<4)throw Error('Cover needs distinct current and cultural stories');
+     const seen=[];
+     for(let index=0;index<count;index++){
+      await choices.nth(index).click();
+      const image=cover.locator('.wm-cover-art>img');
+      await image.evaluate(i=>i.decode());
+      const state=await cover.evaluate(el=>({slug:el.querySelector('[data-cover-slug]').dataset.coverSlug,image:el.querySelector('img').currentSrc,credit:el.querySelector('.wm-cover-credit').textContent,title:el.querySelector('h1').textContent,link:el.querySelector('h1 a').getAttribute('href'),height:el.querySelector('img').naturalHeight}));
+      if(!state.slug||!state.credit||state.height<900||!state.link.includes(state.slug))throw Error('Cover story/media/credit mismatch');
+      seen.push(state);
+      await cover.locator('.wm-cover-art').scrollIntoViewIfNeeded();
+      await page.screenshot({path:`${out}/${device.name}-cover-${index+1}.png`,fullPage:false});
+     }
+     if(new Set(seen.map(x=>x.image)).size<4)throw Error('Cover repeats imagery');
+     await choices.first().click();
+     receipt.checks.push({device:device.name,check:'story-cover',status:'passed',stories:seen});
+    }
     if(label==='article'){
      await page.getByRole('heading',{name:latest.title,exact:true}).waitFor();
      const hero=page.locator('figure img').first();

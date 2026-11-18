@@ -1,3 +1,4 @@
+import { MagazineCover } from "./MagazineCover";
 import { blogPosts } from "../lib/blogPosts";
 
 const photos = {
@@ -67,6 +68,15 @@ function Chapter({ id, number, title, copy, image, href }: { id: string; number:
 export function WeddingMagazineHome() {
   const sorted = [...blogPosts].sort((a,b)=>b.date.localeCompare(a.date));
   const latest = sorted.slice(0,4);
+  const coverSlugs = [latest[0]?.slug, "multicultural-wedding-family-conversation", "bali-wedding-planning-from-abroad-decision-brief", "south-asian-wedding-photography-videography", "wedding-speeches-language-running-order"];
+  const coverStories = [...new Set(coverSlugs)].flatMap(slug => {
+    const post = story(slug);
+    if (!post) return [];
+    const photo = editorialPhoto[post.slug] ? photos[editorialPhoto[post.slug]] : null;
+    return [{slug:post.slug,title:post.title,category:post.category,excerpt:post.excerpt,dateLabel:post.dateLabel,
+      image:photo?.src || post.image,imageAlt:photo?.alt || post.imageAlt || post.title,
+      imageCredit:photo ? `${photo.credit} / Pexels · Illustrative photography; not the wedding described.` : post.imageCredit || "Weddings.io Editorial"}];
+  });
   const relevant = (match: RegExp, count = 3) => sorted.filter(post => match.test(`${post.category} ${post.slug} ${post.title}`)).slice(0,count);
   const celebrations = relevant(/Real.*Wedding|Celebrity|Culture.*Tradition|Wedding Music/);
   const destinations = relevant(/Destination|Venue|guest-journey/);
@@ -83,10 +93,7 @@ export function WeddingMagazineHome() {
     </header>
     <main id="wm-main">
       <section className="wm-cover wm-shell">
-        <div className="wm-cover-art"><img src={photos.beach.src} alt={photos.beach.alt} width="1600" height="1100" fetchPriority="high" />
-          <div className="wm-cover-copy"><p className="wm-kicker">The art of celebrating</p><h1>All the feeling.<br /><em>Your kind of wedding.</em></h1>
-          <p>Big traditions. Small details. A celebration that feels unmistakably like you.</p>
-          <a href="/blog/how-to-plan-a-multicultural-wedding">Begin with what matters ↗</a></div></div>
+        <MagazineCover stories={coverStories} />
         <aside className="wm-cover-side"><a className="wm-cover-side-photo" href="#style"><img src={photos.reception.src} alt={photos.reception.alt} width="700" height="900" /><span>The beautiful details ↗</span></a><p className="wm-kicker">In this edit</p><h2>Good stories.<br /><em>Great celebrations.</em></h2>
           <a href="/blog/how-to-plan-a-multicultural-wedding"><span>01 / Culture</span><h3>Two families. More than one tradition. One wedding.</h3><p>Make room for the things that matter to both of you.</p></a>
           <a href="/blog/destination-south-asian-weddings-guide"><span>02 / Somewhere special</span><h3>The destination is only the beginning.</h3><p>Think beyond the view: guests, ceremonies and the journey.</p></a>
