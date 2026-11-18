@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {chromium} from '@playwright/test';
+import {assertDeclaredMediaCredit} from './media-credit-check.mjs';
 const origin='https://weddings.io';
 const out='tests/visual-regression/hero-og';
 await fs.mkdir(out,{recursive:true});
@@ -44,7 +45,7 @@ try{
      const image=await hero.evaluate(i=>({src:i.currentSrc,width:i.naturalWidth,height:i.naturalHeight,loaded:i.complete}));
      if(!image.loaded||image.width<1600||image.height<900||!image.src.includes(latest.image))throw Error('Actual article hero identity/resolution mismatch');
      if(!metadata.ogImage.includes(latest.ogImage)||!metadata.twitterImage.includes(latest.ogImage))throw Error('Wrong article-specific social image');
-     if(!(await page.locator('figcaption').first().textContent()).includes('illustration'))throw Error('Original illustration credit missing');
+     assertDeclaredMediaCredit(latest.imageCredit,await page.locator('figcaption').first().textContent());
      await page.screenshot({path:`${out}/${device.name}-article-hero.png`,fullPage:false});
     }else{
      const card=page.locator(`a[href*="/blog/${latest.slug}"]`).first();await card.waitFor();await card.scrollIntoViewIfNeeded();
