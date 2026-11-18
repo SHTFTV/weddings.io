@@ -8,6 +8,7 @@ const BASE = 'https://weddings.io';
 // Standalone static blog posts under public/blog/ that don't live in blogPosts.ts.
 // Keep this in sync when new static HTML posts are added.
 const extraStaticBlogPosts = [
+  { slug: 'wedding-planner-introductions', date: '2026-11-18', title: "Wedding planners: why should couples shortlist your team?", seoTitle: "Wedding planners: why should couples shortlist your team? | Weddings.io", category: 'Planning', excerpt: 'A private pre-launch invitation for wedding planners.', metaDescription: 'Introduce your wedding planning firm for future profile consideration.' },
   {
   slug: 'top-100-wedding-songs-2026',
   "date": "2026-11-18",
