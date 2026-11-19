@@ -23,7 +23,7 @@
       "slug": "wedding-rain-plan-venue-walkthrough",
       "title": "Your Wedding Rain Plan Needs a Walkthrough",
       "date": "2026-11-19",
-      "bodySha256": "6d7c2fe45a6f9bad3654a8ec6459f8e0a82eafa7d0afc80951905634a08850d0",
+      "bodySha256": "f915a9a9ffa90378f7a0d8c958609ff3cb42fd10127f9cc59bf3885ea31329f1",
       "sources": [
         {
           "label": "Adeline Estate — What Happens if It Rains at Your Wedding?",
@@ -65,5 +65,6 @@
     }
   ],
   "mediaRightsManifest": "docs/editorial-photo-rights-2026-10-29.json",
-  "mediaLicense": "https://www.pexels.com/license/"
+  "mediaLicense": "https://www.pexels.com/license/",
+  "renderingCorrection": "Same-site room-reset link made absolute after live browser showed relative Markdown literally; destination and article meaning unchanged."
 }
