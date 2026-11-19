@@ -1,0 +1,69 @@
+{
+  "batchId": "manual-2026-11-19",
+  "reviewedAt": "2026-11-19T17:56:10.089534+00:00",
+  "mode": "manual-editorial-publication",
+  "authorAgent": "weddings_publish",
+  "independentReviewer": "root",
+  "reviewStatus": "approved",
+  "reviewerRequiredChange": "Removed redundant disclaimer sentence; source attribution and link retained.",
+  "sourceBaseCommit": "766304ab79f8201103ed72c0568c98525d7c2239",
+  "automatedPublisher": "Not activated; latest observed native runs skipped by existing activation gate. Private policy configuration was not fabricated or changed.",
+  "publicationStatus": "reviewed-source-only; not yet verified live",
+  "checks": [
+    "Source facts independently checked against venue and official Google documentation",
+    "Original practical recommendations distinguished from source reporting",
+    "Existing illustrative photographs visually inspected; credits and alt text checked",
+    "Existing photo rights manifest and current Pexels license reviewed",
+    "No duplicate slug in existing publication registry",
+    "Existing SEO, canonical, feed coverage and prepublish verification scripts passed"
+  ],
+  "sourceTransportNote": "Google official documentation was read successfully through web retrieval. Direct requests from the local Python runtime received HTTP429; no direct HTTP200 is claimed.",
+  "posts": [
+    {
+      "slug": "wedding-rain-plan-venue-walkthrough",
+      "title": "Your Wedding Rain Plan Needs a Walkthrough",
+      "date": "2026-11-19",
+      "bodySha256": "6d7c2fe45a6f9bad3654a8ec6459f8e0a82eafa7d0afc80951905634a08850d0",
+      "sources": [
+        {
+          "label": "Adeline Estate — What Happens if It Rains at Your Wedding?",
+          "url": "https://www.adelineestate.au/journal/what-happens-if-it-rains-outdoor-wedding",
+          "publisher": "Adeline Estate",
+          "date": "2026-09-01"
+        }
+      ],
+      "image": "/images/editorial/5038747.jpg",
+      "imageDimensions": [
+        1202,
+        1800
+      ],
+      "imageCredit": "Illustrative photograph: Leeloo The First / Pexels. Not a photograph of Adeline Estate or a report of the pictured wedding."
+    },
+    {
+      "slug": "wedding-guest-photos-sharing-plan",
+      "title": "Wedding Guest Photos: Agree the Sharing Plan First",
+      "date": "2026-11-19",
+      "bodySha256": "3a6b61f0827f53d4d49241c7f12049a2fdc7a890a87c7cb27c63ad8d138378b2",
+      "sources": [
+        {
+          "label": "Google Photos Help — How shared album controls give your photos more privacy",
+          "url": "https://support.google.com/photos/answer/9789702?hl=en",
+          "publisher": "Google"
+        },
+        {
+          "label": "Google Photos Help — Stop sharing an album and manage settings",
+          "url": "https://support.google.com/photos/answer/6280921?co=GENIE.Platform%3DDesktop&hl=en",
+          "publisher": "Google"
+        }
+      ],
+      "image": "/images/editorial/15964966.jpg",
+      "imageDimensions": [
+        1600,
+        1068
+      ],
+      "imageCredit": "Illustrative photograph: Danik Prihodko / Pexels. Not a report of the pictured wedding or an endorsement by its participants."
+    }
+  ],
+  "mediaRightsManifest": "docs/editorial-photo-rights-2026-10-29.json",
+  "mediaLicense": "https://www.pexels.com/license/"
+}
