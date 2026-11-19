@@ -1,0 +1,142 @@
+{
+  "batchId": "manual-2026-11-19",
+  "verifiedAt": "2026-11-19T17:59:54.333849+00:00",
+  "mode": "manual-editorial-publication",
+  "production": {
+    "commit": "5099c57951cbac4c3167a6d20ea94f667d6d8ace",
+    "commitShort": "5099c57",
+    "commitFull": "5099c57951cbac4c3167a6d20ea94f667d6d8ace",
+    "buildTimeIso": "2026-11-19T17:58:53Z",
+    "buildTimeLabel": "Nov 19 · 2026, 17:58 UTC",
+    "cacheBuster": "5099c57-2026-11-19T17:58:53Z",
+    "buildCacheBuster": "5099c57-2026-11-19T17:58:53Z",
+    "pricingCodeVersion": "5099c57951cbac4c3167a6d20ea94f667d6d8ace"
+  },
+  "checks": [
+    {
+      "slug": "wedding-rain-plan-venue-walkthrough",
+      "url": "https://weddings.io/blog/wedding-rain-plan-venue-walkthrough",
+      "httpStatus": 200,
+      "title": "Your Wedding Rain Plan Needs a Walkthrough",
+      "titleVisible": true,
+      "bodyVisible": true,
+      "allBodyParagraphsVisible": true,
+      "internalLinksRendered": true,
+      "publicationDateCorrect": true,
+      "sourceLinksPresent": true,
+      "imagePaired": true,
+      "imageHttpStatus": 200,
+      "imageContentType": "image/jpeg",
+      "creditVisible": true,
+      "homepagePresent": true,
+      "archivePresent": true,
+      "rssPresent": true,
+      "sitemapPresent": true,
+      "articleSha256": "450ea11297b5e2713def1f5ee989ce669bd9ad4ad69cafc604946dcf40c6d101"
+    },
+    {
+      "slug": "wedding-guest-photos-sharing-plan",
+      "url": "https://weddings.io/blog/wedding-guest-photos-sharing-plan",
+      "httpStatus": 200,
+      "title": "Wedding Guest Photos: Agree the Sharing Plan First",
+      "titleVisible": true,
+      "bodyVisible": true,
+      "allBodyParagraphsVisible": true,
+      "internalLinksRendered": true,
+      "publicationDateCorrect": true,
+      "sourceLinksPresent": true,
+      "imagePaired": true,
+      "imageHttpStatus": 200,
+      "imageContentType": "image/jpeg",
+      "creditVisible": true,
+      "homepagePresent": true,
+      "archivePresent": true,
+      "rssPresent": true,
+      "sitemapPresent": true,
+      "articleSha256": "68518f92a57157827f118335cc80a9dc9f77e5006b785e9a646302561fd7364f"
+    }
+  ],
+  "status": "verified-live",
+  "todayNewlyVerifiedPosts": 2,
+  "nativeScheduledPublisherHealth": "not-established-by-manual-release; last observed native publisher was skipped",
+  "responseEvidence": [
+    {
+      "url": "https://weddings.io/build-info.json",
+      "status": 200,
+      "contentType": "application/json; charset=utf-8",
+      "sha256": "ac2d3493e1e1450ebdafd858c3262b5b7d39213747b8ba7d6dda61bf461cab70"
+    },
+    {
+      "url": "https://weddings.io/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "d6eb38893ff59fe7abde29e2885833ca0e1ca15297c4264304dafe7fe5f3fdb6"
+    },
+    {
+      "url": "https://weddings.io/blog",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "2c9d8ab62b4c446f42732e4737d4b43902af9c953884bafb6a82054ee0cfa3d3"
+    },
+    {
+      "url": "https://weddings.io/rss.xml",
+      "status": 200,
+      "contentType": "application/xml",
+      "sha256": "065eb93af8b6bc1dc6c4c05b8087b2a4857ee07e4d17e496ce4cb259b9e5d6e3"
+    },
+    {
+      "url": "https://weddings.io/sitemap-posts.xml",
+      "status": 200,
+      "contentType": "application/xml",
+      "sha256": "60e11b370f7982cf11a090bf1f7b5b18d4528881017906833fd2766d9b09a793"
+    },
+    {
+      "url": "https://weddings.io/blog/wedding-rain-plan-venue-walkthrough",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "450ea11297b5e2713def1f5ee989ce669bd9ad4ad69cafc604946dcf40c6d101"
+    },
+    {
+      "url": "https://weddings.io/blog/wedding-guest-photos-sharing-plan",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "68518f92a57157827f118335cc80a9dc9f77e5006b785e9a646302561fd7364f"
+    },
+    {
+      "url": "https://weddings.io/images/editorial/5038747.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "sha256": "bfabb584488a07b796d8ea76640b6d9d4ba425ca6fafbb565603480ad437078f"
+    },
+    {
+      "url": "https://weddings.io/images/editorial/15964966.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "sha256": "8f2807bc70b22c5ef0f20ddeef454307658c5c8889d047050789ac4759364993"
+    }
+  ],
+  "contentReleaseCommit": "5099c57951cbac4c3167a6d20ea94f667d6d8ace",
+  "initialContentCommit": "93f723f2e309474efd5e8d094f58b634533a2ecc",
+  "deployment": {
+    "id": "dpl_FSJSnr7qnyFES3n9BKzrqnb5V8gu",
+    "state": "READY",
+    "target": "production",
+    "projectId": "prj_4G193ob8C7CYT8JDhrgg39kg8nUi",
+    "url": "https://weddings-ghhp34lmn-colins-projects-208e3ca1.vercel.app",
+    "productionDomain": "https://weddings.io"
+  },
+  "visualReview": {
+    "reviewedAt": "2026-11-19T17:59:56.840707+00:00",
+    "desktop": "Both article pages and homepage latest block visually inspected in cloud browser; dates, titles, images and credits visible; internal link rendered correctly after correction.",
+    "mobile": "Not separately tested in this manual batch.",
+    "deliverablePage": "https://weddings.io/#latest"
+  },
+  "schedulerObservation": {
+    "workflow": ".github/workflows/editorial-publisher.yml",
+    "cron": "23,53 * * * *",
+    "lastObservedRun": "https://github.com/SHTFTV/weddings.io/actions/runs/44509611975",
+    "conclusion": "skipped",
+    "activationCondition": "vars.WEDDINGS_PUBLISHER_ENABLED == true",
+    "configurationChanged": false
+  }
+}
