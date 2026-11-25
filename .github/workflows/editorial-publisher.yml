@@ -11,7 +11,8 @@ concurrency:
 jobs:
   publish:
     # This proposal is inert until the specific activation approval is granted.
-    if: vars.WEDDINGS_PUBLISHER_ENABLED == 'true'
+    # Owner pause: Supabase is now the sole Weddings publisher. Retain for rollback.
+    if: ${{ false }}
     environment: weddings-publishing
     permissions:
       contents: write
