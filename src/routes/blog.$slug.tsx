@@ -556,6 +556,32 @@ function BlogPostPage() {
                       );
                     }
                     return <p key={paragraph}>{renderInlineMarkdown(paragraph)}</p>;
+                  }).flatMap((block, index) => {
+                    const plannerIndex = Math.max(1, Math.floor(body.length / 3));
+                    const newsIndex = Math.max(plannerIndex + 1, Math.floor(body.length * 2 / 3));
+                    if (index !== plannerIndex && index !== newsIndex) return [block];
+
+                    const planner = index === plannerIndex;
+                    const filmGuide = "/blog/wedding-film-camera-automation-human-coverage/";
+                    const href = planner
+                      ? "/join"
+                      : post.slug === "wedding-film-camera-automation-human-coverage"
+                        ? "/blog/south-asian-wedding-photography-videography/"
+                        : filmGuide;
+
+                    return [
+                      <aside
+                        key={planner ? "planner-promotion" : "videographer-promotion"}
+                        aria-label={planner ? "Weddings.io for planners" : "Weddings.io for videographers"}
+                        className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 rounded-lg border border-border bg-secondary/40 px-4 py-2.5 text-sm leading-5 text-foreground"
+                      >
+                        <span><strong>Weddings.io</strong> · {planner ? "For wedding planners" : "News for wedding videographers"}</span>
+                        <a href={href} className="font-semibold text-primary underline underline-offset-4">
+                          {planner ? "Join as a planner" : "Read videographer news"}
+                        </a>
+                      </aside>,
+                      block,
+                    ];
                   })}
                 </div>
               </>
