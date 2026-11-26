@@ -47,7 +47,7 @@ export function BlogCard({ post, showVote = false }: BlogCardProps) {
               loading="lazy"
               decoding="async"
             />
-          </picture>
+          {post.slug === "photographer-and-videographer-handoff-planning-a-toronto-wedding-day" && <span className="absolute bottom-3 right-3 rounded bg-black/85 px-3 py-1 text-xs font-bold text-white">Weddings.io</span>}</picture>
         </div>
       </a>
       <div className="flex flex-1 flex-col p-6">

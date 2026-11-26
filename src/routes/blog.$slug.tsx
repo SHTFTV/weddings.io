@@ -436,7 +436,7 @@ function BlogPostPage() {
             </p>
           )}
           <figure className="mt-10 overflow-hidden rounded-lg border border-border">
-            <picture>
+            <picture className="relative block">
               {(post.imageAvif || post.imageAvifSmall) && (
                 <source
                   type="image/avif"
@@ -471,6 +471,7 @@ function BlogPostPage() {
                 decoding="async"
                 fetchPriority="high"
               />
+              {post.slug === "photographer-and-videographer-handoff-planning-a-toronto-wedding-day" && <span className="absolute bottom-4 right-4 rounded bg-black/85 px-3 py-2 text-sm font-bold text-white">Weddings.io</span>}
             </picture>
             {post.imageCredit && <figcaption className="px-4 py-3 text-xs leading-relaxed text-muted-foreground">{post.imageCredit}</figcaption>}
           </figure>
@@ -542,6 +543,15 @@ function BlogPostPage() {
                         </figure>
                       );
                     }
+                    // Render Markdown tables and lists from reviewed editorial imports safely.
+                    const lines = paragraph.trim().split("\n");
+                    if (lines.length > 1 && lines[0].trim().startsWith("|") && /^\s*\|?[ :|-]+\|/.test(lines[1])) {
+                      const cells = (line: string) => line.trim().replace(/^\||\|$/g, "").split("|").map(cell => cell.trim());
+                      return <div key={paragraph} className="overflow-x-auto"><table className="w-full border-collapse text-left text-base"><thead><tr>{cells(lines[0]).map((cell, i) => <th key={i} className="border border-border bg-secondary/40 p-3">{renderInlineMarkdown(cell)}</th>)}</tr></thead><tbody>{lines.slice(2).map((line, i) => <tr key={i}>{cells(line).map((cell, j) => <td key={j} className="border border-border p-3 align-top">{renderInlineMarkdown(cell)}</td>)}</tr>)}</tbody></table></div>;
+                    }
+                    if (lines.every(line => /^\s*[-*]\s+/.test(line))) return <ul key={paragraph} className="list-disc space-y-3 pl-6">{lines.map((line,i) => <li key={i}>{renderInlineMarkdown(line.replace(/^\s*[-*]\s+/, ""))}</li>)}</ul>;
+                    if (lines.every(line => /^\s*\d+[.)]\s+/.test(line))) return <ol key={paragraph} className="list-decimal space-y-3 pl-6">{lines.map((line,i) => <li key={i}>{renderInlineMarkdown(line.replace(/^\s*\d+[.)]\s+/, ""))}</li>)}</ol>;
+                    if (/^###\s+/.test(paragraph)) return <h3 key={paragraph} className="pt-3 font-serif text-2xl leading-snug text-foreground">{renderInlineMarkdown(paragraph.replace(/^###\s+/, ""))}</h3>;
                     if (/^##\s+/.test(paragraph)) {
                       const text = paragraph.replace(/^##\s+/, "").trim();
                       const id = headingSlug(text);

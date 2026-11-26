@@ -1,3 +1,4 @@
+import scheduledBlogPosts from "./scheduledBlogPosts.json" with { type: "json" };
 import manifestoHeroAsset from "../assets/record-record-manifesto-hero.jpg.asset.json" with { type: "json" };
 import wioTechRebrandHero from "../assets/wio-tech-rebrand.jpg.asset.json" with { type: "json" };
 import f6sRightThingHero from "../assets/f6s-right-thing-weddings-io.png.asset.json" with { type: "json" };
@@ -73,6 +74,7 @@ export function normalizeSources(post: BlogPost): BlogPost {
 }
 
 const allBlogPosts: BlogPost[] = [
+  ...(scheduledBlogPosts as BlogPost[]),
 {
   "slug": "2027-wedding-trends-emerging-planning-decisions",
   "title": "2027 Wedding Trends: What’s Emerging and What’s Worth Planning For",
@@ -4223,6 +4225,7 @@ const allBlogPosts: BlogPost[] = [
 
 
 const visibleBlogSlugs = [
+  ...scheduledBlogPosts.map(post => post.slug),
   "2027-wedding-trends-emerging-planning-decisions",
   "2026-wedding-music-year-to-date-country-pop-punjabi",
   "wedding-speeches-language-running-order",
