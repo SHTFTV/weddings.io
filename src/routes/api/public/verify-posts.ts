@@ -27,7 +27,7 @@ export const Route = createFileRoute("/api/public/verify-posts")({
       GET: async ({ request }) => {
         const url = new URL(request.url);
         const origin = (url.searchParams.get("origin") ?? DEFAULT_ORIGIN).replace(/\/$/, "");
-        const requestedSlugs = url.searchParams.getAll("slug").filter(Boolean);
+        const requestedSlugs = [...new Set(url.searchParams.getAll("slug").filter(Boolean))];
 
         const targets: BlogPost[] = requestedSlugs.length
           ? requestedSlugs
@@ -35,6 +35,8 @@ export const Route = createFileRoute("/api/public/verify-posts")({
               .filter((p): p is BlogPost => Boolean(p))
           : sortedBlogPosts.slice(0, DEFAULT_LIMIT);
 
+        const knownSlugs = new Set(targets.map((post) => post.slug));
+        const missingSlugs = requestedSlugs.filter((slug) => !knownSlugs.has(slug));
         const results = await Promise.all(
           targets.map((post) => verifyOne(origin, post)),
         );
@@ -42,10 +44,11 @@ export const Route = createFileRoute("/api/public/verify-posts")({
         const summary = {
           origin,
           checkedAt: new Date().toISOString(),
-          total: results.length,
+          total: results.length + missingSlugs.length,
           matched: results.filter((r) => r.match).length,
-          mismatched: results.filter((r) => !r.match).length,
-          allMatched: results.every((r) => r.match),
+          mismatched: results.filter((r) => !r.match).length + missingSlugs.length,
+          allMatched: missingSlugs.length === 0 && results.every((r) => r.match),
+          missingSlugs,
           results,
         };
 

@@ -1,4 +1,4 @@
-import { createFileRoute, redirect } from "@tanstack/react-router";
+import { createFileRoute, notFound, redirect } from "@tanstack/react-router";
 import { useEffect, type ReactNode, Fragment } from "react";
 import { SiteHeader } from "../components/SiteHeader";
 import { LaunchNotifyForm } from "../components/LaunchNotifyForm";
@@ -123,6 +123,7 @@ export const Route = createFileRoute("/blog/$slug")({
     if (STATIC_HTML_SLUGS.has(params.slug)) {
       throw redirect({ href: STATIC_HTML_REDIRECTS[params.slug] });
     }
+    if (!getBlogPost(resolveSlug(params.slug))) throw notFound();
   },
   head: ({ params }) => {
     const canonicalSlug = resolveSlug(params.slug);
@@ -379,6 +380,18 @@ export const Route = createFileRoute("/blog/$slug")({
     };
   },
   component: BlogPostPage,
+  notFoundComponent: () => (
+    <main className="wm-journal min-h-screen bg-background text-foreground">
+      <SiteHeader />
+      <section className="mx-auto max-w-3xl px-5 py-24 text-center md:px-8">
+        <h1 className="font-serif text-5xl text-foreground">Article not found</h1>
+        <p className="mt-4 text-muted-foreground">This Weddings.io article does not exist.</p>
+        <a href="/blog/" className="mt-8 inline-flex rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground">
+          Back to Blog
+        </a>
+      </section>
+    </main>
+  ),
 });
 
 function BlogPostPage() {
@@ -392,20 +405,7 @@ function BlogPostPage() {
   }, [post, slug]);
 
 
-  if (!post) {
-    return (
-      <main className="wm-journal min-h-screen bg-background text-foreground">
-        <SiteHeader />
-        <section className="mx-auto max-w-3xl px-5 py-24 text-center md:px-8">
-          <h1 className="font-serif text-5xl text-foreground">Article not found</h1>
-          <p className="mt-4 text-muted-foreground">This Weddings.io article does not exist.</p>
-          <a href="/blog/" className="mt-8 inline-flex rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground">
-            Back to Blog
-          </a>
-        </section>
-      </main>
-    );
-  }
+  if (!post) throw notFound();
 
   return (
     <main className="wm-journal min-h-screen bg-background text-foreground">
